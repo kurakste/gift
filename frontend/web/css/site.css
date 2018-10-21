@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Prata|Roboto+Mono');
+body {
+    display:none;
+    font-family: 'Roboto Mono', serif;
+    font-size:12px;
+    }
+
+.navbar {
+  margin:0;
+}
+
+.divider {
+margin-top: 20px;
+margin-bottom:20px;
+}
+
+/* Оформление страницы контакты */
+#about-img {
+    margin: 10%;
+}
+
+#about-img img {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.7);
+}
+
+.contacts {
+    margin-left: 10%; 
+    margin-right: 10%; 
+    margin-bottom: 20%;
+}
+
+/* END Оформление страницы контакты */
+.main-text {
+margin:5%;
+margin-right:7%;
+text-align: justify;
+} 
+
+/* == Вписать картинку в размер экрана */
+.image {
+    margin-bottom:5%;
+    margin-left:5%;
+    width:90%;
+    overflow:hidden;
+}
+
+.image-fluid {
+    margin-bottom:5%;
+    margin-left:0%;
+    width:100%;
+    overflow:hidden;
+}
+.image img {
+    width:100%;
+}
+
+.image-fluid img {
+    width:100%;
+}
+
+.video  {
+    height: 0;
+    position: relative;
+    padding-bottom: 56.25%; 
+}
+
+iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border:0px;
+}
+
+/* == END Вписать картинку в размер экрана */
+/*   Этот блок нужен для эффекта паралакс */
+.parallax {
+z-index:-1;
+position:fixed;
+}
+#must-be-white {
+    margin-top:50%;
+background:#FFFFFF;
+}
+
+/*  END Этот блок нужен для эффекта паралакс */
+/* выравнивание аватарок по центру колонки */
+.avatar {
+display:flex;
+justify-content: center;
+}
+
+.container-footer {
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #444;
+}
+
+.text-muted {
+  color: #EEE;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.rec {
+  color:#7ADAd5;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+/* ======Стили для кнопки вверх == */
+.scrollup{
+color:white;
+z-index:1;
+font-size:25px;
+position:fixed;
+bottom:70px;
+right:50px;
+display:none;
+/*  text-indent:-9999px;
+ background: url('../img/top2.png') no-repeat; */
+background-size:100%;
+}
+
+#angel-up {
+    padding-top:9px;
+    opacity:0.4; 
+    text-align:center;
+    background: gray;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5); 
+    border-radius:6px;
+    width:45px;
+    height:45px;
+    padding: 10,10,10,10px;
+}
+#angel-up:hover {
+    cursor:pointer;
+}

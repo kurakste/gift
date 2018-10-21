@@ -1,0 +1,15 @@
+suite_namespace: frontend\tests\acceptance
+actor: AcceptanceTester
+modules:
+    enabled:
+        # - WebDriver:
+        #     url: docker.for.mac.localhost
+        #     browser: firefox
+        - PhpBrowser: 
+            url: my.localhost
+            # url: docker.for.mac.localhost
+            #        - Helper\Acceptance
+        - Yii2:
+            part: init
+            config:
+    config:
