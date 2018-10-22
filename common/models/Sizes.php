@@ -37,6 +37,7 @@ class Sizes extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['weigth', 'width', 'height', 'length'], 'required'],
             [['weigth', 'width', 'height', 'length'], 'number'],
+            [['iid'], 'unique'],
             [['iid'], 'exist', 'skipOnError' => true, 'targetClass' => Items::className(), 'targetAttribute' => ['iid' => 'id']],
         ];
     }
@@ -67,10 +68,10 @@ class Sizes extends \yii\db\ActiveRecord
 
     /**
      * {@inheritdoc}
-     * @return SizesQuery the active query used by this AR class.
+     * @return ItemsQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new SizesQuery(get_called_class());
+        return new ItemsQuery(get_called_class());
     }
 }

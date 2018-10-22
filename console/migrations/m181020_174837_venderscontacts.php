@@ -14,11 +14,11 @@ class m181020_174837_venderscontacts extends Migration
          $this->createTable('vendercontacts', [
             'id' => Schema::TYPE_PK,
             'vid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
-            'name' => Schema::TYPE_STRING.' NOT NULL',
-            'mobile_phone' => Schema::TYPE_STRING.' NOT NULL',
-            'work_phone' => Schema::TYPE_STRING.' NOT NULL',
-            'email' => Schema::TYPE_STRING.' NOT NULL',
-            'skype' => Schema::TYPE_STRING.' NOT NULL',
+            'name' => Schema::TYPE_STRING,
+            'mobile_phone' => Schema::TYPE_STRING,
+            'work_phone' => Schema::TYPE_STRING,
+            'email' => Schema::TYPE_STRING,
+            'skype' => Schema::TYPE_STRING,
         ],
         'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB'
     );

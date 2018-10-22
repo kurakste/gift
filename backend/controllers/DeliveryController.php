@@ -8,6 +8,7 @@ use common\models\DeliverysSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * DeliveryController implements the CRUD actions for Deliverys model.
@@ -65,6 +66,7 @@ class DeliveryController extends Controller
     public function actionCreate()
     {
         $model = new Deliverys();
+        $citys = ArrayHelper::map(\common\models\Citys::find()->all(), 'id', 'name');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,6 +74,7 @@ class DeliveryController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'citys' => $citys,
         ]);
     }
 

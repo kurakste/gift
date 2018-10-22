@@ -10,7 +10,9 @@ use Yii;
  * @property int $id
  * @property string $cost
  * @property string $description
+ * @property int $cid
  *
+ * @property Citys $c
  * @property Deliverytocitys[] $deliverytocitys
  */
 class Deliverys extends \yii\db\ActiveRecord
@@ -31,7 +33,9 @@ class Deliverys extends \yii\db\ActiveRecord
         return [
             [['cost', 'description'], 'required'],
             [['cost'], 'number'],
+            [['cid'], 'integer'],
             [['description'], 'string', 'max' => 255],
+            [['cid'], 'exist', 'skipOnError' => true, 'targetClass' => Citys::className(), 'targetAttribute' => ['cid' => 'id']],
         ];
     }
 
@@ -44,6 +48,7 @@ class Deliverys extends \yii\db\ActiveRecord
             'id' => 'ID',
             'cost' => 'Cost',
             'description' => 'Description',
+            'cid' => 'Cid',
         ];
     }
 

@@ -3,9 +3,9 @@
 namespace common\models;
 
 /**
- * This is the ActiveQuery class for [[Items]].
+ * This is the ActiveQuery class for [[Sizes]].
  *
- * @see Items
+ * @see Sizes
  */
 class ItemsQuery extends \yii\db\ActiveQuery
 {
@@ -16,7 +16,7 @@ class ItemsQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Items[]|array
+     * @return Sizes[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class ItemsQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Items|array|null
+     * @return Sizes|array|null
      */
     public function one($db = null)
     {

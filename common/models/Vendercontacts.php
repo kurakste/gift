@@ -34,7 +34,7 @@ class Vendercontacts extends \yii\db\ActiveRecord
     {
         return [
             [['vid'], 'integer'],
-            [['name', 'mobile_phone', 'work_phone', 'email', 'skype'], 'required'],
+            [['name'], 'required'],
             [['name', 'mobile_phone', 'work_phone', 'email', 'skype'], 'string', 'max' => 255],
             [['vid'], 'exist', 'skipOnError' => true, 'targetClass' => Venders::className(), 'targetAttribute' => ['vid' => 'id']],
         ];

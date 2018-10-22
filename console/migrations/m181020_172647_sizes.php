@@ -13,7 +13,7 @@ class m181020_172647_sizes extends Migration
     {
          $this->createTable('sizes', [
             'id' => Schema::TYPE_PK,
-            'iid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
+            'iid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1 UNIQUE',
             'description' => Schema::TYPE_TEXT,
             'weigth' => Schema::TYPE_DECIMAL.'(3,2)'.' NOT NULL',
             'width' => Schema::TYPE_DECIMAL.'(3,2)'.' NOT NULL',
