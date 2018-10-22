@@ -71,12 +71,18 @@ dmstr\web\AdminLteAsset::register($this);
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="<?= Url::to(['site/settings']) ?>"><i class="fa fa-cogs"></i> <span>Настройки сайта</span></a></li>
-        <li><a href="<?= Url::to(['carusel/index']) ?>"><i class="fa fa-recycle"></i> <span>Карусель</span></a></li>
-        <li><a href="<?= Url::to(['feedback/index']) ?>"><i class="fa fa-comments"></i> <span>Отзывы</span></a></li>
-        <li><a href="<?= Url::to(['servecies/index']) ?>"><i class="fa fa-bars"></i> <span>Услуги</span></a></li>
-        <li><a href="<?= Url::to(['alboms/index']) ?>"><i class="fa fa-book"></i> <span>Альбомы</span></a></li>
-        <li><a href="<?= Url::to(['posts/index']) ?>"><i class="fa fa-file-text-o"></i> <span>Статьи</span></a></li>
+        <li><a href="<?= Url::to(['fcategory/index']) ?>"><i class="fa fa-cogs"></i> <span>Категория "Для кого"</span></a></li>
+        <li><a href="<?= Url::to(['scategory/index']) ?>"><i class="fa fa-cogs"></i> <span>Категория "Что"</span></a></li>
+        <li><a href="<?= Url::to(['vender/index']) ?>"><i class="fa fa-recycle"></i> <span>Поставщики</span></a></li>
+        <li><a href="<?= Url::to(['item/index']) ?>"><i class="fa fa-comments"></i> <span>Товары</span></a></li>
+        <li><a href="<?= Url::to(['size/index']) ?>"><i class="fa fa-comments"></i> <span>Размер и вес</span></a></li>
+        <li><a href="<?= Url::to(['vendercontact/index']) ?>"><i class="fa fa-comments"></i> <span>Контакты вендеров.</span></a></li>
+        <li><a href="<?= Url::to(['baseprice/index']) ?>"><i class="fa fa-comments"></i> <span>Базовый прайс</span></a></li>
+        <li><a href="<?= Url::to(['image/index']) ?>"><i class="fa fa-comments"></i> <span>Образы продукта</span></a></li>
+        <li><a href="<?= Url::to(['fback/index']) ?>"><i class="fa fa-comments"></i> <span>Отзывы о продукте.</span></a></li>
+        <li><a href="<?= Url::to(['delivery/index']) ?>"><i class="fa fa-comments"></i> <span>Доставка</span></a></li>
+        <li><a href="<?= Url::to(['city/index']) ?>"><i class="fa fa-comments"></i> <span>Города</span></a></li>
+        <li><a href="<?= Url::to(['district/index']) ?>"><i class="fa fa-comments"></i> <span>Районы</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

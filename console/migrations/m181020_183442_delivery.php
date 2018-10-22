@@ -13,29 +13,17 @@ class m181020_183442_delivery extends Migration
     {
          $this->createTable('deliverys', [
             'id' => Schema::TYPE_PK,
-            'iid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
+            'cost' => Schema::TYPE_DECIMAL.'(6,2)'.' NOT NULL',
             'description' => Schema::TYPE_STRING.' NOT NULL',
 
 
         ],
         'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB'
     );
-         $this->addForeignKey(
-            'fk-iid-deliverys',
-            'deliverys',
-            'iid',
-            'items',
-            'id',
-            'CASCADE'
-        );
-
     }
 
     public function down()
     {
         $this->dropTable('deliverys');
-         $this->dropForeignKey(
-            'fk-iid-deliverys',
-            'deliverys');
     }
 }

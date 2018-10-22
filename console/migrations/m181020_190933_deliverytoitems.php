@@ -14,7 +14,7 @@ class m181020_190933_deliverytoitems extends Migration
          $this->createTable('deliverytocitys', [
             'id' => Schema::TYPE_PK,
             'did' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
-            'iid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
+            'cid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
         ],
         'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB'
     );
@@ -29,8 +29,8 @@ class m181020_190933_deliverytoitems extends Migration
          $this->addForeignKey(
             'fk-iid-deliverytocitys',
             'deliverytocitys',
-            'iid',
-            'items',
+            'cid',
+            'citys',
             'id',
             'CASCADE'
         );
