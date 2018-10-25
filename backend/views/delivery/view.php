@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\widgets\cities\Cities;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Deliverys */
@@ -10,6 +11,7 @@ $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Deliverys', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="deliverys-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -35,3 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+
+
+<?= Cities::widget(['id' => $model->id]); ?>

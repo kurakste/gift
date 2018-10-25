@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\ItemsSearch */
@@ -39,6 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
             //'phisical',
 
             ['class' => 'yii\grid\ActionColumn'],
+            [                                                                                                                       
+                'format' => 'html',                                             
+                'value' => function($model) {                                   
+                    return Html::a(                                         
+                        '<span class="glyphicon glyphicon-paperclip">',          
+                        Url::to(['site/ajax-remove-favorite', 'iid' => $model->id])
+                    );                                                      
+                }                                                               
+            ]                      
         ],
     ]); ?>
 </div>

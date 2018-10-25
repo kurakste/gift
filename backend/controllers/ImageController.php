@@ -36,8 +36,14 @@ class ImageController extends Controller
      */
     public function actionIndex()
     {
+        // We will work with images only in context of the item. 
+        
+        $params = Yii::$app->request->queryParams;
+        $params['iid'] = (int) \Yii::$app->request->post('iid');
+        
         $searchModel = new ImagesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $dataProvider = $searchModel->search($params);
 
         return $this->render('index', [
             'searchModel' => $searchModel,

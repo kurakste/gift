@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use backend\widgets\cities\Cities;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Deliverys */
@@ -19,3 +20,6 @@ $this->params['breadcrumbs'][] = 'Update';
     ]) ?>
 
 </div>
+
+<?= Cities::widget(['id' => $model->id]); ?>
+
