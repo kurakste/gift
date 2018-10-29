@@ -21,7 +21,7 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public $layout = 'fotolayout';
+    public $layout = 'listashop';
 
     /**
      * Displays homepage.
@@ -30,11 +30,23 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index', 
-            [
-            ]);
+        return $this->render('index');
     }
 
+    public function actionCategory()
+    {
+        return $this->render('category');
+    }
 
-
+        /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionAbout()
+    {
+        
+        return $this->render('about');
+    }
+    
 }
