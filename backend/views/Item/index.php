@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'lifetime:datetime',
             //'rank',
             //'phisical',
+            'sizes.Width',
 
             ['class' => 'yii\grid\ActionColumn'],
             [                                                                                                                       
@@ -45,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($model) {                                   
                     return Html::a(                                         
                         '<span class="glyphicon glyphicon-paperclip">',          
-                        Url::to(['site/ajax-remove-favorite', 'iid' => $model->id])
+                        Url::to(['size/for-items', 'iid' => $model->id])
                     );                                                      
                 }                                                               
             ]                      

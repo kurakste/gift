@@ -12,6 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Items;
 
 /**
  * Site controller
@@ -30,8 +31,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $fcats = \common\models\Fcategorys::find()->all();
+        $scats = \common\models\Scategorys::find()->all();
+        $items =Items::find()->with(['images'])->all();
+
         return $this->render('index', 
             [
+                'fcats' => $fcats,
+                'scats' => $scats,
+                'items' => $items,
             ]);
     }
 

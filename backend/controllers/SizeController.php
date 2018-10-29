@@ -38,9 +38,28 @@ class SizeController extends Controller
     public function actionIndex()
     {
         $searchModel = new SizesSearch();
+
+        
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
+    public function actionForItems()
+    {
+        $searchModel = new SizesSearch();
+
+        
+
+        $params = Yii::$app->request->queryParams;
+        $params ['SizesSearch']['iid'] = $params['iid'];
+        $dataProvider = $searchModel->search($params);
+
+
+        return $this->render('index-for-items', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

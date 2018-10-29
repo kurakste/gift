@@ -42,6 +42,8 @@ class ItemsSearch extends Items
     public function search($params)
     {
         $query = Items::find();
+        //->with(['sizes', 'images'])->all();
+        //  vd($query[0]->images[0]->path);
 
         // add conditions that should always apply here
 
