@@ -33,20 +33,39 @@ class SiteController extends Controller
     {
         $fcats = \common\models\Fcategorys::find()->all();
         $scats = \common\models\Scategorys::find()->all();
-        $items =Items::find()->with(['images'])->all();
 
+        $items =Items::find()->all();
+
+        //        vd($items[0]->images[0]->path);
+        /* foreach ($items as $item) { */
+        /*     echo $item->name."<br>"; */
+
+        /* } */
+        /* die; */
+
+        // Отправил три массива с объектами fcategory, scategory, items
         return $this->render('index', 
+
             [
                 'fcats' => $fcats,
                 'scats' => $scats,
                 'items' => $items,
             ]);
-        return $this->render('index');
     }
 
     public function actionCategory()
     {
-        return $this->render('category');
+        $fcats = \common\models\Fcategorys::find()->all();
+        $scats = \common\models\Scategorys::find()->all();
+
+        $items =Items::find()->all();
+
+        return $this->render('category', 
+            [
+                'fcats' => $fcats,
+                'scats' => $scats,
+                'items' => $items,
+            ]);
     }
 
         /**

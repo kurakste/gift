@@ -48,157 +48,26 @@
                     </div>
                 </div>
                 <div class="latest_product_inner row">
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-1.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-2.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-1.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-2.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-1.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-2.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-1.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-2.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-1.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-2.jpg" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>Long Sleeve TShirt</h4>
-                            </a>
-                            <h5>$150.00</h5>
-                        </div>
-                    </div>
 
+                    <?php foreach ($items as $item): ?>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="f_p_item">
+                            <div class="f_p_img">
+                                <img class="img-fluid" src="/img/product/feature-product/f-p-1.jpg" alt="">
+                                <div class="p_icon">
+                                    <a href="#"><i class="lnr lnr-heart"></i></a>
+                                    <a href="#"><i class="lnr lnr-cart"></i></a>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <h4>
+                                    <?= $item->name ?>
+                                </h4>
+                            </a>
+                            <h5>$150.00</h5>
+                        </div>
+                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
             <div class="col-lg-3">
@@ -293,6 +162,7 @@
         </div>
         <div class="row most_product_inner">
             <div class="col-lg-3 col-sm-6">
+                <?php foreach ($items as $item): ?>
                 <div class="most_p_list">
                     <div class="media">
                         <div class="d-flex">
@@ -300,146 +170,18 @@
                         </div>
                         <div class="media-body">
                             <a href="#">
-                                <h4>Black lace Heels</h4>
+                                <h4>
+                                    <?= $item->name ?>
+                                </h4>
                             </a>
                             <h3>$189.00</h3>
                         </div>
                     </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-2.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-3.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
+
                 </div>
+                <?php endforeach ?>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="most_p_list">
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-4.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-5.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-6.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="most_p_list">
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-7.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-8.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-9.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="most_p_list">
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-10.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-11.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-12.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>Black lace Heels</h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
