@@ -3,12 +3,14 @@
         <div class="container">
             <div class="banner_content row">
                 <div class="col-lg-5">
+                    <!--  сюда писать описание услуги и краткий комент как работает по кнопке переход на видео презу -->
                     <h3>Новые предложения <br />в коллекции</h3>
                     <p>Мы непрерывно изучаем и наполнчем самыми востребованными подарками нашу коллекцию.</p>
                     <a class="white_bg_btn" href="#">Посмотреть новые подарки</a>
                 </div>
                 <div class="col-lg-7">
                     <div class="halemet_img">
+                        <!--шлем заменить на рисунок образ подарка -->
                         <img src="img/banner/helmat.png" alt="">
                     </div>
                 </div>
@@ -26,6 +28,7 @@
                     <div class="hot_p_item">
                         <img class="img-fluid" src="img/product/hot-product/hot-p-1.jpg" alt="">
                         <div class="product_text">
+                            <!--категория подарка для вас М и Ж -->
                             <h4>Предложения<br />этого месяца</h4>
                             <a href="#">Заказать</a>
                         </div>
@@ -44,6 +47,7 @@
             <div class="feature_product_inner">
                 <div class="main_title">
                     <h2>Лучшие продукты в наших коллекциях</h2>
+                    <!--выбор категорий переход следующий слайд просто переход-->
                     <p>У нас вы найдете способ поздравить своих близких, знакомых, родных.</p>
                 </div>
                 <div class="feature_p_slider owl-carousel">
@@ -86,6 +90,7 @@
                                     <a href="#"><i class="lnr lnr-cart"></i></a>
                                 </div>
                             </div>
+                            <!--первые 10 или топ продуктов выводим -->
                             <a href="#">
                                 <h4>Long Sleeve TShirt</h4>
                             </a>
@@ -533,4 +538,3 @@
     </div>
 </section>
 <!--================End Most Product Area =================-->
->>>>>>> andrdev

@@ -97,16 +97,18 @@ AppAsset::register($this);
 
 
             <!--================ start footer Area  =================-->
+            <!--убрать все лишнее -->
+
             <footer class="footer-area">
                 <div class="container">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-3  col-md-6 col-sm-6">
                             <div class="single-footer-widget">
                                 <h6 class="footer_title">О нас</h6>
                                 <p>Мы помогаем создавать больше ярких поводов для ярких поздравлений.</p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                        <!--<div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-widget">
                                 <h6 class="footer_title">Наши новости</h6>
                                 <p>Будь в курсе наших предложений</p>
@@ -120,8 +122,8 @@ AppAsset::register($this);
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
+                        </div>-->
+                    <!--  <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="single-footer-widget instafeed">
                                 <h6 class="footer_title">Галлерея</h6>
                                 <ul class="list instafeed d-flex flex-wrap">
@@ -151,14 +153,14 @@ AppAsset::register($this);
                     <div class="row footer-bottom d-flex justify-content-between align-items-center">
                         <p class="col-lg-12 footer-text text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
 
-                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
+                    </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
                 </div>
             </footer>
             <!--================ End footer Area  =================-->

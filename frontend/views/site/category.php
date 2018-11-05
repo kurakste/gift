@@ -64,7 +64,9 @@
                                     <?= $item->name ?>
                                 </h4>
                             </a>
-                            <h5>$150.00</h5>
+                            <h5>
+                                <?= $item->getPriceWithDiscount() ?>
+                            </h5>
                         </div>
                     </div>
                     <?php endforeach ?>
