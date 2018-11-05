@@ -4,6 +4,7 @@
 /yii_test.bat
 tags
 /db
+/frontend/web/img
 .env
 
 # phpstorm project files
