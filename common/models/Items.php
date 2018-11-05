@@ -79,6 +79,92 @@ class Items extends \yii\db\ActiveRecord
         ];
     }
 
+    /* 
+     * Calculate actual base price today. If today defined more then one prices
+     * or define no one price function will returns false. If today defined one
+     *  price it will return price. 
+     *
+     * @return num(4,2) actual price or false;
+     */
+
+    public function getActualPrice() 
+    {
+        $time = new \DateTime('now');
+        $today = $time->format('Y-m-d');
+        
+        $prices = \common\models\Baseprices::find()
+            ->where(['iid' => $this->id])
+            ->andWhere(['<=', 'active_from', $today])
+            ->andWhere(['>', 'active_till', $today])
+            ->all(); 
+        if (count($prices) != 1) {
+            return false;
+        };
+
+        $price = $prices[0]->base_pice;
+        return $price;
+    }
+
+    /* 
+     * If item has 1 active discount today it returns true
+     * in other case it return false. 
+     *
+     * @return bullean 
+     */
+    public function hasDiscount()
+    {
+        $time = new \DateTime('now');
+        $today = $time->format('Y-m-d');
+
+        $discounts = \common\models\Discounts::find()
+            ->where(['iid' => $this->id])
+            ->andWhere(['<=', 'start_at', $today])
+            ->andWhere(['>', 'stop_at', $today])
+            ->all();
+
+        if (count($discounts) === 1) {
+            return true;
+        } else {
+            return false;
+        };
+        
+    }
+    
+    /* 
+     * returns size of discount (0.3) or false
+     *
+     */
+    public function  getDiscount()
+    {
+        if ($this->hasDiscount() === false) {
+            return false;
+        }
+
+        $time = new \DateTime('now');
+        $today = $time->format('Y-m-d');
+
+        $discount = \common\models\Discounts::find()
+            ->where(['iid' => $this->id])
+            ->andWhere(['<=', 'start_at', $today])
+            ->andWhere(['>', 'stop_at', $today])
+            ->one();
+
+        return $discount->discount;
+    }
+
+
+    public function getPriceWithdiscount()
+    {
+        $discount = $this->getDiscount();
+        $actprice = $this->getActualPrice();
+        if ((!$discount) && (!$actprice)) {
+            return false;
+        } else {
+            return ((1-$discount)*$actprice);
+        
+        }
+        
+    }
     /**
      * @return \yii\db\ActiveQuery
      */
