@@ -4,14 +4,15 @@
             <div class="banner_content row">
                 <div class="col-lg-5">
                     <!--  сюда писать описание услуги и краткий комент как работает по кнопке переход на видео презу -->
-                    <h3>Новые предложения <br />в коллекции</h3>
-                    <p>Мы непрерывно изучаем и наполнчем самыми востребованными подарками нашу коллекцию.</p>
-                    <a class="white_bg_btn" href="#">Посмотреть новые подарки</a>
+                    <h3>Хочется, чтобы улыбок вокруг было больше!</h3>
+                    <p>Мы помогаем вам создать праздник для своих близких: вы можете поздравить их находясь в другом городе.<br>Вы можете сделать командный подарок для своих коллег. <br>Как это работает?</p>
+                    <a class="white_bg_btn" href="#">Выбрать подарок</a>
                 </div>
                 <div class="col-lg-7">
                     <div class="halemet_img">
-                        <!--шлем заменить на рисунок образ подарка -->
-                        <img src="img/banner/helmat.png" alt="">
+                        <!--шлем заменить на рисунок образ подарка 
+                        <img src="img/banner/helmat.png" alt=""> -->
+                        <img src="img/gift_index.png" alt="" width="80%">
                     </div>
                 </div>
             </div>
@@ -20,35 +21,38 @@
 </section>
 
 <!--================Feature Product Area =================-->
+<!--сделать закругления и размер уменьшить-->
+
 <section class="feature_product_area">
     <div class="main_box">
         <div class="container">
             <div class="row hot_product_inner">
                 <div class="col-lg-6">
                     <div class="hot_p_item">
-                        <img class="img-fluid" src="img/product/hot-product/hot-p-1.jpg" alt="">
+                        <img class="img-fluid" src="img/product/hot-product/gift_women_index.jpg" alt="" border-radius: 5px>
                         <div class="product_text">
                             <!--категория подарка для вас М и Ж -->
                             <h4>Предложения<br />этого месяца</h4>
-                            <a href="#">Заказать</a>
+                            <a href="#">Перейти к выбору</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="hot_p_item">
-                        <img class="img-fluid" src="img/product/hot-product/hot-p-2.jpg" alt="">
+                        <img class="img-fluid" src="img/product/hot-product/gift_man_index.jpg" alt="">
                         <div class="product_text">
                             <h4>Предложения<br />этого месяца</h4>
-                            <a href="#">Заказать</a>
+                            <a href="#">Перейти к выбору</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="feature_product_inner">
                 <div class="main_title">
-                    <h2>Лучшие продукты в наших коллекциях</h2>
+                    <h2>Лучшие подарки в наших коллекциях</h2>
                     <!--выбор категорий переход следующий слайд просто переход-->
-                    <p>У нас вы найдете способ поздравить своих близких, знакомых, родных.</p>
+                    <p>У нас вы найдете способ поздравить своих близких, знакомых, родных.</p><br>
+                    <a class="white_bg_btn" href="#">Выбрать подарок</a>
                 </div>
                 <div class="feature_p_slider owl-carousel">
                     <div class="item">
