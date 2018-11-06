@@ -213,6 +213,20 @@ class Items extends \yii\db\ActiveRecord
         return $this->hasMany(Images::className(), ['iid' => 'id']);
     }
 
+    public function getMainImage() 
+    {
+        $images = $this->images; 
+
+
+        foreach ($images as $image) {
+            if ($image->main === 1) {
+            return $image->path;
+            }
+            return '';
+        }
+    
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */
