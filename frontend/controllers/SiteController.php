@@ -67,6 +67,17 @@ class SiteController extends Controller
                 'items' => $items,
             ]);
     }
+    
+    public function actionManWomen()
+    {
+        $fcats = \common\models\Fcategorys::find()->all();
+        $items =Items::find()->all();
+
+        return $this->render('gift_MW', 
+            [
+                'fcats' => $fcats,
+            ]);
+    }
 
         /**
      * Displays homepage.
