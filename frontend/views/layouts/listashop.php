@@ -58,7 +58,7 @@ AppAsset::register($this);
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Каталог</a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="#">Категории каталога</a>
+                                        <li class="nav-item"><a class="nav-link" href="/site/category">Категории каталога</a>
                                             <li class="nav-item"><a class="nav-link" href="#">Данные о продукте</a>
                                                 <li class="nav-item"><a class="nav-link" href="#">Корзина продуктов</a>
                                                     <li class="nav-item"><a class="nav-link" href="#">Корзина</a></li>

@@ -3,11 +3,11 @@
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Shop Category Page</h2>
+                <h2>Категории подарков</h2>
                 <div class="page_link">
-                    <a href="#">Home</a>
-                    <a href="#">Category</a>
-                    <a href="#">Women Fashion</a>
+                    <a href="#">Главная</a>
+                    <a href="#">Категории</a>
+                    <a href="#">Подарки для....</a>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="col-lg-9">
                 <div class="product_top_bar">
                     <div class="left_dorp">
-                        <select class="sorting">
+                        <!--<select class="sorting">
 									<option value="1">Default sorting</option>
 									<option value="2">Default sorting 01</option>
 									<option value="4">Default sorting 02</option>
@@ -31,7 +31,7 @@
 									<option value="1">Show 12</option>
 									<option value="2">Show 14</option>
 									<option value="4">Show 16</option>
-								</select>
+								</select>-->
                     </div>
                     <div class="right_page ml-auto">
                         <nav class="cat_page" aria-label="Page navigation example">
@@ -53,7 +53,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="f_p_item">
                             <div class="f_p_img">
-                                <img class="img-fluid" src="/img/product/feature-product/f-p-1.jpg" alt="">
+                                <img class="img-fluid" src="<?= $item->getMainImage() ?>" alt="">
                                 <div class="p_icon">
                                     <a href="#"><i class="lnr lnr-heart"></i></a>
                                     <a href="#"><i class="lnr lnr-cart"></i></a>
@@ -64,7 +64,7 @@
                                     <?= $item->name ?>
                                 </h4>
                             </a>
-                            <h5>
+                            <h5>&#8381
                                 <?= $item->getPriceWithDiscount() ?>
                             </h5>
                         </div>
@@ -74,9 +74,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="left_sidebar_area">
-                    <aside class="left_widgets cat_widgets">
+                    <!--<aside class="left_widgets cat_widgets">
                         <div class="l_w_title">
-                            <h3>Browse Categories</h3>
+                            <h3>Выбор категории</h3>
                         </div>
                         <div class="widgets_inner">
                             <ul class="list">
@@ -112,37 +112,47 @@
                                 <li><a href="#">Home and Cleaning</a></li>
                             </ul>
                         </div>
-                    </aside>
+                    </aside>-->
                     <aside class="left_widgets p_filter_widgets">
                         <div class="l_w_title">
-                            <h3>Product Filters</h3>
+                            <h3>Категории</h3>
                         </div>
                         <div class="widgets_inner">
-                            <h4>Brand</h4>
+                            <h4>Подарки на любой случай</h4>
                             <ul class="list">
-                                <li><a href="#">Apple</a></li>
-                                <li><a href="#">Asus</a></li>
-                                <li class="active"><a href="#">Gionee</a></li>
-                                <li><a href="#">Micromax</a></li>
-                                <li><a href="#">Samsung</a></li>
+                                <li><a href="#">Для мужчин</a></li>
+                                <li><a href="#">Для женщин</a></li>
+                                <li class="active"><a href="#">Для коллег</a></li>
+                                <li><a href="#">Для родителей</a></li>
+                                <li><a href="#">Любимой</a></li>
+                                <li><a href="#">Любимому</a></li>
+                                <li><a href="#">Партнеру по бизнесу</a></li>
+                                <li><a href="#">Ребенку</a></li>
+                                <li><a href="#">Спасибо</a></li>
+                                <li><a href="#">Извини</a></li>
+                                <li><a href="#">Экстрим</a></li>
+                                <li><a href="#">Учителю</a></li>
+                                <li><a href="#">На день рождения</a></li>
+                                <li><a href="#">На праздник</a></li>
+                                <li><a href="#">Прикол</a></li>
+                                <li><a href="#">На рождение ребенка</a></li>
                             </ul>
                         </div>
                         <div class="widgets_inner">
-                            <h4>Color</h4>
+                            <h4>Подарки</h4>
+                            <!--  вывести сюда все подарки -->
+                            <?php foreach ($items as $item): ?>
                             <ul class="list">
-                                <li><a href="#">Black</a></li>
-                                <li><a href="#">Black Leather</a></li>
-                                <li class="active"><a href="#">Black with red</a></li>
-                                <li><a href="#">Gold</a></li>
-                                <li><a href="#">Spacegrey</a></li>
+                                <li><a href="#"><?= $item->name ?></a></li>
                             </ul>
+                            <?php endforeach ?>
                         </div>
                         <div class="widgets_inner">
-                            <h4>Price</h4>
+                            <h4>По цене</h4>
                             <div class="range_item">
                                 <div id="slider-range"></div>
                                 <div class="row m0">
-                                    <label for="amount">Price : </label>
+                                    <label for="amount">РАЗРАБОТАТЬ </label>
                                     <input type="text" id="amount" readonly>
                                 </div>
                             </div>
@@ -156,7 +166,7 @@
 <!--================End Category Product Area =================-->
 
 <!--================Most Product Area =================-->
-<section class="most_product_area most_p_withoutbox">
+<!--<section class="most_product_area most_p_withoutbox">
     <div class="container">
         <div class="main_title">
             <h2>Most Searched Products</h2>
