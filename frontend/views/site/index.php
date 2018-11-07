@@ -62,11 +62,14 @@
 <section class="timer_area">
     <div class="container">
         <div class="main_title">
-            <h2>Горячие предложения месяца!</h2>
-            <p>Мы поможем выбрать лучшее для вашего подарка</p>
-            <a class="main_btn" href="#">Выбирайте</a>
+            <h2>Всегда лучшие варианты для поздравлений!</h2>
+            <!--<p>Мы поможем выбрать лучшее для вашего подарка</p>
+            <a class="main_btn" href="#">Выбирайте</a> -->
+            <img class="img-fluid" src="img/gift_for_index.png" alt="">
+            <img class="img-fluid" src="img/gift_for_index.png" alt="">
+            <img class="img-fluid" src="img/gift_for_index.png" alt="">
         </div>
-        <div class="timer_inner">
+        <!--<div class="timer_inner">
             <div id="timer" class="timer">
                 <div class="timer__section days">
                     <div class="timer__number"></div>
@@ -85,7 +88,7 @@
                     <div class="timer__label">секунд</div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </section>
 <!--================End Deal Timer Area =================-->

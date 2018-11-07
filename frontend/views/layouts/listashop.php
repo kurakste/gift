@@ -14,7 +14,8 @@ AppAsset::register($this);
         <meta charset="<?= Yii::$app->charset ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="/img/favicon.png" type="image/png">
+        <!--<link rel="icon" href="/img/favicon.png" type="image/png">-->
+        <link rel="icon" href="/img/logo.png" type="image/png">
 
         <?= Html::csrfMetaTags() ?>
             <title>
