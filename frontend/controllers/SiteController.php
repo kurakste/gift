@@ -90,4 +90,10 @@ class SiteController extends Controller
         return $this->render('about');
     }
     
+    public function actionHowIsItWork()
+    {
+        
+        return $this->render('about');
+    }
+    
 }

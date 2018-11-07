@@ -1,3 +1,8 @@
+<?php 
+
+    use yii\helpers\Url;
+
+?> 
 <!--================Home Banner Area =================-->
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -5,9 +10,8 @@
             <div class="banner_content text-center">
                 <h2>Категории подарков</h2>
                 <div class="page_link">
-                    <a href="#">Главная</a>
+                    <a href="<?= Url::toRoute(['site/index']) ?>">Главная</a>
                     <a href="#">Категории</a>
-                    <a href="#">Подарки для....</a>
                 </div>
             </div>
         </div>
@@ -118,8 +122,12 @@
                             <h3>Категории</h3>
                         </div>
                         <div class="widgets_inner">
-                            <h4>Подарки на любой случай</h4>
+                            <h4>Для кого подарок:</h4>
                             <ul class="list">
+                                <?php foreach ($fcats as $fcat): ?>
+                                    <li><a href="/category/<?= $fcat->cpu ?>"><?= $fcat->name ?></a></li>
+                                <?php endforeach ?>
+<!--
                                 <li><a href="#">Для мужчин</a></li>
                                 <li><a href="#">Для женщин</a></li>
                                 <li class="active"><a href="#">Для коллег</a></li>
@@ -136,14 +144,15 @@
                                 <li><a href="#">На праздник</a></li>
                                 <li><a href="#">Прикол</a></li>
                                 <li><a href="#">На рождение ребенка</a></li>
+-->
                             </ul>
                         </div>
                         <div class="widgets_inner">
-                            <h4>Подарки</h4>
+                            <h4>Какой повод:</h4>
                             <!--  вывести сюда все подарки -->
-                            <?php foreach ($items as $item): ?>
+                            <?php foreach ($scats as $scat): ?>
                             <ul class="list">
-                                <li><a href="#"><?= $item->name ?></a></li>
+                                <li><a href="#"><?= $scat->name ?></a></li>
                             </ul>
                             <?php endforeach ?>
                         </div>

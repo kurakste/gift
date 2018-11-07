@@ -56,7 +56,8 @@ AppAsset::register($this);
                             <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/index']) ?>">Главная</a></li>
                             <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/category']) ?>">Выбрать подарок</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/category']) ?>">Как это работает</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/how-is-it-work']) ?>">Как это работает</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
 <!--
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Каталог</a>
@@ -84,7 +85,6 @@ AppAsset::register($this);
                                         </ul>
                                         </li>
 -->
-                                        <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="nav-item"><a href="#" class="cart"><i class="lnr lnr lnr-cart"></i></a></li>
