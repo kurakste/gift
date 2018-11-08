@@ -124,6 +124,7 @@
                         <div class="widgets_inner">
                             <h4>Для кого подарок:</h4>
                             <ul class="list">
+                                <li><a href="#">Все</a></li>
                                 <?php foreach ($fcats as $fcat): ?>
                                     <li><a href="/category/<?= $fcat->cpu ?>"><?= $fcat->name ?></a></li>
                                 <?php endforeach ?>
@@ -150,6 +151,7 @@
                         <div class="widgets_inner">
                             <h4>Какой повод:</h4>
                             <!--  вывести сюда все подарки -->
+                            <li><a href="#">Все</a></li>
                             <?php foreach ($scats as $scat): ?>
                             <ul class="list">
                                 <li><a href="#"><?= $scat->name ?></a></li>
