@@ -2,6 +2,8 @@
 
     use yii\helpers\Url;
 
+$this->registerJsFile('/js/category.js');
+
 ?> 
 <!--================Home Banner Area =================-->
 <section class="banner_area">
@@ -51,29 +53,7 @@
                         </nav>
                     </div>
                 </div>
-                <div class="latest_product_inner row">
-
-                    <?php foreach ($items as $item): ?>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="<?= $item->getMainImage() ?>" alt="">
-                                <div class="p_icon">
-                                    <a href="#"><i class="lnr lnr-heart"></i></a>
-                                    <a href="#"><i class="lnr lnr-cart"></i></a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4>
-                                    <?= $item->name ?>
-                                </h4>
-                            </a>
-                            <h5>&#8381
-                                <?= $item->getPriceWithDiscount() ?>
-                            </h5>
-                        </div>
-                    </div>
-                    <?php endforeach ?>
+                <div class="latest_product_inner row" id = 'pcontainer'>
                 </div>
             </div>
             <div class="col-lg-3">
@@ -123,10 +103,10 @@
                         </div>
                         <div class="widgets_inner">
                             <h4>Для кого подарок:</h4>
-                            <ul class="list">
-                                <li><a href="#">Все</a></li>
+                            <ul class="list" id='fcatlist'>
+                                <li><a href="">Все</a></li>
                                 <?php foreach ($fcats as $fcat): ?>
-                                    <li><a href="/category/<?= $fcat->cpu ?>"><?= $fcat->name ?></a></li>
+                                    <li><a href=""><?= $fcat->name ?></a></li>
                                 <?php endforeach ?>
 <!--
                                 <li><a href="#">Для мужчин</a></li>
@@ -148,15 +128,15 @@
 -->
                             </ul>
                         </div>
-                        <div class="widgets_inner">
+                        <div class="widgets_inner" >
                             <h4>Какой повод:</h4>
                             <!--  вывести сюда все подарки -->
+                            <ul class="list" id='scatlist'>
                             <li><a href="#">Все</a></li>
                             <?php foreach ($scats as $scat): ?>
-                            <ul class="list">
                                 <li><a href="#"><?= $scat->name ?></a></li>
-                            </ul>
                             <?php endforeach ?>
+                            </ul>
                         </div>
                         <div class="widgets_inner">
                             <h4>По цене</h4>
@@ -177,7 +157,7 @@
 <!--================End Category Product Area =================-->
 
 <!--================Most Product Area =================-->
-<!--<section class="most_product_area most_p_withoutbox">
+<section class="most_product_area most_p_withoutbox">
     <div class="container">
         <div class="main_title">
             <h2>Most Searched Products</h2>
