@@ -42,7 +42,7 @@ $this->registerJsFile('/js/category.js');
                     </div>
                     <div class="right_page ml-auto">
                         <nav class="cat_page" aria-label="Page navigation example">
-                            <select name='city'>
+                            <select id='citieslist' name='city'>
                                 <?php foreach ($cities as $id => $name): ?>
                                 <option value ="<?= $id ?>"><?= $name ?></option>
 

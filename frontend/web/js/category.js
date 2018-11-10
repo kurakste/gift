@@ -5,6 +5,7 @@ window.onload = function() {
    
    var fcats = document.getElementById('fcatlist');   
    var scats = document.getElementById('scatlist');  
+   var slist = document.getElementById('citieslist');  
 
    for (var i = 0; i < fcats.children.length; i++) {
       fcats.children[i].children[0].onclick = fcatsclick;
@@ -13,11 +14,17 @@ window.onload = function() {
    for (var i = 0; i < scats.children.length; i++) {
       scats.children[i].children[0].onclick = scatsclick;
    }
+   slist.onchange = cityChangeState;
 
    requestForItems();
 
    
 //-----------------------------------------------------   
+  
+   function cityChangeState() {
+      console.log('change');
+   
+   } 
    
    function requestForItems() {
       var xhr = new XMLHttpRequest();
