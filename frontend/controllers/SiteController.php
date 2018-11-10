@@ -95,5 +95,29 @@ class SiteController extends Controller
         
         return $this->render('about');
     }
+
+
+    public function actionTest()
+    {
+        $out = [ 
+            [
+                'name' => 'Helen',
+                'price' => 2000,
+                'image' => '/img/product/most-product/m-product-1.jpg'
+            ],
+            [
+                'name' => 'Helen1',
+                'price' => 3000,
+                'image' => '/img/product/most-product/m-product-2.jpg'
+            ],
+            [
+                'name' => 'Helen2',
+                'price' => 4000,
+                'image' => '/img/product/most-product/m-product-3.jpg'
+            ],
+        ];
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return $out;
+    }
     
 }
