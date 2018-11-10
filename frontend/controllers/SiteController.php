@@ -97,6 +97,38 @@ class SiteController extends Controller
     }
 
 
+    public function actionAjaxGetProducts() 
+    {
+        $request = Yii::$app->request;
+
+        $fcid = $request->get('fcid');
+        $scid = $request->get('scid');
+
+        $fcid = ($fcid == -99) ? null : $fcid;
+        $scid = ($scid == -99) ? null : $scid;
+
+//        vd($fcid);
+
+        $items =Items::find()
+            ->andFilterWhere(['fcid' => $fcid])
+            ->andFilterWhere(['scid' => $scid])
+            ->all();
+
+        $out = [];
+        foreach ($items as $item) {
+            $tmp = [];
+            $tmp['name'] = $item->name;
+            $tmp['description'] = $item->description;
+            $tmp['image'] = $item->getMainImage();
+            $tmp['price'] = $item->getActualPrice();
+            $out[] = $tmp;
+        }
+
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return $out;
+    
+    }
+
     public function actionTest()
     {
         $out = [ 

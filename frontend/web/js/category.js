@@ -1,4 +1,7 @@
 window.onload = function() {
+
+   var globalFcatID = -99;
+   var globalScatID = -99;
    
    var fcats = document.getElementById('fcatlist');   
    var scats = document.getElementById('scatlist');  
@@ -8,10 +11,8 @@ window.onload = function() {
    }
    
    for (var i = 0; i < scats.children.length; i++) {
-      scats.children[i].children[0].onclick = fcatsclick;
+      scats.children[i].children[0].onclick = scatsclick;
    }
-
-//   fakeProductGenerator();
 
    requestForItems();
 
@@ -20,44 +21,55 @@ window.onload = function() {
    
    function requestForItems() {
       var xhr = new XMLHttpRequest();
-      // xhr = new XDomainRequest();
-      xhr.open("GET", '/site/test', true);
+      var url = '/site/ajax-get-products';
+      var req = '';
+
+      req = url + '?fcid=' + globalFcatID + '&scid=' + globalScatID ;
+      console.log(req);
+      xhr.open("GET", req, true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
       xhr.onreadystatechange = function() {
          if (this.readyState != 4) return;
-   //      console.log(this.responseText);
          items = JSON.parse(this.responseText);
+         console.log(this.responseText);
+         clearProductContainer()
          generateItemsFromArray(items); 
-         
       }
       xhr.send('');
    }
 
-
-
    function generateItemsFromArray(items) {
       items.forEach(function(item) {
-         console.log(item.name); 
          var content = generateItem(item.name, item.price, item.image);
          addNewItemInContainer(content);
       }); 
-
-   
    }
 
    //onCatsElements click hendler;
-   function fcatsclick() 
-   {
-      alert('Hi!');
+   function fcatsclick() {
+      globalFcatID = this.dataset.fcatid;
+      console.log(globalFcatID);
+      requestForItems();
+      return false; // Prevent default action on a tags
+   }
+   
+   function scatsclick() {
+      globalScatID = this.dataset.scatid;
+      requestForItems();
+      console.log(this.dataset.scatid);
       return false; // Prevent default action on a tags
    }
 
-   //Add html content (item) in product container
-   function addNewItemInContainer(content)
-   {
+   function clearProductContainer(){
       var pcontainer = document.getElementById('pcontainer');   
+      pcontainer.innerHTML ='';
+      console.log('cleaning done');
+   }
 
+   //Add html content (item) in product container
+   function addNewItemInContainer(content) {
+      var pcontainer = document.getElementById('pcontainer');   
       var ddiv = document.createElement('div');
 
       ddiv.innerHTML = content;

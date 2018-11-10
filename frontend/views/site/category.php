@@ -104,9 +104,9 @@ $this->registerJsFile('/js/category.js');
                         <div class="widgets_inner">
                             <h4>Для кого подарок:</h4>
                             <ul class="list" id='fcatlist'>
-                                <li><a href="">Все</a></li>
+                                <li><a href="" data-fcatid = '-99'>Все</a></li>
                                 <?php foreach ($fcats as $fcat): ?>
-                                    <li><a href=""><?= $fcat->name ?></a></li>
+                                    <li> <a href="" data-fcatid = '<?= $fcat->id ?>'><?= $fcat->name ?></a></li>
                                 <?php endforeach ?>
 <!--
                                 <li><a href="#">Для мужчин</a></li>
@@ -132,9 +132,9 @@ $this->registerJsFile('/js/category.js');
                             <h4>Какой повод:</h4>
                             <!--  вывести сюда все подарки -->
                             <ul class="list" id='scatlist'>
-                            <li><a href="#">Все</a></li>
+                            <li><a href="#" data-scatid = '-99'>Все</a></li>
                             <?php foreach ($scats as $scat): ?>
-                                <li><a href="#"><?= $scat->name ?></a></li>
+                                <li ><a href="#"data-scatid = '<?= $scat->id ?>'><?= $scat->name ?></a></li>
                             <?php endforeach ?>
                             </ul>
                         </div>
