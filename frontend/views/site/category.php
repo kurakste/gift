@@ -1,6 +1,7 @@
 <?php 
 
     use yii\helpers\Url;
+    use yii\helpers\Html;
 
 $this->registerJsFile('/js/category.js');
 
@@ -41,6 +42,12 @@ $this->registerJsFile('/js/category.js');
                     </div>
                     <div class="right_page ml-auto">
                         <nav class="cat_page" aria-label="Page navigation example">
+                            <select name='city'>
+                                <?php foreach ($cities as $id => $name): ?>
+                                <option value ="<?= $id ?>"><?= $name ?></option>
+
+                                <?php endforeach ?>
+                            </select>
                             <ul class="pagination">
                                 <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a></li>
                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>

@@ -57,14 +57,18 @@ class SiteController extends Controller
     {
         $fcats = \common\models\Fcategorys::find()->all();
         $scats = \common\models\Scategorys::find()->all();
+        $citys = \common\models\Citys::find()->all();
+
+        $cities = \yii\helpers\ArrayHelper::map($citys, 'id', 'name');
 
         $items =Items::find()->all();
-
+       // vd($cities);
         return $this->render('category', 
             [
                 'fcats' => $fcats,
                 'scats' => $scats,
                 'items' => $items,
+                'cities' => $cities,
             ]);
     }
     
