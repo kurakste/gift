@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Items;
+use common\models\ItemsWithCats;
 use common\models\ItemsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -65,13 +66,17 @@ class ItemController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Items();
+        $model = new ItemsWithCats();
         $fcategorys = ArrayHelper::map(\common\models\Fcategorys::find()->all(), 'id', 'name');
         $scategorys = ArrayHelper::map(\common\models\Scategorys::find()->all(), 'id', 'name');
         $venders = ArrayHelper::map(\common\models\Venders::find()->all(), 'id', 'name');
         
-//        var_dump($fcategorys); die;
+//        vd($fcategorys);
+//        $model->load(Yii::$app->request->post());
+//        vd($model);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            $model->saveFcats();
+ //           $model->saveScats();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -98,7 +103,16 @@ class ItemController extends Controller
         $scategorys = ArrayHelper::map(\common\models\Scategorys::find()->all(), 'id', 'name');
         $venders = ArrayHelper::map(\common\models\Venders::find()->all(), 'id', 'name');
 
+        if (Yii::$app->request->post()) {
+         //   vd(Yii::$app->request->post());
+            $model->load(Yii::$app->request->post());
+            $model->fcats_ids =Yii::$app->request->post()['ItemsWithCats']['fcats_ids'];
+            $model->scats_ids =Yii::$app->request->post()['ItemsWithCats']['scats_ids'];
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->saveFcats();
+            $model->saveScats();
+//           vd($model); 
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -134,7 +148,9 @@ class ItemController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Items::findOne($id)) !== null) {
+        if (($model = ItemsWithCats::findOne($id)) !== null) {
+            $model->loadFcats();
+            $model->loadScats();
             return $model;
         }
 

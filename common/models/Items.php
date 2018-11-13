@@ -79,6 +79,19 @@ class Items extends \yii\db\ActiveRecord
         ];
     }
 
+
+    public function getFcats()
+    {
+        return $this->hasMany(Fcategorys::className(), ['id' => 'fcid'])
+            ->viaTable('itemtofcats', ['iid' => 'id']);
+    }
+    
+    public function getScats()
+    {
+        return $this->hasMany(Scategorys::className(), ['id' => 'scid'])
+            ->viaTable('itemtoscats', ['iid' => 'id']);
+    }
+
     /* 
      * Calculate actual base price today. If today defined more then one prices
      * or define no one price function will returns false. If today defined one
@@ -179,6 +192,11 @@ class Items extends \yii\db\ActiveRecord
     public function getDeliverys()
     {
         return $this->hasMany(Deliverys::className(), ['iid' => 'id']);
+    }
+
+    public function getVenders()
+    {
+        return $this->hasOne(Venders::className(), ['id' => 'vid']);
     }
 
     /**

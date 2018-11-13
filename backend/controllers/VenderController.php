@@ -8,6 +8,7 @@ use common\models\VendersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * VenderController implements the CRUD actions for Venders model.
@@ -65,6 +66,7 @@ class VenderController extends Controller
     public function actionCreate()
     {
         $model = new Venders();
+        $cities = ArrayHelper::map(\common\models\Citys::find()->all(), 'id', 'name');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,6 +74,7 @@ class VenderController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'cities' => $cities,
         ]);
     }
 
@@ -85,6 +88,7 @@ class VenderController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $cities = ArrayHelper::map(\common\models\Citys::find()->all(), 'id', 'name');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -92,6 +96,7 @@ class VenderController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'cities' => $cities,
         ]);
     }
 

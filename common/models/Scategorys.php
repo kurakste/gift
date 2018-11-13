@@ -67,4 +67,12 @@ class Scategorys extends \yii\db\ActiveRecord
     {
         return new ScategorysQuery(get_called_class());
     }
+
+    public static function getAvailable()
+    {
+        $cats = self::find()->order('name')->asArray()->all();
+        $items = ArrayHelper::map($cats, 'id', 'name');
+        return $items;
+    }
+    
 }

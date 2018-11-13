@@ -6,7 +6,7 @@ use yii\db\Migration;
 /**
  * Class m181020_184147_citys
  */
-class m181020_184147_citys extends Migration
+class m181018_170900_citys extends Migration
 {
 
     public function up()

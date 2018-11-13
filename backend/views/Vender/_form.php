@@ -11,8 +11,10 @@ use yii\widgets\ActiveForm;
 <div class="venders-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
+    
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'cityid')->dropDownList($cities)->label("Город:") ?>
 
     <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
 

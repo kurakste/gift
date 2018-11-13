@@ -12,9 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'fcid')->dropDownList($fcategorys)->label("Категория \"Для кого\":") ?>
+    <?= $form->field($model, 'fcats_ids')->checkboxList($fcategorys, ['id'])->label("Категория \"Для кого\":") ?>
 
-    <?= $form->field($model, 'scid')->dropDownList($scategorys)->label("Категория \"Повод\":")  ?>
+    <?= $form->field($model, 'scats_ids')->checkboxList($scategorys)->label("Категория \"Повод\":")  ?>
 
     <?= $form->field($model, 'vid')->dropDownList($venders)->label("Поставщик услуг:")  ?>
 

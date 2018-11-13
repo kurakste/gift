@@ -18,7 +18,7 @@ class VendersSearch extends Venders
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'cityid'], 'integer'],
             [['name', 'address', 'url', 'description'], 'safe'],
         ];
     }
@@ -63,6 +63,7 @@ class VendersSearch extends Venders
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['cityid' => $this->cityid, ])
             ->andFilterWhere(['like', 'address', $this->address])
             ->andFilterWhere(['like', 'url', $this->url])
             ->andFilterWhere(['like', 'description', $this->description]);

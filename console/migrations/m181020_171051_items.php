@@ -13,8 +13,8 @@ class m181020_171051_items extends Migration
     {
          $this->createTable('items', [
             'id' => Schema::TYPE_PK,
-            'fcid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
-            'scid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
+            /* 'fcid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1', */
+            /* 'scid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1', */
             'vid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
             'exid' => Schema::TYPE_STRING.' NOT NULL',
             'name' => Schema::TYPE_STRING.' NOT NULL',

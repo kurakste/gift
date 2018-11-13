@@ -2,6 +2,7 @@ window.onload = function() {
 
    var globalFcatID = -99;
    var globalScatID = -99;
+   var globalCityID = 1; 
    
    var fcats = document.getElementById('fcatlist');   
    var scats = document.getElementById('scatlist');  
@@ -21,17 +22,14 @@ window.onload = function() {
    
 //-----------------------------------------------------   
   
-   function cityChangeState() {
-      console.log('change');
-   
-   } 
    
    function requestForItems() {
       var xhr = new XMLHttpRequest();
       var url = '/site/ajax-get-products';
       var req = '';
 
-      req = url + '?fcid=' + globalFcatID + '&scid=' + globalScatID ;
+      req = url + '?fcid=' + globalFcatID + '&scid=' + globalScatID +
+         '&cityid=' + globalCityID;
       console.log(req);
       xhr.open("GET", req, true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -52,6 +50,13 @@ window.onload = function() {
          addNewItemInContainer(content);
       }); 
    }
+   
+  // On City changes 
+   function cityChangeState() {
+      globalCityID = slist.value;
+      console.log(globalCityID);
+      requestForItems();
+   } 
 
    //onCatsElements click hendler;
    function fcatsclick() {

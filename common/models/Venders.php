@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "venders".
  *
  * @property int $id
+ * @property int $cityid
  * @property string $name
  * @property string $address
  * @property string $url
@@ -33,7 +34,7 @@ class Venders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'address', 'url'], 'required'],
+            [['name', 'address', 'url', 'cityid'], 'required'],
             [['description'], 'string'],
             [['name', 'address', 'url'], 'string', 'max' => 255],
         ];
@@ -46,6 +47,7 @@ class Venders extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'cityid' => 'Id of city',
             'name' => 'Name',
             'address' => 'Address',
             'url' => 'Url',

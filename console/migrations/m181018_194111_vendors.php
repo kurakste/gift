@@ -13,6 +13,7 @@ class m181018_194111_vendors extends Migration
     {
          $this->createTable('venders', [
             'id' => Schema::TYPE_PK,
+            'cityid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
             'name' => Schema::TYPE_STRING . ' NOT NULL',
             'address' => Schema::TYPE_STRING. ' NOT NULL' ,
             'url' => Schema::TYPE_STRING. ' NOT NULL' ,
@@ -20,11 +21,25 @@ class m181018_194111_vendors extends Migration
         ],
         'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB'
     );
+        $this->createIndex('venders_cityid','venders','id', false);
+         
+         $this->addForeignKey(
+            'fk-venders-cities',
+            'venders',
+            'cityid',
+            'citys',
+            'id',
+            'CASCADE'
+        );
 
     }
 
     public function down()
     {
         $this->dropTable('venders');
+        $this->dropForeignKey(
+            'fk-venders-cities',
+            'venders');
+        
     }
 }

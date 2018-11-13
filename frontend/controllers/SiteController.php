@@ -61,7 +61,10 @@ class SiteController extends Controller
 
         $cities = \yii\helpers\ArrayHelper::map($citys, 'id', 'name');
 
-        $items =Items::find()->all();
+        $items =Items::find()
+            ->all();
+
+       // vd($items);
        // vd($cities);
         return $this->render('category', 
             [
@@ -107,6 +110,7 @@ class SiteController extends Controller
 
         $fcid = $request->get('fcid');
         $scid = $request->get('scid');
+        $cityid = $request->get('cityid');
 
         $fcid = ($fcid == -99) ? null : $fcid;
         $scid = ($scid == -99) ? null : $scid;
@@ -114,9 +118,17 @@ class SiteController extends Controller
 //        vd($fcid);
 
         $items =Items::find()
-            ->andFilterWhere(['fcid' => $fcid])
-            ->andFilterWhere(['scid' => $scid])
+            ->joinWith('venders')
+            ->joinWith('fcats')
+            ->joinWith('scats')
+            ->andFilterWhere(['fcategorys.id' => $fcid])
+            ->andFilterWhere(['scategorys.id' => $scid])
+//            ->andFilterWhere(['fcid' => $fcid])
+//            ->andFilterWhere(['scid' => $scid])
+            ->andFilterWhere(['venders.cityid' => $cityid])
             ->all();
+
+//        vd($items);
 
         $out = [];
         foreach ($items as $item) {
