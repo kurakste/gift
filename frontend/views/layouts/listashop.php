@@ -54,9 +54,10 @@ AppAsset::register($this);
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                             <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/index']) ?>">Главная</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a></li>
                             <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/category']) ?>">Выбрать подарок</a></li>
                             <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/how-is-it-work']) ?>">Как это работает</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">АКТИВИРОВАТЬ</a></li>
                             <li class="nav-item"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
 <!--
                                 <li class="nav-item submenu dropdown">

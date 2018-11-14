@@ -42,7 +42,7 @@ class AppAsset extends AssetBundle
         "/js/theme.js",
     ];
     public $depends = [
-        /* 'yii\web\YiiAsset', */
+        'yii\web\YiiAsset',
         /* 'yii\bootstrap\BootstrapPluginAsset', */
         /* '\rmrevin\yii\fontawesome\AssetBundle' */
     ];
