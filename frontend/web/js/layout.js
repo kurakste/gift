@@ -1,5 +1,5 @@
 window.onload = function() {
-   console.log('Category js here.');
+   console.log('Layout js here.');
 
    var globalFcatID = -99;
    var globalScatID = -99;
@@ -9,21 +9,27 @@ window.onload = function() {
    var scats = document.getElementById('scatlist');  
    var slist = document.getElementById('citieslist');  
 
-   for (var i = 0; i < fcats.children.length; i++) {
-      fcats.children[i].children[0].onclick = fcatsclick;
+   if (fcats!=null) {
+      for (var i = 0; i < fcats.children.length; i++) {
+         fcats.children[i].children[0].onclick = fcatsclick;
+      }
    }
    
-   for (var i = 0; i < scats.children.length; i++) {
-      scats.children[i].children[0].onclick = scatsclick;
+   if (fcats!=null) {
+      for (var i = 0; i < scats.children.length; i++) {
+         scats.children[i].children[0].onclick = scatsclick;
+      }
    }
    slist.onchange = cityChangeState;
 
+   loadCity(); 
+
+   console.log(globalCityID);
    requestForItems();
 
    
 //-----------------------------------------------------   
   
-   
    function requestForItems() {
       var xhr = new XMLHttpRequest();
       var url = '/site/ajax-get-products';
@@ -47,18 +53,11 @@ window.onload = function() {
 
    function generateItemsFromArray(items) {
       items.forEach(function(item) {
-         var content = generateItem(item.name, item.price, item.image);
+         var content = generateItem(item.name, item.price, item.image, item.cpu);
          addNewItemInContainer(content);
       }); 
    }
    
-  // On City changes 
-   function cityChangeState() {
-      globalCityID = slist.value;
-      console.log(globalCityID);
-      requestForItems();
-   } 
-
    //onCatsElements click hendler;
    function fcatsclick() {
       globalFcatID = this.dataset.fcatid;
@@ -94,7 +93,7 @@ window.onload = function() {
    }
 
    //Generate item that need to be added in product conteiner.
-   function generateItem(name, price, image) {
+   function generateItem(name, price, image, cpu) {
       
      // <div class="col-lg-4 col-md-4 col-sm-6">
 //</div>
@@ -108,7 +107,7 @@ window.onload = function() {
                <a href="#"><i class="lnr lnr-cart"></i></a>
            </div>
        </div>
-       <a href="#">
+       <a href="/site/get-product?product=` + cpu + `">
            <h4>` + name + ` </h4>
        </a>
        <h5>&#8381 ` + price + ` </h5>
@@ -135,4 +134,57 @@ window.onload = function() {
          addNewItemInContainer(content);
       }
    }
+   
+
+
+//-------------------------------------------------------function
+   function cityChangeState() {
+      globalCityID = this.value;
+      console.log(globalCityID);
+      storeCityWhenChanged(this.value);
+      requestForItems();
+   } 
+
+   function storeCityWhenChanged(cityid) {
+   
+      var xhr = new XMLHttpRequest();
+      var url = '/site/ajax-set-current-client-setting';
+      var req = '';
+
+      req = url + '?cityid=' + cityid;
+      console.log(req);
+      xhr.open("GET", req, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+      xhr.onreadystatechange = function() {
+         if (this.readyState != 4) return;
+         items = JSON.parse(this.responseText);
+         console.log(this.responseText);
+      }
+      xhr.send('');
+   }
+
+   function loadCity() {
+      console.log('Load city here.'); 
+      var xhr = new XMLHttpRequest();
+      var url = '/site/ajax-get-current-client-setting';
+      var req = url;
+
+      xhr.open("GET", req, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+      xhr.onreadystatechange = function() {
+         if (this.readyState != 4) return;
+         let settings  = JSON.parse(this.responseText);
+         let out =settings.city;
+         globalCityID = out;
+         requestForItems();
+         console.log(globalCityID);
+         return out;
+      }
+      console.log(req);
+      xhr.send('');
+   }
+   
+  
 }

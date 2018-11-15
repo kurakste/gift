@@ -4,6 +4,12 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 AppAsset::register($this);
+
+$this->registerJsFile('/js/layout.js');
+
+$cities = $this->params['cities'];
+$curentcity = $this->params['city'];
+//vd($curentcity);
 ?>
 
     <?php $this->beginPage() ?>
@@ -52,8 +58,18 @@ AppAsset::register($this);
 
                         <!-- расставь ссылки Андрей -->
                         <!-- Collect the nav links, forms, and other content for toggling -->
+
                         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                             <ul class="nav navbar-nav menu_nav ml-auto">
+<li class="nav-item" style ="margin-top:18px;">
+                            <select id='citieslist' name='city'>
+                                <?php foreach ($cities as $city): ?>
+                                    <option 
+                                        <?php if ($curentcity == $city->id) echo "selected"; ?>
+                                    value ="<?= $city->id ?>"><?= $city->name ?></option>
+                                <?php endforeach ?>
+                            </select>
+</li>
                             <li class="nav-item <?php if ($this->params['page']==='main') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='cat') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/category']) ?>">Выбрать подарок</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='how') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-is-it-work']) ?>">Как это работает</a></li>

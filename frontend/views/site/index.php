@@ -31,7 +31,7 @@
             <div class="row hot_product_inner">
                 <?php for ($i =0; $i<=3; $i++):  ?>
                 <div class="col-lg-6">
-                    <div class="hot_p_item">
+                    <div class="hot_p_item" style='margin-top:30px;'>
                         <img class="img-fluid" src="<?= $fcats[$i]->image ?> " alt="">
                         <div class="product_text">
                             <!--категория подарка для вас М и Ж -->

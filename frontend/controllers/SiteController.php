@@ -24,6 +24,28 @@ class SiteController extends Controller
      */
     public $layout = 'listashop';
 
+    public function beforeAction($action)
+    {
+        $cities = \common\models\Citys::find()->all();
+        \Yii::$app->view->params['cities'] = $cities;
+
+        $cookies = Yii::$app->request->cookies;
+        if (!$cookies->has('city')) {
+            // Set sefault city if not set yet.
+            $cookies = Yii::$app->response->cookies;
+            $cookies->add(new \yii\web\Cookie([
+                'name' => 'city',
+                'value' => '3',
+            ]));
+            \Yii::$app->view->params['city'] = 3;
+        } else {
+            \Yii::$app->view->params['city'] = $cookies->getValue('city');
+        
+        }
+
+        return parent::beforeAction($action);
+    }
+
     /**
      * Displays homepage.
      *
@@ -33,6 +55,7 @@ class SiteController extends Controller
     {
         $fcats = \common\models\Fcategorys::find()->all();
         $scats = \common\models\Scategorys::find()->all();
+        $cities = \common\models\Citys::find()->all();
 
         $items =Items::find()->all();
 
@@ -78,17 +101,22 @@ class SiteController extends Controller
             ]);
     }
     
-    public function actionManWomen()
+    public function actionGetProduct()
     {
-        $fcats = \common\models\Fcategorys::find()->all();
-        $items =Items::find()->all();
+        \Yii::$app->view->params['page'] = 'product-detail';
+        $request = Yii::$app->request;
+        $product = $request->get('product');
+        $product =\common\models\Items::find()
+            ->where(['=', 'cpu', $product])
+            ->with('images')
+           ->one(); 
+        if ($product === null) {
+            throw new \yii\web\NotFoundHttpException("Product not found");
+        }
 
-        return $this->render('gift_MW', 
-            [
-                'fcats' => $fcats,
-            ]);
+
+        return $this->render('product', ['product' =>$product]);
     }
-
         /**
      * Displays homepage.
      *
@@ -149,11 +177,46 @@ class SiteController extends Controller
             $tmp['description'] = $item->description;
             $tmp['image'] = $item->getMainImage();
             $tmp['price'] = $item->getActualPrice();
+            $tmp['cpu'] = $item->cpu;
             $out[] = $tmp;
         }
 
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         return $out;
+    }
+ 
+    public function actionAjaxGetCurrentClientSetting() 
+    {
+        $cookies = Yii::$app->request->cookies;
+        $tmp['city'] = $cookies->getValue('city', '2');
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return $tmp;
+    }
+
+    public function actionAjaxSetCurrentClientSetting() 
+    {
+        $request = Yii::$app->request;
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $cityid= (int)$request->get('cityid') ?? null;
+
+
+        if (($cityid!==null)) {
+            $cookies = Yii::$app->response->cookies;
+            $cookies->add(new \yii\web\Cookie([
+                'name' => 'city',
+                'value' => $cityid,
+            ]));
+            return  $cityid;
+        }
+        return 'error';
+    }
+
+    public function actionSessionTest()
+    {
+        $session = Yii::$app->session;
+        $cookies = Yii::$app->request->cookies;
+        vd($cookies);
     
     }
 
