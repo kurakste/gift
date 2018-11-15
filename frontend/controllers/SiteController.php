@@ -44,6 +44,8 @@ class SiteController extends Controller
         /* die; */
 
         // Отправил три массива с объектами fcategory, scategory, items
+
+        \Yii::$app->view->params['page'] = 'main';
         return $this->render('index', 
 
             [
@@ -66,6 +68,7 @@ class SiteController extends Controller
 
        // vd($items);
        // vd($cities);
+        \Yii::$app->view->params['page'] = 'cat';
         return $this->render('category', 
             [
                 'fcats' => $fcats,
@@ -94,12 +97,21 @@ class SiteController extends Controller
     public function actionAbout()
     {
         
+        \Yii::$app->view->params['page'] = 'about';
         return $this->render('about');
     }
     
     public function actionHowIsItWork()
     {
         
+        \Yii::$app->view->params['page'] = 'how';
+        return $this->render('about');
+    }
+    
+    public function actionActivate()
+    {
+        
+        \Yii::$app->view->params['page'] = 'act';
         return $this->render('about');
     }
 

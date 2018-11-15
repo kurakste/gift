@@ -4,8 +4,8 @@
             <div class="banner_content row">
                 <div class="col-lg-5">
                     <!--  сюда писать описание услуги и краткий комент как работает по кнопке переход на видео презу -->
-                    <h3>Хочется, чтобы улыбок вокруг было больше!</h3>
-                    <p>Мы помогаем вам создать праздник для своих близких: вы можете поздравить их находясь в другом городе.<br>Вы можете сделать командный подарок для своих коллег. <br>Как это работает?</p>
+                    <h3>Подарки для тех, кто вам дорог.</h3>
+                    <p>Мы поможем поздравить дорогих вам людей. Теплые эмоции и необычные подарки. Мы работаем что бы помочь Вам быть ближе.</p>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                     <a class="white_bg_btn" href="#">Выбрать подарок</a>
 
@@ -14,7 +14,7 @@
                     <div class="halemet_img">
                         <!--шлем заменить на рисунок образ подарка 
                         <img src="img/banner/helmat.png" alt=""> -->
-                        <img src="img/gift_index.png" alt="" width="80%">
+                        <img src="/img/title.jpg" alt="" width="100%">
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
     <div class="main_box">
         <div class="container">
             <div class="row hot_product_inner">
-                <?php for ($i =0; $i<=1; $i++):  ?>
+                <?php for ($i =0; $i<=3; $i++):  ?>
                 <div class="col-lg-6">
                     <div class="hot_p_item">
                         <img class="img-fluid" src="<?= $fcats[$i]->image ?> " alt="">
@@ -50,7 +50,7 @@
                     <!--выбор категорий переход следующий слайд просто переход-->
                     <p>У нас вы найдете способ поздравить своих близких, знакомых, родных, коллег.</p><br>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                    <a class="main_btn" href="#">Купить сейчас</a>
+                    <a class="main_btn" href="#">Подобрать подарок.</a>
                 </div>
             </div>
         </div>
@@ -62,9 +62,11 @@
 <section class="timer_area">
     <div class="container">
         <div class="main_title">
-            <h2>Всегда лучшие варианты для поздравлений!</h2>
-            <!--<p>Мы поможем выбрать лучшее для вашего подарка</p>
-            <a class="main_btn" href="#">Выбирайте</a> -->
+            <h2>Для вдохновения:</h2>
+            <p>
+                Идеальный подарок мужчине, у которого все есть, – женщина, которая знает, что со всем этим делать. (Неизвестный автор)
+            </p>
+            <a class="main_btn" href="#">Не помогло?</a>
             <img class="img-fluid" src="img/gift_for_index.png" alt="">
             <img class="img-fluid" src="img/gift_for_index.png" alt="">
             <img class="img-fluid" src="img/gift_for_index.png" alt="">

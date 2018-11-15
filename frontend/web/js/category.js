@@ -83,6 +83,9 @@ window.onload = function() {
    function addNewItemInContainer(content) {
       var pcontainer = document.getElementById('pcontainer');   
       var ddiv = document.createElement('div');
+      ddiv.classList.add('col-lg-4')
+      ddiv.classList.add('col-md-4')
+      ddiv.classList.add('col-sm-4')
 
       ddiv.innerHTML = content;
       pcontainer.appendChild(ddiv);
@@ -92,9 +95,10 @@ window.onload = function() {
    //Generate item that need to be added in product conteiner.
    function generateItem(name, price, image) {
       
+     // <div class="col-lg-4 col-md-4 col-sm-6">
+//</div>
       var tmpl = 
 `
-<div class="col-lg-4 col-md-4 col-sm-6">
    <div class="f_p_item">
        <div class="f_p_img">
            <img class="img-fluid" src="`+ image + `" alt="">
@@ -108,7 +112,6 @@ window.onload = function() {
        </a>
        <h5>&#8381 ` + price + ` </h5>
    </div>
-</div>
 
 `;
    

@@ -163,7 +163,7 @@ $this->registerJsFile('/js/category.js');
 </section>
 <!--================End Category Product Area =================-->
 
-<!--================Most Product Area =================-->
+<!--================Most Product Area =================
 <section class="most_product_area most_p_withoutbox">
     <div class="container">
         <div class="main_title">
@@ -195,4 +195,4 @@ $this->registerJsFile('/js/category.js');
         </div>
     </div>
 </section>
-<!--================End Most Product Area =================-->
+--================End Most Product Area =================-->

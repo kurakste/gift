@@ -15,7 +15,7 @@ AppAsset::register($this);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="icon" href="/img/favicon.png" type="image/png">-->
-        <link rel="icon" href="/img/logo.png" type="image/png">
+        <link rel="icon" href="/img/test-icon.png" type="image/png">
 
         <?= Html::csrfMetaTags() ?>
             <title>
@@ -43,7 +43,7 @@ AppAsset::register($this);
                 <nav class="navbar navbar-expand-lg navbar-light main_box">
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                        <a class="navbar-brand logo_h" href="<?= Url::toRoute(['site/index']) ?>"><img src="/img/logo.png" alt=""></a>
+                        <a class="navbar-brand logo_h" href="<?= Url::toRoute(['site/index']) ?>"><img src="/img/test-icon.png" alt="" width="80px"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
@@ -54,11 +54,11 @@ AppAsset::register($this);
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                             <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/category']) ?>">Выбрать подарок</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/how-is-it-work']) ?>">Как это работает</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">АКТИВИРОВАТЬ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
+                            <li class="nav-item <?php if ($this->params['page']==='main') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a></li>
+                            <li class="nav-item <?php if ($this->params['page']==='cat') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/category']) ?>">Выбрать подарок</a></li>
+                            <li class="nav-item <?php if ($this->params['page']==='how') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-is-it-work']) ?>">Как это работает</a></li>
+                            <li class="nav-item <?php if ($this->params['page']==='act') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">АКТИВИРОВАТЬ</a></li>
+                            <li class="nav-item <?php if ($this->params['page']==='about') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
 <!--
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Каталог</a>
