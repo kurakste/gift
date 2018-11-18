@@ -46,6 +46,18 @@ class SiteController extends Controller
         return parent::beforeAction($action);
     }
 
+    public function behaviors()
+{
+    return [
+        'verbs' => [
+            'class' => \yii\filters\VerbFilter::className(),
+            'actions' => [
+                'checkout' => ['POST','GET'],
+            ],
+        ],
+    ];
+}
+
     /**
      * Displays homepage.
      *
@@ -58,13 +70,6 @@ class SiteController extends Controller
         $cities = \common\models\Citys::find()->all();
 
         $items =Items::find()->all();
-
-        //        vd($items[0]->images[0]->path);
-        /* foreach ($items as $item) { */
-        /*     echo $item->name."<br>"; */
-
-        /* } */
-        /* die; */
 
         // Отправил три массива с объектами fcategory, scategory, items
 
@@ -117,6 +122,23 @@ class SiteController extends Controller
 
         return $this->render('product', ['product' =>$product]);
     }
+
+    public function actionCheckout()
+    {
+        \Yii::$app->view->params['page'] = 'product-detail';
+        $request = Yii::$app->request;
+        $product = $request->get('product');
+        //vd($request->post());
+        $product =\common\models\Items::find()
+            ->where(['=', 'cpu', $product])
+            ->with('images')
+           ->one(); 
+        if ($product === null) {
+            throw new \yii\web\NotFoundHttpException("Product not found");
+        }
+    
+        return $this->render('checkout', ['product' =>$product]);
+    }
         /**
      * Displays homepage.
      *
@@ -129,18 +151,18 @@ class SiteController extends Controller
         return $this->render('about');
     }
     
-    public function actionHowIsItWork()
+    public function actionHowDoesItWork()
     {
         
         \Yii::$app->view->params['page'] = 'how';
-        return $this->render('about');
+        return $this->render('howdoesitwork');
     }
     
     public function actionActivate()
     {
         
         \Yii::$app->view->params['page'] = 'act';
-        return $this->render('about');
+        return $this->render('activate');
     }
 
 
@@ -173,6 +195,7 @@ class SiteController extends Controller
         $out = [];
         foreach ($items as $item) {
             $tmp = [];
+            $tmp['id'] = $item->id;
             $tmp['name'] = $item->name;
             $tmp['description'] = $item->description;
             $tmp['image'] = $item->getMainImage();

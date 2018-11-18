@@ -4,6 +4,9 @@ window.onload = function() {
    var globalFcatID = -99;
    var globalScatID = -99;
    var globalCityID = 1; 
+   var csrf = document.querySelector("meta[name='csrf-token']").content;
+   console.log(csrf);
+   
    
    var fcats = document.getElementById('fcatlist');   
    var scats = document.getElementById('scatlist');  
@@ -44,24 +47,58 @@ window.onload = function() {
       xhr.onreadystatechange = function() {
          if (this.readyState != 4) return;
          items = JSON.parse(this.responseText);
-         console.log(this.responseText);
+         //console.log(this.responseText);
          clearProductContainer()
          generateItemsFromArray(items); 
+         refreshAddToCartHendler();
       }
       xhr.send('');
    }
 
    function generateItemsFromArray(items) {
       items.forEach(function(item) {
-         var content = generateItem(item.name, item.price, item.image, item.cpu);
+         var content = generateItem(item.name, item.price, item.image, item.cpu, item.id);
          addNewItemInContainer(content);
       }); 
+   }
+  
+
+   function refreshAddToCartHendler() {
+
+      let addicons = document.querySelectorAll('.aproduct-item');
+      console.log(addicons.length)
+      if (addicons!=null) {
+         for (var i = 0; i < addicons.length; i++) {
+            addicons[i].onclick = onAddToCartClick;
+            console.log(addicons[i]);
+         }
+      }
+      
+      let favicons = document.querySelectorAll('.fproduct-item');
+      console.log(addicons.length)
+      if (favicons!=null) {
+         for (var i = 0; i < favicons.length; i++) {
+            favicons[i].onclick = onAddToFavoriteClick;
+            console.log(favicons[i]);
+         }
+      }
+
+   }
+   
+   function onAddToCartClick() {
+//      console.log(this.firstChild.getAttribute('data-cityid')); 
+      return  true
+   }
+   
+   function onAddToFavoriteClick() {
+      console.log(this.firstChild.getAttribute('data-cityid')); 
+      return false
    }
    
    //onCatsElements click hendler;
    function fcatsclick() {
       globalFcatID = this.dataset.fcatid;
-      console.log(globalFcatID);
+     // console.log(globalFcatID);
       requestForItems();
       return false; // Prevent default action on a tags
    }
@@ -69,14 +106,14 @@ window.onload = function() {
    function scatsclick() {
       globalScatID = this.dataset.scatid;
       requestForItems();
-      console.log(this.dataset.scatid);
+    //  console.log(this.dataset.scatid);
       return false; // Prevent default action on a tags
    }
 
    function clearProductContainer(){
       var pcontainer = document.getElementById('pcontainer');   
       pcontainer.innerHTML ='';
-      console.log('cleaning done');
+//      console.log('cleaning done');
    }
 
    //Add html content (item) in product container
@@ -93,7 +130,7 @@ window.onload = function() {
    }
 
    //Generate item that need to be added in product conteiner.
-   function generateItem(name, price, image, cpu) {
+   function generateItem(name, price, image, cpu, id) {
       
      // <div class="col-lg-4 col-md-4 col-sm-6">
 //</div>
@@ -103,8 +140,8 @@ window.onload = function() {
        <div class="f_p_img">
            <img class="img-fluid" src="`+ image + `" alt="">
            <div class="p_icon">
-               <a href="#"><i class="lnr lnr-heart"></i></a>
-               <a href="#"><i class="lnr lnr-cart"></i></a>
+               <a class="fproduct-item" href="#"><i class="lnr lnr-heart" data-cityid="`+ id + `"></i></a>
+               <a class="aproduct-item" href="/site/get-product?product=`+ cpu +`"><i class="lnr lnr-cart" data-cityid="`+ id + `"></i></a>
            </div>
        </div>
        <a href="/site/get-product?product=` + cpu + `">
