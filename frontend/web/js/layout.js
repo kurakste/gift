@@ -65,17 +65,7 @@ window.onload = function() {
 
    function refreshAddToCartHendler() {
 
-      let addicons = document.querySelectorAll('.aproduct-item');
-      console.log(addicons.length)
-      if (addicons!=null) {
-         for (var i = 0; i < addicons.length; i++) {
-            addicons[i].onclick = onAddToCartClick;
-            console.log(addicons[i]);
-         }
-      }
-      
       let favicons = document.querySelectorAll('.fproduct-item');
-      console.log(addicons.length)
       if (favicons!=null) {
          for (var i = 0; i < favicons.length; i++) {
             favicons[i].onclick = onAddToFavoriteClick;
@@ -85,15 +75,31 @@ window.onload = function() {
 
    }
    
-   function onAddToCartClick() {
-//      console.log(this.firstChild.getAttribute('data-cityid')); 
-      return  true
-   }
-   
    function onAddToFavoriteClick() {
       console.log(this.firstChild.getAttribute('data-cityid')); 
+      let favid = this.firstChild.getAttribute('data-cityid');
+      requestForAddToFav(favid);
+      
       return false
    }
+
+   function requestForAddToFav(iid) {
+      var xhr = new XMLHttpRequest();
+      var url = '/site/ajax-add-item-to-fav';
+      var req = '';
+
+      req = url + '?iid=' + iid;
+      console.log(req);
+      xhr.open("GET", req, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+      xhr.onreadystatechange = function() {
+         if (this.readyState != 4) return;
+         console.log('add to fav done');
+      }
+      xhr.send('');
+   }
+   
    
    //onCatsElements click hendler;
    function fcatsclick() {
@@ -141,10 +147,11 @@ window.onload = function() {
            <img class="img-fluid" src="`+ image + `" alt="">
            <div class="p_icon">
                <a class="fproduct-item" href="#"><i class="lnr lnr-heart" data-cityid="`+ id + `"></i></a>
-               <a class="aproduct-item" href="/site/get-product?product=`+ cpu +`"><i class="lnr lnr-cart" data-cityid="`+ id + `"></i></a>
+               <a class="aproduct-item" href="/site/checkout?product=`+ cpu +`"><i class="lnr lnr-cart" data-cityid="`+ id + `"></i></a>
            </div>
        </div>
        <a href="/site/get-product?product=` + cpu + `">
+
            <h4>` + name + ` </h4>
        </a>
        <h5>&#8381 ` + price + ` </h5>

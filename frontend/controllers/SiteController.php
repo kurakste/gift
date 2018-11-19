@@ -42,21 +42,30 @@ class SiteController extends Controller
             \Yii::$app->view->params['city'] = $cookies->getValue('city');
         
         }
-
+        
+        if (!$cookies->has('favid')) {
+            $favid = uniqid();
+            $cookies = Yii::$app->response->cookies;
+            $cookies->add(new \yii\web\Cookie([
+                'name' => 'favid',
+                'value' => $favid,
+            ]));
+        } 
         return parent::beforeAction($action);
     }
 
     public function behaviors()
-{
-    return [
-        'verbs' => [
-            'class' => \yii\filters\VerbFilter::className(),
-            'actions' => [
-                'checkout' => ['POST','GET'],
+    {
+        return [
+            'verbs' => [
+                'class' => \yii\filters\VerbFilter::className(),
+                'actions' => [
+                    'checkout' => ['POST','GET'],
+                    'del-all-fav' => ['POST'],
+                ],
             ],
-        ],
-    ];
-}
+        ];
+    }
 
     /**
      * Displays homepage.
@@ -118,8 +127,7 @@ class SiteController extends Controller
         if ($product === null) {
             throw new \yii\web\NotFoundHttpException("Product not found");
         }
-
-
+        
         return $this->render('product', ['product' =>$product]);
     }
 
@@ -235,35 +243,85 @@ class SiteController extends Controller
         return 'error';
     }
 
+    public function actionAjaxAddItemToFav()
+    {
+        $request = Yii::$app->request;
+        $iid = $request->get('iid'); 
+
+
+        $fcid = $request->get('fcid');
+
+        $cookies = Yii::$app->request->cookies;
+        $favid = $cookies->getValue('favid');
+
+        $favsearch = \common\models\Favorites::find()
+            ->where(['iid' => $iid, 'favid' => $favid])
+            ->all();
+        
+        if (count($favsearch) == 0) {
+            $fav = new \common\models\Favorites;
+            $fav->favid = $favid;
+            $fav->iid = $iid;
+            $fav->save();
+    //        vd($fav);
+        }
+    }
+
+
+    public function actionFavorite()
+    {
+        $cookies = Yii::$app->request->cookies;
+        $favid = $cookies->getValue('favid');
+
+        $favorites =\common\models\Favorites::find()
+            ->joinWith('items')
+            ->andFilterWhere(['favid' => $favid])
+            ->all();
+
+        \Yii::$app->view->params['page'] = 'favorite';
+        return $this->render('favorite', ['favs' => $favorites]);
+    }
+    
+    public function actionDelOneFav()
+    {
+        $cookies = Yii::$app->request->cookies;
+        $favid = $cookies->getValue('favid');
+        
+        $request = Yii::$app->request;
+        $iid = (int)$request->post('iid') ?? 0; 
+
+        $favorite =\common\models\Favorites::find()
+            ->where(['favid' => $favid, 'iid' => $iid])
+            ->one();
+        
+        if ($favorite !== null) {
+            $favorite->delete();
+        }
+
+        return $this->redirect(['site/favorite']);
+    }
+
+
+    
+    public function actionDelAllFav()
+    {
+        $cookies = Yii::$app->request->cookies;
+        $favid = $cookies->getValue('favid');
+
+        $favorites =\common\models\Favorites::deleteAll(['=', 'favid', $favid]);
+
+        return $this->redirect(['site/favorite']);
+    }
+
     public function actionSessionTest()
     {
-        $session = Yii::$app->session;
-        $cookies = Yii::$app->request->cookies;
-        vd($cookies);
     
     }
 
     public function actionTest()
     {
-        $out = [ 
-            [
-                'name' => 'Helen',
-                'price' => 2000,
-                'image' => '/img/product/most-product/m-product-1.jpg'
-            ],
-            [
-                'name' => 'Helen1',
-                'price' => 3000,
-                'image' => '/img/product/most-product/m-product-2.jpg'
-            ],
-            [
-                'name' => 'Helen2',
-                'price' => 4000,
-                'image' => '/img/product/most-product/m-product-3.jpg'
-            ],
-        ];
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        return $out;
+        \Yii::$app->view->params['page'] = 'test';
+        return $this->render('cert');
     }
     
 }

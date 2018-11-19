@@ -20,7 +20,7 @@ use yii\helpers\Html;
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Категории подарков</h2>
+                <h2>Как это работает</h2>
                 <div class="page_link">
                     <a href="<?= Url::toRoute(['site/index']) ?>">Главная</a>
                     <a href="#">Активировать</a>
