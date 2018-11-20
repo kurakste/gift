@@ -4,6 +4,18 @@
 // $this->registerJsFile('/js/category.js');
 
 ?> 
+<style>
+    #pconteiner {
+        text-align: center;
+    }
+    .myspin {
+        font-size: 80px;
+        margin: 0 auto;
+    }
+    .f_p_img img {
+        border-radius:15px;
+    }
+</style>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -35,6 +47,7 @@
                     </div>
                 </div>
                 <div class="latest_product_inner row" id = 'pcontainer'>
+                    <i class="fa fa-spinner myspin"></i>
                 </div>
             </div>
             <div class="col-lg-3">

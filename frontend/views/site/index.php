@@ -1,3 +1,10 @@
+<?php
+use frontend\assets\AppAsset;
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+?>
+
 <style>
     .main-page-image {
         border-radius:15px;
@@ -8,6 +15,22 @@
         padding: 10px;
         background-color: rgba(0, 0, 0, 0.4);
     }
+    .myproducttext {
+        border-radius:15px 15px 0px 0px;
+        background-color: rgba(10, 10, 10, 0.2);
+        width: 100%;
+        height: 20% !important;
+        position: relative;
+        bottom: 20px;
+    }
+    .catname {
+        text-transform: uppercase;
+        color: rgba(50, 50, 50, 0.7)!important;
+    }
+    .cat-image:hover {
+        cursor: pointer;
+    }
+    
 </style>
 <section class="home_banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -15,10 +38,10 @@
             <div class="banner_content row">
                 <div class="col-lg-5">
                     <!--  сюда писать описание услуги и краткий комент как работает по кнопке переход на видео презу -->
-                    <h3>Подарки для тех, кто вам дорог.</h3>
+                    <h3 class="mb-30 title_color">Подарки для тех, кто вам дорог.</h3>
                     <p>Мы поможем поздравить дорогих вам людей. Теплые эмоции и необычные подарки. Мы работаем что бы помочь Вам быть ближе.</p>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                    <a class="white_bg_btn" href="#">Выбрать подарок</a>
+                    <a class="white_bg_btn" href="<?= Url::toRoute(['site/category']) ?>">Выбрать подарок</a>
 
                 </div>
                 <div class="col-lg-7">
@@ -43,13 +66,13 @@
                 <?php for ($i =0; $i<=3; $i++):  ?>
                 <div class="col-lg-6">
                     <div class="hot_p_item" style='margin-top:30px;'>
-                        <img class="img-fluid main-page-image" src="<?= $fcats[$i]->image ?> " alt="">
-                        <div class="product_text">
+                        <img class="img-fluid main-page-image cat-image" src="<?= $fcats[$i]->image ?> " alt="">
+                        <div class="product_text myproducttext">
                             <!--категория подарка для вас М и Ж -->
-                            <h4>
-                                <?= $fcats[$i]->description ?>
+                            <h4 class="catname">
+                                <?= $fcats[$i]->name ?>
                             </h4>
-                            <a class='choose-link' href="/cats/<?= $fcats[$i]->cpu ?>">Перейти к выбору</a>
+<!--                            <a class='choose-link' href="/cats/<?= $fcats[$i]->cpu ?>">Перейти к выбору</a> -->
                         </div>
                     </div>
                 </div>
@@ -61,7 +84,7 @@
                     <!--выбор категорий переход следующий слайд просто переход-->
                     <p>У нас вы найдете способ поздравить своих близких, знакомых, родных, коллег.</p><br>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                    <a class="main_btn" href="#">Подобрать подарок.</a>
+                    <a class="main_btn" href="<?= Url::toRoute(['site/category']) ?>">Подобрать подарок.</a>
                 </div>
             </div>
         </div>
@@ -125,7 +148,7 @@
                         <div class="f_p_item">
                             <div class="f_p_img">
                                 <!--<img class="img-fluid" src="img/product/feature-product/f-p-1.jpg" alt="">-->
-                                <img class="img-fluid" src="<?= $items[$i]->getMainImage() ?>" alt="">
+                                <img class="img-fluid main-page-image" src="<?= $items[$i]->getMainImage() ?>" alt="">
                                 <div class="p_icon">
                                     <a href="#"><i class="lnr lnr-heart"></i></a>
                                     <a href="#"><i class="lnr lnr-cart"></i></a>
