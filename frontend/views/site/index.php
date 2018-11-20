@@ -1,3 +1,14 @@
+<style>
+    .main-page-image {
+        border-radius:15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .choose-link  {
+        border-radius:15px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+</style>
 <section class="home_banner_area">
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
@@ -14,7 +25,7 @@
                     <div class="halemet_img">
                         <!--шлем заменить на рисунок образ подарка 
                         <img src="img/banner/helmat.png" alt=""> -->
-                        <img src="/img/title.jpg" alt="" width="100%">
+                        <img class='main-page-image' src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
                     </div>
                 </div>
             </div>
@@ -32,13 +43,13 @@
                 <?php for ($i =0; $i<=3; $i++):  ?>
                 <div class="col-lg-6">
                     <div class="hot_p_item" style='margin-top:30px;'>
-                        <img class="img-fluid" src="<?= $fcats[$i]->image ?> " alt="">
+                        <img class="img-fluid main-page-image" src="<?= $fcats[$i]->image ?> " alt="">
                         <div class="product_text">
                             <!--категория подарка для вас М и Ж -->
                             <h4>
                                 <?= $fcats[$i]->description ?>
                             </h4>
-                            <a href="/cats/<?= $fcats[$i]->cpu ?>">Перейти к выбору</a>
+                            <a class='choose-link' href="/cats/<?= $fcats[$i]->cpu ?>">Перейти к выбору</a>
                         </div>
                     </div>
                 </div>
