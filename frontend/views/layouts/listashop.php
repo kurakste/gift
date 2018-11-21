@@ -21,7 +21,7 @@ $curentcity = $this->params['city'];
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="icon" href="/img/favicon.png" type="image/png">-->
-        <link rel="icon" href="/img/test-icon.jpg" type="image/png">
+        <link rel="icon" href="/img/logo.png" type="image/png">
 
         <?= Html::csrfMetaTags() ?>
             <title>
@@ -49,7 +49,7 @@ $curentcity = $this->params['city'];
                 <nav class="navbar navbar-expand-lg navbar-light main_box">
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                        <a class="navbar-brand logo_h" href="<?= Url::toRoute(['site/index']) ?>"><img src="/img/test-icon.jpg" alt="" width="80px"></a>
+                        <a class="navbar-brand logo_h" href="<?= Url::toRoute(['site/index']) ?>"><img src="/img/logo.png" alt="" width="120px"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
