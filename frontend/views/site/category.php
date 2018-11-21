@@ -52,45 +52,6 @@
             </div>
             <div class="col-lg-3">
                 <div class="left_sidebar_area">
-                    <!--<aside class="left_widgets cat_widgets">
-                        <div class="l_w_title">
-                            <h3>Выбор категории</h3>
-                        </div>
-                        <div class="widgets_inner">
-                            <ul class="list">
-                                <li><a href="#">Fruits and Vegetables</a></li>
-                                <li>
-                                    <a href="#">Meat and Fish</a>
-                                    <ul class="list">
-                                        <li><a href="#">Frozen Fish</a></li>
-                                        <li><a href="#">Dried Fish</a></li>
-                                        <li><a href="#">Fresh Fish</a></li>
-                                        <li><a href="#">Meat Alternatives</a></li>
-                                        <li><a href="#">Meat</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Cooking</a>
-                                    <ul class="list">
-                                        <li><a href="#">Frozen Fish</a></li>
-                                        <li><a href="#">Dried Fish</a></li>
-                                        <li><a href="#">Fresh Fish</a></li>
-                                        <li><a href="#">Meat Alternatives</a></li>
-                                        <li><a href="#">Meat</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Beverages</a>
-                                    <ul class="list">
-                                        <li><a href="#">Frozen Fish</a></li>
-                                        <li><a href="#">Dried Fish</a></li>
-                                        <li><a href="#">Fresh Fish</a></li>
-                                        <li><a href="#">Meat Alternatives</a></li>
-                                        <li><a href="#">Meat</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Home and Cleaning</a></li>
-                            </ul>
-                        </div>
-                    </aside>-->
                     <aside class="left_widgets p_filter_widgets">
                         <div class="l_w_title">
                             <h3>Категории</h3>
@@ -102,28 +63,10 @@
                                 <?php foreach ($fcats as $fcat): ?>
                                     <li> <a href="" data-fcatid = '<?= $fcat->id ?>'><?= $fcat->name ?></a></li>
                                 <?php endforeach ?>
-<!--
-                                <li><a href="#">Для мужчин</a></li>
-                                <li><a href="#">Для женщин</a></li>
-                                <li class="active"><a href="#">Для коллег</a></li>
-                                <li><a href="#">Для родителей</a></li>
-                                <li><a href="#">Любимой</a></li>
-                                <li><a href="#">Любимому</a></li>
-                                <li><a href="#">Партнеру по бизнесу</a></li>
-                                <li><a href="#">Ребенку</a></li>
-                                <li><a href="#">Спасибо</a></li>
-                                <li><a href="#">Извини</a></li>
-                                <li><a href="#">Экстрим</a></li>
-                                <li><a href="#">Учителю</a></li>
-                                <li><a href="#">На день рождения</a></li>
-                                <li><a href="#">На праздник</a></li>
-                                <li><a href="#">Прикол</a></li>
-                                <li><a href="#">На рождение ребенка</a></li>
--->
                             </ul>
                         </div>
                         <div class="widgets_inner" >
-                            <h4>Какой повод:</h4>
+                            <h4>Стиль подарка:</h4>
                             <!--  вывести сюда все подарки -->
                             <ul class="list" id='scatlist'>
                             <li><a href="#" data-scatid = '-99'>Все</a></li>
@@ -137,8 +80,6 @@
                             <div class="range_item">
                                 <div id="slider-range"></div>
                                 <div class="row m0">
-                                    <label for="amount">РАЗРАБОТАТЬ </label>
-                                    <input type="text" id="amount" readonly>
                                 </div>
                             </div>
                         </div>
