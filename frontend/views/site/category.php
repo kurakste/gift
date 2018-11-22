@@ -1,7 +1,6 @@
 <?php 
     use yii\helpers\Url;
     use yii\helpers\Html;
-// $this->registerJsFile('/js/category.js');
 
 ?> 
 <style>
@@ -91,36 +90,3 @@
 </section>
 <!--================End Category Product Area =================-->
 
-<!--================Most Product Area =================
-<section class="most_product_area most_p_withoutbox">
-    <div class="container">
-        <div class="main_title">
-            <h2>Most Searched Products</h2>
-            <p>Who are in extremely love with eco friendly system.</p>
-        </div>
-        <div class="row most_product_inner">
-            <div class="col-lg-3 col-sm-6">
-                <?php foreach ($items as $item): ?>
-                <div class="most_p_list">
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="/img/product/most-product/m-product-1.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>
-                                    <?= $item->name ?>
-                                </h4>
-                            </a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-
-                </div>
-                <?php endforeach ?>
-            </div>
-
-        </div>
-    </div>
-</section>
---================End Most Product Area =================-->

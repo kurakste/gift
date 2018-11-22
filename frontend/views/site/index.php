@@ -57,8 +57,6 @@ use yii\helpers\Url;
 </section>
 
 <!--================Feature Product Area =================-->
-<!--сделать закругления и размер уменьшить-->
-
 <section class="feature_product_area">
     <div class="main_box">
         <div class="container">
@@ -68,7 +66,6 @@ use yii\helpers\Url;
                     <div class="hot_p_item" style='margin-top:30px;'>
                         <img class="img-fluid main-page-image cat-image" src="<?= $fcats[$i]->image ?> " alt="">
                         <div class="product_text myproducttext">
-                            <!--категория подарка для вас М и Ж -->
                             <h4 class="catname">
                                 <?= $fcats[$i]->name ?>
                             </h4>
@@ -81,9 +78,7 @@ use yii\helpers\Url;
             <div class="feature_product_inner">
                 <div class="main_title">
                     <h2>Лучшие подарки в наших коллекциях</h2>
-                    <!--выбор категорий переход следующий слайд просто переход-->
                     <p>У нас вы найдете способ поздравить своих близких, знакомых, родных, коллег.</p><br>
-                    <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                     <a class="main_btn" href="<?= Url::toRoute(['site/category']) ?>">Подобрать подарок.</a>
                 </div>
             </div>
@@ -105,26 +100,6 @@ use yii\helpers\Url;
             <img class="img-fluid" src="img/gift_for_index.png" alt="">
             <img class="img-fluid" src="img/gift_for_index.png" alt="">
         </div>
-        <!--<div class="timer_inner">
-            <div id="timer" class="timer">
-                <div class="timer__section days">
-                    <div class="timer__number"></div>
-                    <div class="timer__label">дней</div>
-                </div>
-                <div class="timer__section hours">
-                    <div class="timer__number"></div>
-                    <div class="timer__label">часов</div>
-                </div>
-                <div class="timer__section minutes">
-                    <div class="timer__number"></div>
-                    <div class="timer__label">минут</div>
-                </div>
-                <div class="timer__section seconds">
-                    <div class="timer__number"></div>
-                    <div class="timer__label">секунд</div>
-                </div>
-            </div>
-        </div>-->
     </div>
 </section>
 <!--================End Deal Timer Area =================-->

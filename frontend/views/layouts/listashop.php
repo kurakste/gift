@@ -12,6 +12,20 @@ $curentcity = $this->params['city'];
 //vd($curentcity);
 ?>
 
+<style>
+
+    #logo-img {
+        width:120px;
+    }
+
+@media only screen and (max-width: 600px) {
+    #logo-img {
+        width:80px;
+    }
+}
+
+</style>
+
     <?php $this->beginPage() ?>
     <!DOCTYPE html>
     <html lang="<?= Yii::$app->language ?>">
@@ -49,7 +63,7 @@ $curentcity = $this->params['city'];
                 <nav class="navbar navbar-expand-lg navbar-light main_box">
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                        <a class="navbar-brand logo_h" href="<?= Url::toRoute(['site/index']) ?>"><img src="/img/logo.png" alt="" width="120px"></a>
+                        <a class="navbar-brand logo_h" href="<?= Url::toRoute(['site/index']) ?>"><img id="logo-img" src="/img/logo.png" alt=""></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
