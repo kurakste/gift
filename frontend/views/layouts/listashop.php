@@ -18,9 +18,9 @@ $curentcity = $this->params['city'];
         width:120px;
     }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     #logo-img {
-        width:80px;
+        width:70px;
     }
 }
 
