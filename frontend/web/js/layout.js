@@ -12,6 +12,10 @@ window.onload = function() {
    var scats = document.getElementById('scatlist');  
    var slist = document.getElementById('citieslist');  
 
+   var catimagelist = document.getElementsByClassName('cat-image');
+
+   console.log(catimagelist);
+
    if (fcats!=null) {
       for (var i = 0; i < fcats.children.length; i++) {
          fcats.children[i].children[0].onclick = fcatsclick;
@@ -23,15 +27,26 @@ window.onload = function() {
          scats.children[i].children[0].onclick = scatsclick;
       }
    }
+
+   if (catimagelist!=null) {
+      for (var i=0; i< catimagelist.length; i++) {
+         catimagelist[i].onclick = onCategoryClick;
+      } 
+   }
    slist.onchange = cityChangeState;
 
    loadCity(); 
 
-   console.log(globalCityID);
    requestForItems();
 
    
 //-----------------------------------------------------   
+
+   function onCategoryClick() {
+      globalScatID = this.dataset.catid; 
+      let link = "/site/category"
+      window.location.href = link; 
+   }
   
    function requestForItems() {
       var xhr = new XMLHttpRequest();
