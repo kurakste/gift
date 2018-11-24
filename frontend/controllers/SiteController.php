@@ -30,6 +30,7 @@ class SiteController extends Controller
         \Yii::$app->view->params['cities'] = $cities;
 
         $cookies = Yii::$app->request->cookies;
+
         if (!$cookies->has('city')) {
             // Set sefault city if not set yet.
             $cookies = Yii::$app->response->cookies;
@@ -38,8 +39,17 @@ class SiteController extends Controller
                 'value' => '3',
             ]));
             \Yii::$app->view->params['city'] = 3;
+            \Yii::$app->view->params['citycpu']='naberegnye_chelny';
         } else {
-            \Yii::$app->view->params['city'] = $cookies->getValue('city');
+            $cityid = $cookies->getValue('city');
+            \Yii::$app->view->params['city'] = $cityid;
+
+            $city = \common\models\Citys::find()->where(['id' => $cityid])->one();
+            if ($city == null) {
+                throw new \yii\web\HttpException(404, 'Can\'t find city like that.');
+            }
+            \Yii::$app->view->params['citycpu']=$city->cpu;
+
         
         }
         
@@ -94,6 +104,29 @@ class SiteController extends Controller
 
     public function actionCategory()
     {
+
+        $request = Yii::$app->request;
+
+        //We get the name city 
+        $citycpu = (string)$request->get('city'); // !!!we don't use city here. 
+        // It's ony for CEO optimisation. We get it from cookie, end set it 
+        // throught ajax.
+        $fcatscpu = (string)$request->get('fcats'); 
+
+        if ($fcatscpu == '_') {
+            $fcid = -99; // show all items with out filter;
+        } else {
+            $fcat = \common\models\Fcategorys::find()->where(['cpu' => $fcatscpu])->one();
+            if (!$fcat) {
+                $fcid = -99;
+            } else {
+                $fcid = $fcat->id; // We will filter items using this fcid.
+            };
+        
+        }
+        
+        \Yii::$app->view->params['fcid'] = $fcid; // Send fcid to template if it comes from get.
+
         $fcats = \common\models\Fcategorys::find()->all();
         $scats = \common\models\Scategorys::find()->all();
         $citys = \common\models\Citys::find()->all();

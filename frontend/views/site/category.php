@@ -15,6 +15,9 @@
         border-radius:15px;
     }
 </style>
+<script>
+    var initialFcidFromBackend = <?= $this->params['fcid']; ?> ; 
+</script>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -70,7 +73,7 @@
                             <ul class="list" id='scatlist'>
                             <li><a href="#" data-scatid = '-99'>Все</a></li>
                             <?php foreach ($scats as $scat): ?>
-                                <li ><a href="#"data-scatid = '<?= $scat->id ?>'><?= $scat->name ?></a></li>
+                                <li ><a href="#" data-scatid = '<?= $scat->id ?>'><?= $scat->name ?></a></li>
                             <?php endforeach ?>
                             </ul>
                         </div>

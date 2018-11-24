@@ -40,6 +40,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'site/index',
+                '/gifts/<city>/<fcats>' => 'site/category',
+                'howto' => 'site/how-does-it-work',
+                'activate' => 'site/activate',
+                'contacts' => 'site/about',
             ],
         ],
     ],

@@ -8,7 +8,9 @@ AppAsset::register($this);
 $this->registerJsFile('/js/layout.js');
 
 $cities = $this->params['cities'];
+$citycpu = $this->params['citycpu'];
 $curentcity = $this->params['city'];
+
 //vd($curentcity);
 ?>
 
@@ -16,6 +18,9 @@ $curentcity = $this->params['city'];
 
     #logo-img {
         width:120px;
+    }
+    .icon-link {
+        padding-top: 15px;
     }
 
 @media only screen and (max-width: 800px) {
@@ -70,52 +75,22 @@ $curentcity = $this->params['city'];
 							<span class="icon-bar"></span>
 						</button>
 
-                        <!-- расставь ссылки Андрей -->
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-
                         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                             <ul class="nav navbar-nav menu_nav ml-auto">
-<li class="nav-item" style ="margin-top:18px;">
-                            <select id='citieslist' name='city'>
-                                <?php foreach ($cities as $city): ?>
-                                    <option 
-                                        <?php if ($curentcity == $city->id) echo "selected"; ?>
-                                    value ="<?= $city->id ?>"><?= $city->name ?></option>
-                                <?php endforeach ?>
-                            </select>
-</li>
+                            <li class="nav-item" style ="margin-top:18px;">
+                                <select id='citieslist' name='city'>
+                                    <?php foreach ($cities as $city): ?>
+                                        <option 
+                                            <?php if ($curentcity == $city->id) echo "selected"; ?>
+                                        value ="<?= $city->id ?>"><?= $city->name ?></option>
+                                    <?php endforeach ?>
+                                </select>
+                            </li>
                             <li class="nav-item <?php if ($this->params['page']==='main') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a></li>
-                            <li class="nav-item <?php if ($this->params['page']==='cat') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/category']) ?>">Подарки</a></li>
+                            <li class="nav-item <?php if ($this->params['page']==='cat') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Подарки</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='how') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-does-it-work']) ?>">Как это работает</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='act') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">АКТИВИРОВАТЬ</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='about') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
-<!--
-                                <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Каталог</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="/site/category">Категории каталога</a>
-                                            <li class="nav-item"><a class="nav-link" href="#">Данные о продукте</a>
-                                                <li class="nav-item"><a class="nav-link" href="#">Корзина продуктов</a>
-                                                    <li class="nav-item"><a class="nav-link" href="#">Корзина</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="#">Подтверждение</a></li>
-                                    </ul>
-                                    </li>
-                                    <li class="nav-item submenu dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Отзывы</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item"><a class="nav-link" href="#">Отзывы</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Пожелания</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item submenu dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Страницы</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item"><a class="nav-link" href="#">Войти</a>
-                                                <li class="nav-item"><a class="nav-link" href="#">Путь подарка</a>
-                                                    <li class="nav-item"><a class="nav-link" href="#">Элементы</a></li>
-                                        </ul>
-                                        </li>
--->
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="nav-item"><a href="<?= Url::toRoute(['site/favorite']) ?>" class="cart"><i class="lnr lnr lnr-heart"></i></a></li>
@@ -158,46 +133,6 @@ $curentcity = $this->params['city'];
                                 </div>
                             </div>
                         </div>-->
-                    <!--  <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-footer-widget instafeed">
-                                <h6 class="footer_title">Галлерея</h6>
-                                <ul class="list instafeed d-flex flex-wrap">
-                                    <li><img src="img/instagram/Image-06.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-05.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-06.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-05.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-06.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-05.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-06.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-05.jpg" alt=""></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-6">
-                            <div class="single-footer-widget f_social_wd">
-                                <h6 class="footer_title"> Присоединяйтесь к нам в социальных сетях</h6>
-                                <p>Мы в социальных сетях</p>
-                                <div class="f_social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-vk"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row footer-bottom d-flex justify-content-between align-items-center">
-                        <p class="col-lg-12 footer-text text-center">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;
-                    <script>
-                        document.write(new Date().getFullYear());
-
-                    </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
-                </div>
-                </div>
-            </footer>
             <!--================ End footer Area  =================-->
 
 

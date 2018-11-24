@@ -1,20 +1,25 @@
 window.onload = function() {
    console.log('Layout js here.');
+   
+   if (typeof(initialFcidFromBackend) != 'undefined' && initialFcidFromBackend != null) {
+      var globalFcatID = initialFcidFromBackend;
+   }
 
-   var globalFcatID = -99;
    var globalScatID = -99;
    var globalCityID = 1; 
+   var globalCitiesList = [];
+   var globalQuotesList = [];
+
    var csrf = document.querySelector("meta[name='csrf-token']").content;
-   console.log(csrf);
    
    
    var fcats = document.getElementById('fcatlist');   
    var scats = document.getElementById('scatlist');  
    var slist = document.getElementById('citieslist');  
-
+   var btnQuote = document.getElementById('btnQuote');  
    var catimagelist = document.getElementsByClassName('cat-image');
+   var quoteContainer = document.getElementById('quote-container');
 
-   console.log(catimagelist);
 
    if (fcats!=null) {
       for (var i = 0; i < fcats.children.length; i++) {
@@ -33,18 +38,93 @@ window.onload = function() {
          catimagelist[i].onclick = onCategoryClick;
       } 
    }
+
+   btnQuote.onclick = btnQuoteOnClickHandler;
    slist.onchange = cityChangeState;
 
    loadCity(); 
 
+   loadCitiesList();
+
    requestForItems();
+
+   loadQuotesList();
+
 
    
 //-----------------------------------------------------   
+   function btnQuoteOnClickHandler(){
+      let quote = getRandomQuote();  
+      quoteContainer.innerHTML = quote.body;
+      return false;
+   }
+   
+   function getRandomQuote() {
+      let len = globalQuotesList.length;
+      let num = getRndInteger(0, len-1);
+
+      console.log(globalQuotesList[num]);
+      return globalQuotesList[num];
+   }
+
+   function getRndInteger(min, max) {
+       return Math.floor(Math.random() * (max - min) ) + min;
+   }
+
+   function loadQuotesList(){
+      var xhr = new XMLHttpRequest();
+      var url = '/ajax/quotes';
+      var req = '';
+
+      req = url; 
+      console.log(req);
+      xhr.open("GET", req, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+      xhr.onreadystatechange = function() {
+         if (this.readyState != 4) return;
+         let quotes = JSON.parse(this.responseText);
+         globalQuotesList = quotes;
+         console.log(globalQuotesList);
+      }
+      xhr.send('');
+      
+   }
+
+   function getCityCpuById (id){
+      let len = globalCitiesList.length;
+      console.log(globalCitiesList);
+      for (var i = 0; i < len; i++) {
+         if (globalCitiesList[i].id == id) {
+            console.log(globalCitiesList[i].id);
+            return globalCitiesList[i].cpu;
+         }
+      }
+      return '_';
+   }
+   
+   function loadCitiesList() {
+      var xhr = new XMLHttpRequest();
+      var url = '/ajax/get-city-list';
+      var req = '';
+
+      req = url; 
+      console.log(req);
+      xhr.open("GET", req, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+      xhr.onreadystatechange = function() {
+         if (this.readyState != 4) return;
+         let cities = JSON.parse(this.responseText);
+         console.log(cities);
+         globalCitiesList = cities;
+      }
+      xhr.send('');
+   }
 
    function onCategoryClick() {
       globalScatID = this.dataset.catid; 
-      let link = "/site/category"
+      let link = "/gifts/"+ getCityCpuById(globalCityID)+"/" + this.dataset.catcpu;
       window.location.href = link; 
    }
   
@@ -133,8 +213,9 @@ window.onload = function() {
 
    function clearProductContainer(){
       var pcontainer = document.getElementById('pcontainer');   
-      pcontainer.innerHTML ='';
-//      console.log('cleaning done');
+      if (pcontainer != null) {
+         pcontainer.innerHTML ='';
+      }
    }
 
    //Add html content (item) in product container
@@ -161,8 +242,8 @@ window.onload = function() {
        <div class="f_p_img">
            <img class="img-fluid" src="`+ image + `" alt="">
            <div class="p_icon">
-               <a class="fproduct-item" href="#"><i class="lnr lnr-heart" data-cityid="`+ id + `"></i></a>
-               <a class="aproduct-item" href="/site/checkout?product=`+ cpu +`"><i class="lnr lnr-cart" data-cityid="`+ id + `"></i></a>
+               <a class="fproduct-item icon-link" href="#"><i class="lnr lnr-heart" data-cityid="`+ id + `"></i></a>
+               <a class="aproduct-item icon-link" href="/site/checkout?product=`+ cpu +`"><i class="lnr lnr-cart" data-cityid="`+ id + `"></i></a>
            </div>
        </div>
        <a href="/site/get-product?product=` + cpu + `">
