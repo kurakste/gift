@@ -39,7 +39,8 @@ window.onload = function() {
       } 
    }
 
-   btnQuote.onclick = btnQuoteOnClickHandler;
+   if (btnQuote!=null) btnQuote.onclick = btnQuoteOnClickHandler;
+
    slist.onchange = cityChangeState;
 
    loadCity(); 
