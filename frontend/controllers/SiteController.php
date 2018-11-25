@@ -31,26 +31,16 @@ class SiteController extends Controller
 
         $cookies = Yii::$app->request->cookies;
 
-        if (!$cookies->has('city')) {
-            // Set sefault city if not set yet.
-            $cookies = Yii::$app->response->cookies;
-            $cookies->add(new \yii\web\Cookie([
-                'name' => 'city',
-                'value' => '3',
-            ]));
-            \Yii::$app->view->params['city'] = 3;
-            \Yii::$app->view->params['citycpu']='naberegnye_chelny';
-        } else {
-            $cityid = $cookies->getValue('city');
-            \Yii::$app->view->params['city'] = $cityid;
+        $cookies = Yii::$app->request->cookies;
 
+        if ($cookies->has('city')) {
+            $cityid = $cookies->getValue('city');
             $city = \common\models\Citys::find()->where(['id' => $cityid])->one();
             if ($city == null) {
                 throw new \yii\web\HttpException(404, 'Can\'t find city like that.');
             }
+            \Yii::$app->view->params['city'] = $city;
             \Yii::$app->view->params['citycpu']=$city->cpu;
-
-        
         }
         
         if (!$cookies->has('favid')) {
@@ -100,6 +90,46 @@ class SiteController extends Controller
             ]);
     }
 
+    public function actionIndexCity()
+    {
+        $request = Yii::$app->request;
+        $citycpu = (string)$request->get('city');
+
+        $city = \common\models\Citys::find()->where(['cpu' => $citycpu])->one();
+        \Yii::$app->view->params['citycpu']=$city->cpu; 
+        \Yii::$app->view->params['city'] = $city;
+        \Yii::$app->view->params['page'] = 'main';
+
+
+        $cookies = Yii::$app->request->cookies;
+
+        if ($cookies->has('city')) {
+            $cookies = Yii::$app->response->cookies;
+            $cookies->remove('city');
+        }
+
+
+        $cookies = Yii::$app->response->cookies;
+        $cookies->add(new \yii\web\Cookie([
+            'name' => 'city',
+            'value' => $city->id,
+        ]));
+        
+
+        $fcats = \common\models\Fcategorys::find()->all();
+        $scats = \common\models\Scategorys::find()->all();
+        $cities = \common\models\Citys::find()->all();
+
+        $items =Items::find()->all();
+
+        return $this->render('index', 
+            [
+                'fcats' => $fcats,
+                'scats' => $scats,
+                'items' => $items,
+            ]);
+    }
+
     public function actionCategory()
     {
 
@@ -120,7 +150,6 @@ class SiteController extends Controller
             } else {
                 $fcid = $fcat->id; // We will filter items using this fcid.
             };
-        
         }
         
         \Yii::$app->view->params['fcid'] = $fcid; // Send fcid to template if it comes from get.

@@ -4,6 +4,9 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 
 ?>
+<script>
+    var globalPage = 'product';
+</script>
 
         <!--================Home Banner Area =================-->
         <section class="banner_area">

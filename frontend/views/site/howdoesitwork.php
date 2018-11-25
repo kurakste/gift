@@ -6,6 +6,10 @@ use yii\helpers\Html;
 ?> 
 
 
+<script>
+    var globalPage = 'howto';
+</script>
+
 <style>
     .about-main {
         margin-top: 15px;

@@ -17,6 +17,7 @@
 </style>
 <script>
     var initialFcidFromBackend = <?= $this->params['fcid']; ?> ; 
+    var globalPage = 'category';
 </script>
 <!--================Home Banner Area =================-->
 <section class="banner_area">

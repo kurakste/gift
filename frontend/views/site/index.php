@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $citycpu = $this->params['citycpu'];
+$curentcity = $this->params['city'];
 
 ?>
 
@@ -49,7 +50,15 @@ $citycpu = $this->params['citycpu'];
     .cat-image:hover {
         cursor: pointer;
     }
+
+    #main-header {
+        font-size: 30px;
+    }
 </style>
+
+<script>
+    var globalPage = 'main';
+</script>
 
 <section class="home_banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -57,7 +66,7 @@ $citycpu = $this->params['citycpu'];
             <div class="banner_content row">
                 <div class="col-lg-5">
                     <!--  сюда писать описание услуги и краткий комент как работает по кнопке переход на видео презу -->
-                    <h3 class="mb-30 title_color">Подарки для тех, кто вам дорог.</h3>
+                    <h4 class="mb-30 title_color" id = 'main-header'>Подарки в г. <?= $curentcity->name ?> для тех, кто вам дорог.</h4>
                     <p>Мы поможем поздравить дорогих вам людей. Теплые эмоции и необычные подарки. Мы работаем что бы помочь Вам быть ближе.</p>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                     <a class="white_bg_btn" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Выбрать подарок</a>

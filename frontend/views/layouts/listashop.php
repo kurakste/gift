@@ -8,6 +8,8 @@ AppAsset::register($this);
 $this->registerJsFile('/js/layout.js');
 
 $cities = $this->params['cities'];
+
+
 $citycpu = $this->params['citycpu'];
 $curentcity = $this->params['city'];
 
@@ -68,7 +70,7 @@ $curentcity = $this->params['city'];
                 <nav class="navbar navbar-expand-lg navbar-light main_box">
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                        <a class="navbar-brand logo_h" href="<?= Url::toRoute(['site/index']) ?>"><img id="logo-img" src="/img/logo.png" alt=""></a>
+                        <a class="navbar-brand logo_h" id="home-link-1" href="<?= Url::toRoute(['site/index-city', 'city'=>$citycpu]) ?>"><img id="logo-img" src="/img/logo.png" alt=""></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
@@ -81,12 +83,12 @@ $curentcity = $this->params['city'];
                                 <select id='citieslist' name='city'>
                                     <?php foreach ($cities as $city): ?>
                                         <option 
-                                            <?php if ($curentcity == $city->id) echo "selected"; ?>
+                                            <?php if ($curentcity->id == $city->id) echo "selected"; ?>
                                         value ="<?= $city->id ?>"><?= $city->name ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </li>
-                            <li class="nav-item <?php if ($this->params['page']==='main') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a></li>
+                            <li class="nav-item id="home-link-2" <?php if ($this->params['page']==='main') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index-city', 'city'=>$citycpu]) ?>">ГЛАВНАЯ</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='cat') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Подарки</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='how') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-does-it-work']) ?>">Как это работает</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='act') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">АКТИВИРОВАТЬ</a></li>

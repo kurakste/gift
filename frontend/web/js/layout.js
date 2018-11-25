@@ -5,7 +5,7 @@ window.onload = function() {
    }
 
    var globalScatID = -99;
-   var globalCityID = 3; // !!! внимание с дефольтным городом. Он должен существовать и отвечать городу по умолчанию в шаблоне. 
+   var globalCityID = 0; // !!! внимание с дефольтным городом. Он должен существовать и отвечать городу по умолчанию в шаблоне. 
    var globalCitiesList = [];
    var globalQuotesList = [];
 
@@ -58,7 +58,6 @@ window.onload = function() {
       let len = globalQuotesList.length;
       let num = getRndInteger(0, len-1);
 
-      console.log(globalQuotesList[num]);
       return globalQuotesList[num];
    }
 
@@ -72,7 +71,6 @@ window.onload = function() {
       var req = '';
 
       req = url; 
-      console.log(req);
       xhr.open("GET", req, true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -80,7 +78,6 @@ window.onload = function() {
          if (this.readyState != 4) return;
          let quotes = JSON.parse(this.responseText);
          globalQuotesList = quotes;
-         console.log(globalQuotesList);
       }
       xhr.send('');
       
@@ -88,10 +85,8 @@ window.onload = function() {
 
    function getCityCpuById (id){
       let len = globalCitiesList.length;
-      console.log(globalCitiesList);
       for (var i = 0; i < len; i++) {
          if (globalCitiesList[i].id == id) {
-            console.log(globalCitiesList[i].id);
             return globalCitiesList[i].cpu;
          }
       }
@@ -159,14 +154,12 @@ window.onload = function() {
       if (favicons!=null) {
          for (var i = 0; i < favicons.length; i++) {
             favicons[i].onclick = onAddToFavoriteClick;
-            console.log(favicons[i]);
          }
       }
 
    }
    
    function onAddToFavoriteClick() {
-      console.log(this.firstChild.getAttribute('data-cityid')); 
       let favid = this.firstChild.getAttribute('data-cityid');
       requestForAddToFav(favid);
       
@@ -179,13 +172,11 @@ window.onload = function() {
       var req = '';
 
       req = url + '?iid=' + iid;
-      console.log(req);
       xhr.open("GET", req, true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
       xhr.onreadystatechange = function() {
          if (this.readyState != 4) return;
-         console.log('add to fav done');
       }
       xhr.send('');
    }
@@ -194,7 +185,6 @@ window.onload = function() {
    //onCatsElements click hendler;
    function fcatsclick() {
       globalFcatID = this.dataset.fcatid;
-     // console.log(globalFcatID);
       requestForItems();
       return false; // Prevent default action on a tags
    }
@@ -202,7 +192,6 @@ window.onload = function() {
    function scatsclick() {
       globalScatID = this.dataset.scatid;
       requestForItems();
-    //  console.log(this.dataset.scatid);
       return false; // Prevent default action on a tags
    }
 
@@ -269,14 +258,23 @@ window.onload = function() {
          addNewItemInContainer(content);
       }
    }
-   
-
 
 //-------------------------------------------------------function
    function cityChangeState() {
       globalCityID = this.value;
       console.log(globalCityID);
       storeCityWhenChanged(this.value);
+      if (typeof(globalPage) != 'undefined' && globalPage != null) {
+         if (globalPage == 'main') {
+            window.location.href = "/main/" + getCityCpuById(globalCityID);
+         } else {
+            let homelink1 = document.getElementById('home-link-1');   
+            let homelink2 = document.getElementById('home-link-2');   
+
+            console.log(homelink1);
+         
+         }
+      }
       requestForItems();
    } 
 
@@ -300,12 +298,11 @@ window.onload = function() {
    }
 
    function loadCity() {
-      console.log('Load city here.'); 
       var xhr = new XMLHttpRequest();
       var url = '/site/ajax-get-current-client-setting';
       var req = url;
 
-      xhr.open("GET", req, true);
+      xhr.open("GET", req, false);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
       xhr.onreadystatechange = function() {

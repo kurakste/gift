@@ -41,6 +41,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '/' => 'site/index',
+                '/main/<city>' => 'site/index-city',
                 '/gifts/<city>/<fcats>' => 'site/category',
                 'howto' => 'site/how-does-it-work',
                 'activate' => 'site/activate',

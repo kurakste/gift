@@ -4,6 +4,9 @@
 
 ?> 
 
+<script>
+    var globalPage = 'favorite';
+</script>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
