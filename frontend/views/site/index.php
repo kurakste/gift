@@ -58,7 +58,7 @@ use yii\helpers\Url;
                     <h3 class="mb-30 title_color">Подарки для тех, кто вам дорог.</h3>
                     <p>Мы поможем поздравить дорогих вам людей. Теплые эмоции и необычные подарки. Мы работаем что бы помочь Вам быть ближе.</p>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                    <a class="white_bg_btn" href="<?= Url::toRoute(['site/category']) ?>">Выбрать подарок</a>
+                    <a class="white_bg_btn" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?> ?>">Выбрать подарок</a>
 
                 </div>
                 <div class="col-lg-7">
