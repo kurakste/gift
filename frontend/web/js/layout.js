@@ -44,16 +44,9 @@ window.onload = function() {
    slist.onchange = cityChangeState;
 
    loadCity(); 
-
    loadCitiesList();
-
    requestForItems();
-
    loadQuotesList();
-
-   alert('load triggered!');
-
-
    
 //-----------------------------------------------------   
    function btnQuoteOnClickHandler(){
