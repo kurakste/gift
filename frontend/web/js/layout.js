@@ -1,12 +1,11 @@
 window.onload = function() {
-   console.log('Layout js here.');
    
    if (typeof(initialFcidFromBackend) != 'undefined' && initialFcidFromBackend != null) {
       var globalFcatID = initialFcidFromBackend;
    }
 
    var globalScatID = -99;
-   var globalCityID = 1; 
+   var globalCityID = 3; // !!! внимание с дефольтным городом. Он должен существовать и отвечать городу по умолчанию в шаблоне. 
    var globalCitiesList = [];
    var globalQuotesList = [];
 
@@ -45,8 +44,8 @@ window.onload = function() {
 
    loadCity(); 
    loadCitiesList();
-   requestForItems();
    loadQuotesList();
+   requestForItems();
    
 //-----------------------------------------------------   
    function btnQuoteOnClickHandler(){
@@ -138,7 +137,7 @@ window.onload = function() {
       xhr.onreadystatechange = function() {
          if (this.readyState != 4) return;
          items = JSON.parse(this.responseText);
-         //console.log(this.responseText);
+         console.log(this.responseText);
          clearProductContainer()
          generateItemsFromArray(items); 
          refreshAddToCartHendler();

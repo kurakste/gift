@@ -91,10 +91,8 @@ class SiteController extends Controller
         $items =Items::find()->all();
 
         // Отправил три массива с объектами fcategory, scategory, items
-
         \Yii::$app->view->params['page'] = 'main';
         return $this->render('index', 
-
             [
                 'fcats' => $fcats,
                 'scats' => $scats,
