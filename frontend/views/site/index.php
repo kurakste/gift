@@ -83,7 +83,7 @@ $citycpu = $this->params['citycpu'];
                 <?php for ($i =0; $i<=3; $i++):  ?>
                 <div class="col-lg-6">
                     <div class="hot_p_item" style='margin-top:30px;'>
-                        <img class="img-fluid main-page-image cat-image" data-catcpu= "<?= $fcats[$i]->cpu ?>" src="<?= $fcats[$i]->image ?> " alt="">
+                        <img tabindex="<?php echo $i+10 ?>" class="img-fluid main-page-image cat-image" data-catcpu= "<?= $fcats[$i]->cpu ?>" src="<?= $fcats[$i]->image ?> " alt="">
                         <div class="product_text myproducttext">
                             <h4 class="catname">
                                 <?= $fcats[$i]->name ?>
