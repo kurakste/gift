@@ -3,9 +3,12 @@ window.onload = function() {
    if (typeof(initialFcidFromBackend) != 'undefined' && initialFcidFromBackend != null) {
       var globalFcatID = initialFcidFromBackend;
    }
+   
+   if (typeof(initialCityFromBackend) != 'undefined' && initialCityFromBackend != null) {
+      var globalCityID = initialCityFromBackend; 
+   }
 
    var globalScatID = -99;
-   var globalCityID = 0; // !!! внимание с дефольтным городом. Он должен существовать и отвечать городу по умолчанию в шаблоне. 
    var globalCitiesList = [];
    var globalQuotesList = [];
 
@@ -42,8 +45,8 @@ window.onload = function() {
 
    slist.onchange = cityChangeState;
 
-   loadCity(); 
-   loadCitiesList();
+   loadCity(); // Этот запрос синхоронный. Все будут ждать, пока не выяснится город. Без этого не правильно загрузятся товары.  
+   loadCitiesList();  
    loadQuotesList();
    requestForItems();
    
@@ -267,12 +270,13 @@ window.onload = function() {
       if (typeof(globalPage) != 'undefined' && globalPage != null) {
          if (globalPage == 'main') {
             window.location.href = "/main/" + getCityCpuById(globalCityID);
-         } else {
-            let homelink1 = document.getElementById('home-link-1');   
-            let homelink2 = document.getElementById('home-link-2');   
-
-            console.log(homelink1);
-         
+         } else if ( globalPage == 'category') {
+            window.location.href = "/gifts/" + getCityCpuById(globalCityID)+'/_';
+         }
+            else {
+               let homelink1 = document.getElementById('home-link-1');   
+               let homelink2 = document.getElementById('home-link-2');   
+               console.log(homelink1);
          }
       }
       requestForItems();

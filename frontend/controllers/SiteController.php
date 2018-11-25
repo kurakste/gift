@@ -96,9 +96,11 @@ class SiteController extends Controller
         $citycpu = (string)$request->get('city');
 
         $city = \common\models\Citys::find()->where(['cpu' => $citycpu])->one();
+
         \Yii::$app->view->params['citycpu']=$city->cpu; 
         \Yii::$app->view->params['city'] = $city;
         \Yii::$app->view->params['page'] = 'main';
+        $this->view->title = "Подарки | г. " . $city->name;
 
 
         $cookies = Yii::$app->request->cookies;
@@ -136,11 +138,17 @@ class SiteController extends Controller
         $request = Yii::$app->request;
 
         //We get the name city 
-        $citycpu = (string)$request->get('city'); // !!!we don't use city here. 
-        // It's ony for CEO optimisation. We get it from cookie, end set it 
-        // throught ajax.
+        $citycpu = (string)$request->get('city');  
         $fcatscpu = (string)$request->get('fcats'); 
+        $city = \common\models\Citys::find()->where(['cpu' => $citycpu])->one();
 
+
+        \Yii::$app->view->params['citycpu']=$city->cpu; 
+        \Yii::$app->view->params['city'] = $city;
+        \Yii::$app->view->params['page'] = 'cat';
+        $this->view->title = "Выбор подарков в г. " . $city->name;
+
+            
         if ($fcatscpu == '_') {
             $fcid = -99; // show all items with out filter;
         } else {
@@ -153,6 +161,19 @@ class SiteController extends Controller
         }
         
         \Yii::$app->view->params['fcid'] = $fcid; // Send fcid to template if it comes from get.
+        
+        $cookies = Yii::$app->request->cookies;
+
+        if ($cookies->has('city')) {
+            $cookies = Yii::$app->response->cookies;
+            $cookies->remove('city');
+        }
+
+        $cookies = Yii::$app->response->cookies;
+        $cookies->add(new \yii\web\Cookie([
+            'name' => 'city',
+            'value' => $city->id,
+        ]));
 
         $fcats = \common\models\Fcategorys::find()->all();
         $scats = \common\models\Scategorys::find()->all();
@@ -160,17 +181,10 @@ class SiteController extends Controller
 
         $cities = \yii\helpers\ArrayHelper::map($citys, 'id', 'name');
 
-        $items =Items::find()
-            ->all();
-
-       // vd($items);
-       // vd($cities);
-        \Yii::$app->view->params['page'] = 'cat';
         return $this->render('category', 
             [
                 'fcats' => $fcats,
                 'scats' => $scats,
-                'items' => $items,
                 'cities' => $cities,
             ]);
     }
@@ -188,6 +202,7 @@ class SiteController extends Controller
             throw new \yii\web\NotFoundHttpException("Product not found");
         }
         
+        $this->view->title = "Подарок | Сертификат |" .$product->name ;
         return $this->render('product', ['product' =>$product]);
     }
 
@@ -204,6 +219,7 @@ class SiteController extends Controller
         if ($product === null) {
             throw new \yii\web\NotFoundHttpException("Product not found");
         }
+        $this->view->title = "Подарок | оформление | " .$product->name ;
     
         return $this->render('checkout', ['product' =>$product]);
     }
@@ -216,6 +232,7 @@ class SiteController extends Controller
     {
         
         \Yii::$app->view->params['page'] = 'about';
+        $this->view->title = "Подарки | о нас";
         return $this->render('about');
     }
     
@@ -223,11 +240,13 @@ class SiteController extends Controller
     {
         
         \Yii::$app->view->params['page'] = 'how';
+        $this->view->title = "Подарки | как это работает";
         return $this->render('howdoesitwork');
     }
     
     public function actionActivate()
     {
+        $this->view->title = "Подарки | активация сертификата";
         
         \Yii::$app->view->params['page'] = 'act';
         return $this->render('activate');
