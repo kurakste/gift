@@ -51,6 +51,8 @@ window.onload = function() {
 
    loadQuotesList();
 
+   alert('load triggered!');
+
 
    
 //-----------------------------------------------------   
