@@ -396,8 +396,24 @@ class SiteController extends Controller
 
     public function actionTest()
     {
-        \Yii::$app->view->params['page'] = 'test';
-        return $this->render('cert');
+        $this->layout = null;
+        /* vd(getcwd()); */
+        $vaucherPath = "./img/vauchers/vaucher.png";
+        $im = imagecreatefrompng($vaucherPath);
+        $name = "В гостях у сказки."; 
+        $shortDescription = "Описание: Приключение на две персоны."; 
+        $date = 'Использовать до: 1/02/2019';
+        $cod = "X23F-234234";
+        $fontpath = "./fonts/font1.ttf";
+        $color = imagecolorallocate($im, 0, 0, 0); 
+        imagettftext($im, 20, 0, 420, 247, $color, $fontpath, $name);
+        imagettftext($im, 20, 0, 420, 295, $color, $fontpath, $shortDescription);
+        imagettftext($im, 20, 0, 85, 380, $color, $fontpath, $cod);
+        imagettftext($im, 20, 0, 480, 431, $color, $fontpath, $date);
+        header("Content-type: image/png"); 
+        imagepng($im); 
+        imagedestroy($im);
+        die;
     }
     
 }
