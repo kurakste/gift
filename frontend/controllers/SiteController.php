@@ -402,7 +402,7 @@ class SiteController extends Controller
         $im = imagecreatefrompng($vaucherPath);
         $name = "В гостях у сказки."; 
         $shortDescription = "Описание: Приключение на две персоны."; 
-        $date = 'Использовать до: 1/02/2019';
+        $date = 'Активировать до: 1/02/2019';
         $cod = "X23F-234234";
         $fontpath = "./fonts/font1.ttf";
         $color = imagecolorallocate($im, 0, 0, 0); 
