@@ -261,10 +261,9 @@ class SiteController extends Controller
         $scid = $request->get('scid');
         $cityid = $request->get('cityid');
 
-        $fcid = ($fcid == -99) ? null : $fcid;
-        $scid = ($scid == -99) ? null : $scid;
+        $fcid = ($fcid == -99) ? null : (int)$fcid;
+        $scid = ($scid == -99) ? null : (int)$scid;
 
-//        vd($fcid);
 
         $items =Items::find()
             ->joinWith('venders')
@@ -276,8 +275,6 @@ class SiteController extends Controller
 //            ->andFilterWhere(['scid' => $scid])
             ->andFilterWhere(['venders.cityid' => $cityid])
             ->all();
-
-//        vd($items);
 
         $out = [];
         foreach ($items as $item) {

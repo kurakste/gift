@@ -3,6 +3,7 @@
     use yii\helpers\Html;
 
     $city = $this->params['city'];
+    $fcid = $this->params['fcid'];
 
 ?> 
 <style>
@@ -18,7 +19,8 @@
     }
 </style>
 <script>
-    var initialFcidFromBackend = <?= $this->params['fcid']; ?> ; 
+    var initialFcidFromBackend =  <?= $fcid ?>; 
+    var initialCityFromBackend = <?= $city->id?>;
     var globalPage = 'category';
 </script>
 <!--================Home Banner Area =================-->
