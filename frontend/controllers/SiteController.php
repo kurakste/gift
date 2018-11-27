@@ -400,16 +400,17 @@ class SiteController extends Controller
         /* vd(getcwd()); */
         $vaucherPath = "./img/vauchers/vaucher.png";
         $im = imagecreatefrompng($vaucherPath);
-        $name = "В гостях у сказки."; 
-        $shortDescription = "Описание: Приключение на две персоны."; 
-        $date = 'Активировать до: 1/02/2019';
+        $name = "Мне бы в небо."; 
+        $shortDescription = "Пилотирование легкомоторного самолета."; 
+        $date = 'Активировать до: 01/02/2019';
         $cod = "X23F-234234";
-        $fontpath = "./fonts/font1.ttf";
+        $fontpath2 = "./fonts/Jura-Bold.ttf";
+        $fontpath1 = "./fonts/12161.otf";
         $color = imagecolorallocate($im, 0, 0, 0); 
-        imagettftext($im, 20, 0, 420, 247, $color, $fontpath, $name);
-        imagettftext($im, 20, 0, 420, 295, $color, $fontpath, $shortDescription);
-        imagettftext($im, 20, 0, 85, 380, $color, $fontpath, $cod);
-        imagettftext($im, 20, 0, 480, 431, $color, $fontpath, $date);
+        imagettftext($im, 32, 0, 420, 260, $color, $fontpath1, $name);
+        imagettftext($im, 28, 0, 420, 350, $color, $fontpath1, $shortDescription);
+        imagettftext($im, 24, 0, 75, 380, $color, $fontpath2, $cod);
+        imagettftext($im, 28, 0, 480, 437, $color, $fontpath1, $date);
         header("Content-type: image/png"); 
         imagepng($im); 
         imagedestroy($im);
