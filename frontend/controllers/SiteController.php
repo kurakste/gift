@@ -74,20 +74,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $fcats = \common\models\Fcategorys::find()->all();
-        $scats = \common\models\Scategorys::find()->all();
-        $cities = \common\models\Citys::find()->all();
-
-        $items =Items::find()->all();
-
-        // Отправил три массива с объектами fcategory, scategory, items
         \Yii::$app->view->params['page'] = 'main';
         return $this->render('index', 
             [
-                'fcats' => $fcats,
-                'scats' => $scats,
-                'items' => $items,
-            ]);
+            ]
+        );
     }
 
     public function actionIndexCity()
@@ -99,7 +90,7 @@ class SiteController extends Controller
 
         \Yii::$app->view->params['citycpu']=$city->cpu; 
         \Yii::$app->view->params['city'] = $city;
-        \Yii::$app->view->params['page'] = 'main';
+        \Yii::$app->view->params['page'] = 'maincity';
         $this->view->title = "Подарки | г. " . $city->name;
 
 
@@ -124,7 +115,7 @@ class SiteController extends Controller
 
         $items =Items::find()->all();
 
-        return $this->render('index', 
+        return $this->render('indexcity', 
             [
                 'fcats' => $fcats,
                 'scats' => $scats,

@@ -70,7 +70,7 @@ $curentcity = $this->params['city'];
                 <nav class="navbar navbar-expand-lg navbar-light main_box">
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                        <a class="navbar-brand logo_h" id="home-link-1" href="<?= Url::toRoute(['site/index-city', 'city'=>$citycpu]) ?>"><img id="logo-img" src="/img/logo.png" alt=""></a>
+                        <a class="navbar-brand logo_h" id="home-link-1" href="<?= Url::toRoute(['site/index', 'city'=>$citycpu]) ?>"><img id="logo-img" src="/img/logo.png" alt=""></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
@@ -113,29 +113,57 @@ $curentcity = $this->params['city'];
 
             <footer class="footer-area">
                 <div class="container">
-                    <!-- <div class="row">
-                        <div class="col-lg-3  col-md-6 col-sm-6">
-                            <div class="single-footer-widget">
-                                <h6 class="footer_title">О нас</h6>
-                                <p>Мы помогаем создавать больше ярких поводов для ярких поздравлений.</p>
-                            </div>
+                    <div class="row">
+                    <div class="col-lg-4  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6 class="footer_title">О нас:</h6>
+                            <p> 
+                                Мы - команда увлеченных своим делом ребят. Любим програмировать,
+                                придумывать и работать. Цель проекта - стать лучшим рессурсом в рунете 
+                                для покупки подарков. 
+                            </p>
+                            <p> 
+                            <p>
+                                Вокруг много предпринимателейб которые делают классные услуги. Мы будем рады вам 
+                                помочь упаковать вашу услугу как подарок.
+                            </p>
                         </div>
-                        <!--<div class="col-lg-4 col-md-6 col-sm-6">
+                    </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-widget">
-                                <h6 class="footer_title">Наши новости</h6>
-                                <p>Будь в курсе наших предложений</p>
+                                <h6 class="footer_title">Обратный звонок:</h6>
+                                <p>Stay updated with our latest trends</p>		
                                 <div id="mc_embed_signup">
                                     <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
                                         <div class="input-group d-flex flex-row">
                                             <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                            <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>
-                                        </div>
+                                            <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
+                                        </div>									
                                         <div class="mt-10 info"></div>
                                     </form>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="single-footer-widget instafeed">
+                                <h6 class="footer_title">Instagram Feed</h6>
+                                <ul class="list instafeed d-flex flex-wrap">
+                                    <li><img src="img/instagram/Image-01.jpg" alt=""></li>
+                                    <li><img src="img/instagram/Image-02.jpg" alt=""></li>
+                                    <li><img src="img/instagram/Image-03.jpg" alt=""></li>
+                                    <li><img src="img/instagram/Image-04.jpg" alt=""></li>
+                                    <li><img src="img/instagram/Image-05.jpg" alt=""></li>
+                                    <li><img src="img/instagram/Image-06.jpg" alt=""></li>
+                                    <li><img src="img/instagram/Image-07.jpg" alt=""></li>
+                                    <li><img src="img/instagram/Image-08.jpg" alt=""></li>
+                                </ul>
+                            </div>
+                        </div>	
+                    </div>  <!-- row -->
             <!--================ End footer Area  =================-->
+                </div>
+            </footer>
+
 
 
             <?php $this->endBody() ?>
