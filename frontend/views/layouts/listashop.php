@@ -25,6 +25,10 @@ $curentcity = $this->params['city'];
         padding-top: 15px;
     }
 
+    #about-block {
+        max-width: 380px;
+    }
+
 @media only screen and (max-width: 800px) {
     #logo-img {
         width:70px;
@@ -114,18 +118,18 @@ $curentcity = $this->params['city'];
             <footer class="footer-area">
                 <div class="container">
                     <div class="row">
-                    <div class="col-lg-4  col-md-6 col-sm-6">
+                    <div class="col-lg-5  col-md-6 col-sm-6">
                         <div class="single-footer-widget">
                             <h6 class="footer_title">О нас:</h6>
-                            <p> 
-                                Мы - команда увлеченных своим делом ребят. Любим програмировать,
-                                придумывать и работать. Цель проекта - стать лучшим рессурсом в рунете 
-                                для покупки подарков. 
+                            <p class='text-body' id='about-block'> 
+                                Мы - команда увлеченных своим делом парней. Любим програмировать,
+                                придумывать новые проекты и работать. 
+                                Цель этого проекта - стать лучшим рессурсом в рунете для покупки подарков. 
+                                Вы нам можите в этом помочь. Присылайте ваши идеи, предлжения, пожелания. 
+                                Обязательно рассмотрим их и постараемся реализовать. 
                             </p>
-                            <p> 
                             <p>
-                                Вокруг много предпринимателейб которые делают классные услуги. Мы будем рады вам 
-                                помочь упаковать вашу услугу как подарок.
+    
                             </p>
                         </div>
                     </div>
@@ -144,7 +148,7 @@ $curentcity = $this->params['city'];
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="single-footer-widget instafeed">
                                 <h6 class="footer_title">Instagram Feed</h6>
                                 <ul class="list instafeed d-flex flex-wrap">

@@ -31,8 +31,6 @@ class SiteController extends Controller
 
         $cookies = Yii::$app->request->cookies;
 
-        $cookies = Yii::$app->request->cookies;
-
         if ($cookies->has('city')) {
             $cityid = $cookies->getValue('city');
             $city = \common\models\Citys::find()->where(['id' => $cityid])->one();
@@ -41,6 +39,12 @@ class SiteController extends Controller
             }
             \Yii::$app->view->params['city'] = $city;
             \Yii::$app->view->params['citycpu']=$city->cpu;
+        } else {
+            // Let it be as default value
+            \Yii::$app->view->params['citycpu']="naberegnye_chelny";
+            $city = \common\models\Citys::find()->where(['id' => 3])->one();
+            \Yii::$app->view->params['city'] = $city;
+        
         }
         
         if (!$cookies->has('favid')) {

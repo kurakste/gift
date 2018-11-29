@@ -13,6 +13,11 @@ $curentcity = $this->params['city'];
         margin-top:80px;
         margin-bottom: 80px;
     }
+
+    .text-body {
+        text-align: justify;
+    }
+
 </style>
 
 <script>
@@ -24,12 +29,11 @@ $curentcity = $this->params['city'];
         <div class="container">
             <div class="banner_content row">
                 <div class="col-lg-5">
-                    <!--  сюда писать описание услуги и краткий комент как работает по кнопке переход на видео презу -->
-                    <h4 class="mb-30 title_color" id = 'main-header'>Вам подарили сертификат?</h4>
-                    <p> Здорово!!! Мы рады что нам доверили вас поздравить. 
-                        Мы сделаем все что бы вы получили удовольствие от вашего подарка.
-                        Жмите кнопку "Поехали" и мы вам расскажем подробнее о вашем подарке и том
-                        как и что будет оранизовано.
+                    <h3 class="mb-30 title_color" id = 'main-header'>Активация сертификата</h3>
+                    <p>Вам подарили такой сертификат?</p>
+                    <p class='text-body'> Здорово!!! Мы рады что нам доверили Вас поздравить. 
+                        Сделаем все что бы вы получили удовольствие от вашего подарка.
+                        Жмите кнопку "Поехали" и мы расскажем Вам подробнее о вашем подарке. 
                     </p>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                     <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Поехали</a>
@@ -37,8 +41,6 @@ $curentcity = $this->params['city'];
                 </div>
                 <div class="col-lg-7">
                     <div class="halemet_img">
-                        <!--шлем заменить на рисунок образ подарка 
-                        <img src="img/banner/helmat.png" alt=""> -->
                         <img class='main-page-image' src="/img/vaucher-exp.png" alt="" width="100%">
                     </div>
                 </div>
@@ -53,19 +55,16 @@ $curentcity = $this->params['city'];
         <div class="container">
             <div class="banner_content row" id="SelectCityDiv">
                 <div class="col-lg-5" >
-                    <!--  сюда писать описание услуги и краткий комент как работает по кнопке переход на видео презу -->
                     <h4 class="mb-30 title_color" id = 'main-header'>Подобрать подарок в вашем городе</h4>
-                    <p>
-                        Для того, что бы начать подбо подарка в вашем городе, выбирите город в меню и нажмите кнопку "Выбрать подарок".
+                    <p class='text-body'>
+                        Для того, что бы начать поиск подарка в Вашем городе, выбирете 
+                        название Вашего города и нажмите кнопку "Подарки".
                     </p>
-                    <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                    <a class="white_bg_btn" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Выбрать подарок</a>
+                    <a class="white_bg_btn" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Подарки</a>
 
                 </div>
                 <div class="col-lg-7">
                     <div class="halemet_img">
-                        <!--шлем заменить на рисунок образ подарка 
-                        <img src="img/banner/helmat.png" alt=""> -->
                         <img class='main-page-image' src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
                     </div>
                 </div>
