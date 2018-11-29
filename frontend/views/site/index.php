@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $citycpu = $this->params['citycpu'];
+$cities = $this->params['cities'];
 $curentcity = $this->params['city'];
 
 ?>
@@ -57,6 +58,24 @@ $curentcity = $this->params['city'];
         outline: rgb(153, 153, 153) none 0px;
         padding: 1px 40px 1px 20px;
     }
+    .clearfix:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+    }
+    .clearfix { display: inline-block; }
+    /* start commented backslash hack \*/
+    * html .clearfix { height: 1%; }
+    .clearfix { display: block; }
+    /* close commented backslash hack */
+    
+    #raw_but {
+        padding-bottom: 50px;
+    }
+
 </style>
 
 <script>
@@ -101,31 +120,44 @@ $curentcity = $this->params['city'];
 <section class="feature_product_area"> 
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
-            <div class="banner_content row" id="SelectCityDiv">
-                <div class="col-lg-5" >
-                    <h4 class="mb-30 title_color" id = 'main-header'>ПОКУПАТЕЛЯМ</h4>
-                    <p class='text-body'>
-                        Мы с нашими партнерами, каждый день придумываем для вас подарки. 
-                        Хотим, что бы у вас была возможность одарить по достоинству  
-                        любого и по любому поводу. Что-то необычное, яркое и запоминающееся. 
-                        Думаем что эмоции - самый лучший подарок. Истории которые создают 
-                        яркие позитивные эмоции мы упаковываем, что бы вы могли их дарить. 
-                        Такой подарок вы можете отправить как открытку, можете подарить лично,
-                        а можете подарить тайно и сохранить интригу. Еще, мы сами любим дарить подарки. 
-                        Подписывайтесь на нас в соцсетях, участвуйте в конкурсах и получайте наши подарки. 
-                        Для того, что бы начать поиск подарка в Вашем городе, выбирайте 
-                        название города и нажмите кнопку "Подарки".
-                    </p>
-                    <a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Выбрать подарок</a>
+            <div class="raw">
+                
+                <div class="banner_content row" id="SelectCityDiv">
+                    <div class="col-lg-5" >
+                        <h4 class="mb-30 title_color" id = 'main-header'>ПОКУПАТЕЛЯМ</h4>
+                        <p class='text-body'>
+                            Мы с нашими партнерами, каждый день придумываем для вас подарки. 
+                            Хотим, что бы у вас была возможность одарить по достоинству  
+                            любого и по любому поводу. Что-то необычное, яркое и запоминающееся. 
+                            Думаем что эмоции - самый лучший подарок. Истории которые создают 
+                            яркие позитивные эмоции мы упаковываем, что бы вы могли их дарить. 
+                            Такой подарок вы можете отправить как открытку, можете подарить лично,
+                            а можете подарить тайно и сохранить интригу. Еще, мы сами любим дарить подарки. 
+                            Подписывайтесь на нас в соцсетях, участвуйте в конкурсах и получайте наши подарки. 
+                            Для того, что бы начать поиск подарка в Вашем городе, выбирайте и мы переведем Вас на
+                            нужную страничку.".
+                        </p>
 
-                </div>
+                        <select id='citieslist2' name='city2'>
+                            <?php foreach ($cities as $city): ?>
+                                <option 
+                                    <?php if ($curentcity->id == $city->id) echo "selected"; ?>
+                                value ="<?= $city->id ?>"><?= $city->name ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    <div>
+        
+                </div> <!-- row -->
+
+                    </div>
                 <div class="col-lg-7">
                     <div class="halemet_img">
                         <img class='main-page-image' src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- container -->
+    </div>
 </section>
 <!--================End Feature Product Area =================-->
 
