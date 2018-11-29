@@ -29,6 +29,10 @@ $curentcity = $this->params['city'];
         max-width: 380px !important;
     }
 
+    .my-arrow {
+        height: 40px;
+    }
+
 @media only screen and (max-width: 800px) {
     #logo-img {
         width:70px;
@@ -119,7 +123,7 @@ $curentcity = $this->params['city'];
                     <div class="row">
                     <div class="col-lg-5  col-md-6 col-sm-6">
                         <div class="single-footer-widget">
-                            <h6 class="footer_title">О нас:</h6>
+                            <h6 class="footer_title">О НАС</h6>
                             <p class='text-body' id='about-block'> 
                                 Мы - команда увлеченных своим делом парней. Любим программировать, 
                                 продавать и придумывать новые проекты. Не боимся работы и получаем 
@@ -135,13 +139,13 @@ $curentcity = $this->params['city'];
                     </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-widget">
-                                <h6 class="footer_title">Обратный звонок:</h6>
+                                <h6 class="footer_title">ОБРАТНЫЙ ЗВОНОК</h6>
                                 <p>Отправьте нам ваш номер телефона и мы вам перезвоним.</p>		
                                 <div id="mc_embed_signup">
                                     <form target="_blank" action="#" method="get" class="subscribe_form relative">
                                         <div class="input-group d-flex flex-row">
-                                            <input name="EMAIL" placeholder="номер телефона" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                            <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
+                                            <input name="EMAIL" placeholder="номер телефона" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Номер телефона'" required="" type="email">
+                                            <button class="btn sub-btn my-arrow"><span class="lnr lnr-arrow-right"></span></button>		
                                         </div>									
                                         <div class="mt-10 info"></div>
                                     </form>
@@ -150,16 +154,16 @@ $curentcity = $this->params['city'];
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="single-footer-widget instafeed">
-                                <h6 class="footer_title">Instagram Feed</h6>
+                                <h6 class="footer_title">НАШ ИНСТАГРАМ</h6>
                                 <ul class="list instafeed d-flex flex-wrap">
-                                    <li><img src="img/instagram/Image-01.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-02.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-03.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-04.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-05.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-06.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-07.jpg" alt=""></li>
-                                    <li><img src="img/instagram/Image-08.jpg" alt=""></li>
+                                    <li><img src="/img/instagram/Image-01.jpg" alt=""></li>
+                                    <li><img src="/img/instagram/Image-02.jpg" alt=""></li>
+                                    <li><img src="/img/instagram/Image-03.jpg" alt=""></li>
+                                    <li><img src="/img/instagram/Image-04.jpg" alt=""></li>
+                                    <li><img src="/img/instagram/Image-05.jpg" alt=""></li>
+                                    <li><img src="/img/instagram/Image-06.jpg" alt=""></li>
+                                    <li><img src="/img/instagram/Image-07.jpg" alt=""></li>
+                                    <li><img src="/img/instagram/Image-08.jpg" alt=""></li>
                                 </ul>
                             </div>
                         </div>	

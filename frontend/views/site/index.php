@@ -17,7 +17,42 @@ $curentcity = $this->params['city'];
     .text-body {
         text-align: justify;
     }
+    .text_just{
+        text-align: justify;
+} 
+    .phone-field {
+        width: 200px;
+        margin: 0px;
+    }
 
+    .feedback-form {
+        width: 400px;
+    }
+
+    .add_to_btn {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 5px;
+    }
+    /* .send-phone-button{ */
+    /*     background-color: #C33332 */
+    /* } */
+    .input_phone {
+        color: rgb(153, 153, 153);
+        height: 40px;
+        text-decoration: none solid rgb(153, 153, 153);
+        text-size-adjust: 100%;
+        touch-action: manipulation;
+        width: 289.984px;
+        column-rule-color: rgb(153, 153, 153);
+        perspective-origin: 144.984px 20px;
+        transform-origin: 144.984px 20px;
+        caret-color: rgb(153, 153, 153);
+        border: 1px solid rgb(255, 255, 255);
+        font: normal normal 400 normal 13px / 30px Roboto, sans-serif;
+        outline: rgb(153, 153, 153) none 0px;
+        padding: 1px 40px 1px 20px;
+    }
 </style>
 
 <script>
@@ -30,13 +65,14 @@ $curentcity = $this->params['city'];
             <div class="banner_content row">
                 <div class="col-lg-5">
                     <h3 class="mb-30 title_color" id = 'main-header'>СЕРТИФИКАТ</h3>
-                    <p>Вам подарили такой сертификат?</p>
+                    <p>Вам подарили похожий сертификат?</p>
                     <p class='text-body'> Мы рады что нам доверили Вас поздравить. 
                         Сделаем все что бы вы получили удовольствие от вашего подарка.
                         Жмите кнопку "Поехали" и мы расскажем Вам подробнее о вашем подарке. 
                     </p>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                    <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Поехали</a>
+                    <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
+                    <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a>
 
                 </div>
                 <div class="col-lg-7">
@@ -50,14 +86,14 @@ $curentcity = $this->params['city'];
 </section>
 
 <!--================Feature Product Area =================-->
-<section class="feature_product_area">
+<!-- <section class="home_banner_area"> -->
+<section class="feature_product_area"> 
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content row" id="SelectCityDiv">
                 <div class="col-lg-5" >
-                    <h4 class="mb-30 title_color" id = 'main-header'>Покупателям:</h4>
+                    <h4 class="mb-30 title_color" id = 'main-header'>ПОКУПАТЕЛЯМ</h4>
                     <p class='text-body'>
-
                         Мы с нашими партнерами, каждый день придумываем для вас подарки. 
                         Хотим, что бы у вас была возможность одарить по достоинству  
                         любого и по любому поводу. Что-то необычное, яркое и запоминающееся. 
@@ -69,7 +105,7 @@ $curentcity = $this->params['city'];
                         Для того, что бы начать поиск подарка в Вашем городе, выбирайте 
                         название города и нажмите кнопку "Подарки".
                     </p>
-                    <a class="white_bg_btn" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Выбрать подарок</a>
+                    <a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Выбрать подарок</a>
 
                 </div>
                 <div class="col-lg-7">
@@ -83,28 +119,26 @@ $curentcity = $this->params['city'];
 <!--================End Feature Product Area =================-->
 
 <!--================Deal Timer Area =================-->
-<section class="timer_area">
-    <div class="container">
 
-					<div class="section-top-border">
-						<h3 class="mb-30 title_color">Партнерам.</h3>
-						<div class="row">
-							<div class="col-md-3">
-								<img src="img/elements/d.jpg" alt="" class="img-fluid">
-							</div>
-							<div class="col-md-9 mt-sm-20 left-align-p">
-                                <p>
-                                Мы находим новых клиентов для наших партнеров. Фотографии, видео контент, дизайн, истории и привлечение трафика - это наша работа. Мы упакуем услугу и она станет стильным подарком. Продажи - это то, что мы любим и умеем. 
-                                Партнерам мы предлагаем новый канал продаж. Например у вас сейчас есть картинг клуб в котором можно покататься на классных картах. Мы знаем как продать вас людям которые никогда не думали о картингах, но им нужен необычный подарок. На день рождения, на день нефтяника или как награду для лучшего отдела в организации. Вас смогут подарить - это совершенно новые для вас клиенты. Их не было у вас раньше. Они о вас не думали. Если вы при этом сумеете им понравиться - они к вам вернуться много раз и приведут  своих друзей. Через нас или напрямую к вам. Хотите попробовать? Оставьте свой контакт и сообщите удобное для вас время - мы свяжемся с вами. 
-                                </p>
-                                <form action="" method="post">
-                                    <input type="text" name="" id="" value="" placeholder= 'телефон'/>
-                                    <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
-                                </form>
-							</div>
-						</div>
-					</div>
-
+<section class="feature_product_area"> 
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="section-top-border">
+                <h3 class="mb-30 title_color">ПАРТНЕРАМ</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="img/partnership.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20 left-align-p">
+                        <p class='text_just'>
+                            Мы находим новых клиентов для наших партнеров. Фотографии, видео контент, дизайн, истории и привлечение трафика - это наша работа. Мы упакуем услугу и она станет стильным подарком. Продажи - это то, что мы любим и умеем. 
+                            Партнерам мы предлагаем новый канал продаж. Например у вас сейчас есть картинг клуб в котором можно покататься на классных картах. Мы знаем как продать вас людям которые никогда не думали о картингах, но им нужен необычный подарок. На день рождения, на день нефтяника или как награду для лучшего отдела в организации. Вас смогут подарить - это совершенно новые для вас клиенты. Их не было у вас раньше. Они о вас не думали. Если вы при этом сумеете им понравиться - они к вам вернуться много раз и приведут  своих друзей. Через нас или напрямую к вам. Хотите попробовать? Оставьте свой контакт и сообщите удобное для вас время - мы свяжемся с вами. 
+                        </p>
+                    <a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/call']) ?>">Заказать звонок</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <!--================End Deal Timer Area =================-->
@@ -113,32 +147,28 @@ $curentcity = $this->params['city'];
 <section class="feature_product_area latest_product_area">
     <div class="main_box">
         <div class="container">
-
-					<div class="section-top-border text-right">
-						<h3 class="mb-30 title_color">Предпринимателям</h3>
-						<div class="row">
-							<div class="col-md-9">
-                                <p class="text-right">  
-                                    Как запустить такой сервис в вашем городе?
-                                </p>
-                                <p class="text-right">
-                                    Есть два варианта. Подождать. Мы планируем прийти во  
-                                    все крупные города.  Своими силами или через наших партнеров.  
-                                    Если вы предприниматель, любите работать, вам нравится наша идея 
-                                    и вы хотите развивать её в вашем городе  - дайте нам знать. Мы 
-                                    свяжемся с вами и обсудим возможные варианты. Оставьте нам ваш номер 
-                                    телефона. Мы позвоним, нам нужны единомышленники. 
-                                </p>
-                                <form action="" method="post">
-                                    <input type="text" name="" id="" value="" placeholder= 'телефон'/>
-                                    <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
-                                </form>
-							</div>
-							<div class="col-md-3">
-								<img src="img/elements/d.jpg" alt="" class="img-fluid">
-							</div>
-						</div>
+            <div class="section-top-border text-right">
+                <h3 class="mb-30 title_color">ПРЕДПРИНИМАТЕЛЯМ</h3>
+                <div class="row">
+                    <div class="col-md-9">
+                        <p class="text-right text-body">  
+                            Как запустить такой сервис в вашем городе?
+                        </p>
+                        <p class="text_just">
+                            Есть два варианта. Подождать. Мы планируем прийти во  
+                            все крупные города.  Своими силами или через наших партнеров.  
+                            Если вы предприниматель, любите работать, вам нравится наша идея 
+                            и вы хотите развивать её в вашем городе  - дайте нам знать. Мы 
+                            свяжемся с вами и обсудим возможные варианты. Оставьте нам ваш номер 
+                            телефона. Мы позвоним. Нам нужны единомышленники. 
+                        </p>
+                    <a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/call']) ?>">Заказать звонок</a>
                     </div>
+                    <div class="col-md-3">
+                        <img src="img/thoughtfully.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
