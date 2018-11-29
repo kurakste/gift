@@ -134,7 +134,7 @@ $curentcity = $this->params['city'];
                                 Если у вас есть предложения как нам стать лучше - пишите, нам нужна обратная связь: 
                             </p>
                         <br> 
-						<a href="#" class="genric-btn primary circle arrow">Написать</a>
+                        <a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/mail']) ?>">НАПИСАТЬ</a>
                         </div>
                     </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
