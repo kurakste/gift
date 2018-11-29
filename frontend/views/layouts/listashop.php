@@ -25,8 +25,8 @@ $curentcity = $this->params['city'];
         padding-top: 15px;
     }
 
-    #about-block {
-        max-width: 380px;
+    .text-body {
+        max-width: 380px !important;
     }
 
 @media only screen and (max-width: 800px) {
@@ -45,7 +45,6 @@ $curentcity = $this->params['city'];
         <meta charset="<?= Yii::$app->charset ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link rel="icon" href="/img/favicon.png" type="image/png">-->
         <link rel="icon" href="/img/logo.png" type="image/png">
 
         <?= Html::csrfMetaTags() ?>
@@ -74,7 +73,7 @@ $curentcity = $this->params['city'];
                 <nav class="navbar navbar-expand-lg navbar-light main_box">
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                        <a class="navbar-brand logo_h" id="home-link-1" href="<?= Url::toRoute(['site/index', 'city'=>$citycpu]) ?>"><img id="logo-img" src="/img/logo.png" alt=""></a>
+                        <a class="navbar-brand logo_h" id="home-link-1" href="<?= Url::toRoute(['site/index']) ?>"><img id="logo-img" src="/img/logo.png" alt=""></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
@@ -95,7 +94,7 @@ $curentcity = $this->params['city'];
                             <li class="nav-item id="home-link-2" <?php if ($this->params['page']==='main') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index-city', 'city'=>$citycpu]) ?>">ГЛАВНАЯ</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='cat') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Подарки</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='how') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-does-it-work']) ?>">Как это работает</a></li>
-                            <li class="nav-item <?php if ($this->params['page']==='act') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">АКТИВИРОВАТЬ</a></li>
+                            <li class="nav-item <?php if ($this->params['page']==='act') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">Сертификат</a></li>
                             <li class="nav-item <?php if ($this->params['page']==='about') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
@@ -122,25 +121,26 @@ $curentcity = $this->params['city'];
                         <div class="single-footer-widget">
                             <h6 class="footer_title">О нас:</h6>
                             <p class='text-body' id='about-block'> 
-                                Мы - команда увлеченных своим делом парней. Любим програмировать,
-                                придумывать новые проекты и работать. 
-                                Цель этого проекта - стать лучшим рессурсом в рунете для покупки подарков. 
-                                Вы нам можите в этом помочь. Присылайте ваши идеи, предлжения, пожелания. 
-                                Обязательно рассмотрим их и постараемся реализовать. 
+                                Мы - команда увлеченных своим делом парней. Любим программировать, 
+                                продавать и придумывать новые проекты. Не боимся работы и получаем 
+                                от нее удовольствие. 
                             </p>
-                            <p>
-    
+                            <p class='text-body'> 
+                                Цель этого проекта - стать лучшим ресурсом в рунете для покупки подарков. 
+                                Если у вас есть предложения как нам стать лучше - пишите, нам нужна обратная связь: 
                             </p>
+                        <br> 
+						<a href="#" class="genric-btn primary circle arrow">Написать</a>
                         </div>
                     </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-widget">
                                 <h6 class="footer_title">Обратный звонок:</h6>
-                                <p>Stay updated with our latest trends</p>		
+                                <p>Отправьте нам ваш номер телефона и мы вам перезвоним.</p>		
                                 <div id="mc_embed_signup">
-                                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
+                                    <form target="_blank" action="#" method="get" class="subscribe_form relative">
                                         <div class="input-group d-flex flex-row">
-                                            <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
+                                            <input name="EMAIL" placeholder="номер телефона" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
                                             <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
                                         </div>									
                                         <div class="mt-10 info"></div>
