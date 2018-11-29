@@ -34,6 +34,10 @@ $curentcity = $this->params['city'];
         padding-bottom: 10px;
         border-radius: 5px;
     }
+
+    #cert_input {
+        max-width: 400px;
+    }
     /* .send-phone-button{ */
     /*     background-color: #C33332 */
     /* } */
@@ -68,7 +72,14 @@ $curentcity = $this->params['city'];
                     <p>Вам подарили похожий сертификат?</p>
                     <p class='text-body'> Мы рады что нам доверили Вас поздравить. 
                         Сделаем все что бы вы получили удовольствие от вашего подарка.
-                        Жмите кнопку "Поехали" и мы расскажем Вам подробнее о вашем подарке. 
+                        Введите пожалуйста код сертификата. 
+                    </p>
+                    <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
+                    <br>
+                    <p class='text-body'>
+                        Кнопка "Уточнить" переведет вас на страницу
+                        с подробным описанием товара. Кнопка "активировать" - активация подарка. Нажмите ее
+                        и мы свяжимся для уточнения деталей организации вашего мероприятия.  
                     </p>
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                     <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
