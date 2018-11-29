@@ -93,13 +93,13 @@ $curentcity = $this->params['city'];
                 <div class="col-lg-5">
                     <h3 class="mb-30 title_color" id = 'main-header'>СЕРТИФИКАТ</h3>
                     <p>Вам подарили похожий сертификат?</p>
-                    <p class='text-body'> Мы рады что нам доверили Вас поздравить. 
+                    <p class='text_just'> Мы рады что нам доверили Вас поздравить. 
                         Сделаем все что бы вы получили удовольствие от вашего подарка.
                         Введите пожалуйста код сертификата. 
                     </p>
                     <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
                     <br>
-                    <p class='text-body'>
+                    <p class='text_just'>
                         Кнопка "Уточнить" переведет вас на страницу
                         с подробным описанием товара. Кнопка "активировать" - активация подарка. Нажмите ее
                         и мы свяжимся для уточнения деталей организации вашего мероприятия.  
@@ -107,7 +107,7 @@ $curentcity = $this->params['city'];
                     <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                     <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
                     <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a>
-
+                    <br>
                 </div>
                 <div class="col-lg-7">
                     <div class="halemet_img">
