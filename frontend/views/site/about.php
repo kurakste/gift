@@ -3,9 +3,17 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 
 ?>
+<style>
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+        .banner_area {
+            height: 50%;
+        }
+    }
 
+</style>
 <script>
     var globalPage = 'about';
+
 </script>
 
 <!--================Home Banner Area =================-->
@@ -15,7 +23,7 @@ use yii\helpers\Html;
             <div class="banner_content text-center">
                 <h2>Контакты</h2>
                 <div class="page_link">
-                <a href="<?= url::toRoute(['site/index']) ?>">Главная</a>
+                    <a href="<?= url::toRoute(['site/index']) ?>">Главная</a>
                     <a href="#">Контакты</a>
                 </div>
             </div>
@@ -62,5 +70,3 @@ use yii\helpers\Html;
         </div>
     </div>
 </div>
-
-

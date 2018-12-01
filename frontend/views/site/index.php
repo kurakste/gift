@@ -125,6 +125,30 @@ $curentcity = $this->params['city'];
                 text-align: center;
             }
 
+            .white_bg_btn {
+                float: left;
+                margin: 0 10px 15px 0;
+                width: 150px;
+                height: 50px;
+            }
+
+            .cityListIndex {
+                float: left;
+                margin: 0 0 5 85px;
+            }
+
+            .header_area .navbar .nav .nav-item .nav-link {
+                line-height: 30px;
+            }
+
+            .nav-link {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+
+
+
+
 
         }
 
@@ -150,10 +174,9 @@ $curentcity = $this->params['city'];
                             Кнопка "Уточнить" переведет вас на страницу с подробным описанием товара. Кнопка "активировать" - активация подарка. Нажмите ее и мы свяжимся для уточнения деталей организации вашего мероприятия.
                         </p>
                         <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                        <div class="BtnCenter">
-                            <a class="white_bg_btn" id="firstBtn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
-                            <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a>
-                        </div>
+                        <a class="white_bg_btn" id="firstBtn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
+                        <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a>
+
                     </div>
                     <div class="col-lg-7">
                         <div class="halemet_img">
@@ -179,13 +202,13 @@ $curentcity = $this->params['city'];
                                 Мы с нашими партнерами, каждый день придумываем для вас подарки. Хотим, что бы у вас была возможность одарить по достоинству любого и по любому поводу. Что-то необычное, яркое и запоминающееся. Думаем что эмоции - самый лучший подарок. Истории которые создают яркие позитивные эмоции мы упаковываем, что бы вы могли их дарить. Такой подарок вы можете отправить как открытку, можете подарить лично, а можете подарить тайно и сохранить интригу. Еще, мы сами любим дарить подарки. Подписывайтесь на нас в соцсетях, участвуйте в конкурсах и получайте наши подарки. Для того, что бы начать поиск подарка выбирайте Ваш город и мы переведем Вас на нужную страничку.
                             </p>
 
-                            <select id='citieslist2' name='city2'>
+                            <select class="cityListIndex" id='citieslist2' name='city2'>
                             <?php foreach ($cities as $city): ?>
                                 <option 
                                     <?php if ($curentcity->id == $city->id) echo "selected"; ?>
                                 value ="<?= $city->id ?>"><?= $city->name ?></option>
                             <?php endforeach ?>
-                        </select>
+                            </select>
                             <div>
 
                             </div>

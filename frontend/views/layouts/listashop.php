@@ -16,30 +16,36 @@ $curentcity = $this->params['city'];
 //vd($curentcity);
 ?>
 
-<style>
+    <style>
+        #logo-img {
+            width: 120px;
+        }
 
-    #logo-img {
-        width:120px;
-    }
-    .icon-link {
-        padding-top: 15px;
-    }
+        .icon-link {
+            padding-top: 15px;
+        }
 
-    .text-body {
-        max-width: 380px !important;
-    }
+        .text-body {
+            max-width: 380px !important;
+        }
 
-    .my-arrow {
-        height: 40px;
-    }
+        .my-arrow {
+            height: 40px;
+        }
 
-@media only screen and (max-width: 800px) {
-    #logo-img {
-        width:70px;
-    }
-}
+        @media only screen and (max-width: 800px) {
+            #logo-img {
+                width: 70px;
+            }
+        }
 
-</style>
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+            .nav navbar-nav menu_nav ml-auto {
+                margin-bottom: 10%;
+            }
+        }
+
+    </style>
 
     <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -86,20 +92,20 @@ $curentcity = $this->params['city'];
 
                         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                             <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item" style ="margin-top:18px;">
-                                <select id='citieslist' name='city'>
+                                <li class="nav-item" style="margin-top:18px;">
+                                    <select id='citieslist' name='city'>
                                     <?php foreach ($cities as $city): ?>
                                         <option 
                                             <?php if ($curentcity->id == $city->id) echo "selected"; ?>
                                         value ="<?= $city->id ?>"><?= $city->name ?></option>
                                     <?php endforeach ?>
                                 </select>
-                            </li>
-                            <li class="nav-item id="home-link-2" <?php if ($this->params['page']==='main') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index-city', 'city'=>$citycpu]) ?>">ГЛАВНАЯ</a></li>
-                            <li class="nav-item <?php if ($this->params['page']==='cat') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Подарки</a></li>
-                            <li class="nav-item <?php if ($this->params['page']==='how') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-does-it-work']) ?>">Как это работает</a></li>
-                            <li class="nav-item <?php if ($this->params['page']==='act') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">Сертификат</a></li>
-                            <li class="nav-item <?php if ($this->params['page']==='about') echo "active" ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
+                                </li>
+                                <li class="nav-item id=" home-link-2 " <?php if ($this->params['page']==='main') echo "active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index-city', 'city'=>$citycpu]) ?>">ГЛАВНАЯ</a></li>
+                                <li class="nav-item <?php if ($this->params['page']==='cat') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Подарки</a></li>
+                                <li class="nav-item <?php if ($this->params['page']==='how') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-does-it-work']) ?>">Как это работает</a></li>
+                                <li class="nav-item <?php if ($this->params['page']==='act') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">Сертификат</a></li>
+                                <li class="nav-item <?php if ($this->params['page']==='about') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="nav-item"><a href="<?= Url::toRoute(['site/favorite']) ?>" class="cart"><i class="lnr lnr lnr-heart"></i></a></li>
@@ -121,32 +127,29 @@ $curentcity = $this->params['city'];
             <footer class="footer-area">
                 <div class="container">
                     <div class="row">
-                    <div class="col-lg-5  col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">О НАС</h6>
-                            <p class='text-body' id='about-block'> 
-                                Мы - команда увлеченных своим делом парней. Любим программировать, 
-                                продавать и придумывать новые проекты. Не боимся работы и получаем 
-                                от нее удовольствие. 
-                            </p>
-                            <p class='text-body'> 
-                                Цель этого проекта - стать лучшим ресурсом в RUнете для покупки подарков. 
-                                Если у вас есть предложения как нам стать лучше - пишите, нам нужна обратная связь: 
-                            </p>
-                        <br> 
-                        <a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/mail']) ?>">НАПИСАТЬ</a>
+                        <div class="col-lg-5  col-md-6 col-sm-6">
+                            <div class="single-footer-widget">
+                                <h6 class="footer_title">О НАС</h6>
+                                <p class='text-body' id='about-block'>
+                                    Мы - команда увлеченных своим делом парней. Любим программировать, продавать и придумывать новые проекты. Не боимся работы и получаем от нее удовольствие.
+                                </p>
+                                <p class='text-body'>
+                                    Цель этого проекта - стать лучшим ресурсом в RUнете для покупки подарков. Если у вас есть предложения как нам стать лучше - пишите, нам нужна обратная связь:
+                                </p>
+                                <br>
+                                <a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/mail']) ?>">НАПИСАТЬ</a>
+                            </div>
                         </div>
-                    </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-widget">
                                 <h6 class="footer_title">ОБРАТНЫЙ ЗВОНОК</h6>
-                                <p>Отправьте нам ваш номер телефона и мы вам перезвоним.</p>		
+                                <p>Отправьте нам ваш номер телефона и мы вам перезвоним.</p>
                                 <div id="mc_embed_signup">
                                     <form target="_blank" action="#" method="get" class="subscribe_form relative">
                                         <div class="input-group d-flex flex-row">
                                             <input name="EMAIL" placeholder="номер телефона" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Номер телефона'" required="" type="email">
-                                            <button class="btn sub-btn my-arrow"><span class="lnr lnr-arrow-right"></span></button>		
-                                        </div>									
+                                            <button class="btn sub-btn my-arrow"><span class="lnr lnr-arrow-right"></span></button>
+                                        </div>
                                         <div class="mt-10 info"></div>
                                     </form>
                                 </div>
@@ -166,9 +169,10 @@ $curentcity = $this->params['city'];
                                     <li><img src="/img/instagram/Image-08.jpg" alt=""></li>
                                 </ul>
                             </div>
-                        </div>	
-                    </div>  <!-- row -->
-            <!--================ End footer Area  =================-->
+                        </div>
+                    </div>
+                    <!-- row -->
+                    <!--================ End footer Area  =================-->
                 </div>
             </footer>
 
@@ -179,5 +183,3 @@ $curentcity = $this->params['city'];
 
     </html>
     <?php $this->endPage() ?>
-
-
