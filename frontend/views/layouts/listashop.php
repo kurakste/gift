@@ -43,6 +43,21 @@ $curentcity = $this->params['city'];
             .nav navbar-nav menu_nav ml-auto {
                 margin-bottom: 10%;
             }
+
+            .footer_title {
+                text-align: center;
+            }
+
+            .text-body .footerText {
+                text-align: justify;
+            }
+
+            .btnCentered {
+                text-align: center;
+            }
+            .footerText {
+                text-align: justify;
+            }
         }
 
     </style>
@@ -137,36 +152,36 @@ $curentcity = $this->params['city'];
                                     Цель этого проекта - стать лучшим ресурсом в RUнете для покупки подарков. Если у вас есть предложения как нам стать лучше - пишите, нам нужна обратная связь:
                                 </p>
                                 <br>
-                                <a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/mail']) ?>">НАПИСАТЬ</a>
+                                <div class="btnCentered"><a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/mail']) ?>">НАПИСАТЬ</a></div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-widget">
                                 <h6 class="footer_title">ОБРАТНЫЙ ЗВОНОК</h6>
-                                <p>Отправьте нам ваш номер телефона и мы вам перезвоним.</p>
-                                <div id="mc_embed_signup">
-                                    <form target="_blank" action="#" method="get" class="subscribe_form relative">
-                                        <div class="input-group d-flex flex-row">
-                                            <input name="EMAIL" placeholder="номер телефона" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Номер телефона'" required="" type="email">
-                                            <button class="btn sub-btn my-arrow"><span class="lnr lnr-arrow-right"></span></button>
+                                <p class="footerText">Отправьте нам ваш номер телефона и мы вам перезвоним.</p>
+                                <div id="mc_embed_signup ">
+                                    <form target="_blank " action="# " method="get " class="subscribe_form relative ">
+                                        <div class="input-group d-flex flex-row ">
+                                            <input name="EMAIL " placeholder="номер телефона " onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required=" " type="email ">
+                                            <button class="btn sub-btn my-arrow "><span class="lnr lnr-arrow-right "></span></button>
                                         </div>
-                                        <div class="mt-10 info"></div>
+                                        <div class="mt-10 info "></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-footer-widget instafeed">
-                                <h6 class="footer_title">НАШ ИНСТАГРАМ</h6>
-                                <ul class="list instafeed d-flex flex-wrap">
-                                    <li><img src="/img/instagram/Image-01.jpg" alt=""></li>
-                                    <li><img src="/img/instagram/Image-02.jpg" alt=""></li>
-                                    <li><img src="/img/instagram/Image-03.jpg" alt=""></li>
-                                    <li><img src="/img/instagram/Image-04.jpg" alt=""></li>
-                                    <li><img src="/img/instagram/Image-05.jpg" alt=""></li>
-                                    <li><img src="/img/instagram/Image-06.jpg" alt=""></li>
-                                    <li><img src="/img/instagram/Image-07.jpg" alt=""></li>
-                                    <li><img src="/img/instagram/Image-08.jpg" alt=""></li>
+                        <div class="col-lg-3 col-md-6 col-sm-6 ">
+                            <div class="single-footer-widget instafeed ">
+                                <h6 class="footer_title ">НАШ ИНСТАГРАМ</h6>
+                                <ul class="list instafeed d-flex flex-wrap ">
+                                    <li><img src="/img/instagram/Image-01.jpg " alt=" "></li>
+                                    <li><img src="/img/instagram/Image-02.jpg " alt=" "></li>
+                                    <li><img src="/img/instagram/Image-03.jpg " alt=" "></li>
+                                    <li><img src="/img/instagram/Image-04.jpg " alt=" "></li>
+                                    <li><img src="/img/instagram/Image-05.jpg " alt=" "></li>
+                                    <li><img src="/img/instagram/Image-06.jpg " alt=" "></li>
+                                    <li><img src="/img/instagram/Image-07.jpg " alt=" "></li>
+                                    <li><img src="/img/instagram/Image-08.jpg " alt=" "></li>
                                 </ul>
                             </div>
                         </div>
