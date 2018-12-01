@@ -15,6 +15,12 @@ $curentcity = $this->params['city'];
             margin-bottom: 80px;
         }
 
+        #firstBtn {
+            margin-left: 15px;
+            width: 165px;
+            height: 52px;
+        }
+
         .text-body {
             text-align: justify;
         }
