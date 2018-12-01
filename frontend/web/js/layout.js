@@ -81,7 +81,7 @@ window.onload = function() {
          if (this.readyState != 4) return;
          let quotes = JSON.parse(this.responseText);
          globalQuotesList = quotes;
-      }
+      };
       xhr.send('');
       
    }
@@ -111,7 +111,7 @@ window.onload = function() {
          let cities = JSON.parse(this.responseText);
          console.log(cities);
          globalCitiesList = cities;
-      }
+      };
       xhr.send('');
    }
 
@@ -187,12 +187,34 @@ window.onload = function() {
    
    //onCatsElements click hendler;
    function fcatsclick() {
+
+      let tmp = fcats.getElementsByClassName('accented');
+
+      // let tmp= this.parentNode;
+
+      if (tmp!=null) {
+         for (var i = 0; i < tmp.length; i++) {
+            tmp[i].classList.remove('accented');
+         }
+      }
+      this.classList.add('accented');
+
       globalFcatID = this.dataset.fcatid;
       requestForItems();
       return false; // Prevent default action on a tags
    }
    
    function scatsclick() {
+      
+      let tmp = scats.getElementsByClassName('accented');
+
+      if (tmp!=null) {
+         for (var i = 0; i < tmp.length; i++) {
+            tmp[i].classList.remove('accented');
+         }
+      }
+      this.classList.add('accented');
+
       globalScatID = this.dataset.scatid;
       requestForItems();
       return false; // Prevent default action on a tags
@@ -204,6 +226,8 @@ window.onload = function() {
          pcontainer.innerHTML ='';
       }
    }
+
+   
 
    //Add html content (item) in product container
    function addNewItemInContainer(content) {

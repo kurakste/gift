@@ -4,6 +4,7 @@
 
     $city = $this->params['city'];
     $fcid = $this->params['fcid'];
+    $scid = -99;
 
 ?> 
 <style>
@@ -66,9 +67,9 @@
                         <div class="widgets_inner">
                             <h4>Для кого подарок:</h4>
                             <ul class="list" id='fcatlist'>
-                                <li><a href="" data-fcatid = '-99'>Все</a></li>
+                            <li><a <?php if ($fcid == -99) echo "class=\"accented\""?> href="" data-fcatid = '-99'>Все</a></li>
                                 <?php foreach ($fcats as $fcat): ?>
-                                    <li> <a href="" data-fcatid = '<?= $fcat->id ?>'><?= $fcat->name ?></a></li>
+                                    <li> <a <?php if ($fcid == $fcat->id) echo "class=\"accented\""?> href="" data-fcatid = '<?= $fcat->id ?>'><?= $fcat->name ?></a></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>
@@ -76,9 +77,9 @@
                             <h4>Стиль подарка:</h4>
                             <!--  вывести сюда все подарки -->
                             <ul class="list" id='scatlist'>
-                            <li><a href="#" data-scatid = '-99'>Все</a></li>
+                            <li><a <?php if ($scid == -99) echo "class=\"accented\""?> href="#" data-scatid = '-99'>Все</a></li>
                             <?php foreach ($scats as $scat): ?>
-                                <li ><a href="#" data-scatid = '<?= $scat->id ?>'><?= $scat->name ?></a></li>
+                                <li ><a <?php if ($scid == $scat->id) echo "class=\"accented\""?> href="#" data-scatid = '<?= $scat->id ?>'><?= $scat->name ?></a></li>
                             <?php endforeach ?>
                             </ul>
                         </div>

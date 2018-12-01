@@ -33,6 +33,13 @@ $curentcity = $this->params['city'];
         height: 40px;
     }
 
+    /* This style is needed for fcatlist & scatlist accente selected issue. */
+    .accented {
+        list-style-type:disc !important;
+        font-size: 17px!important;
+        text-decoration: underline !important;
+    }
+
 @media only screen and (max-width: 800px) {
     #logo-img {
         width:70px;
