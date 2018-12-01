@@ -2,10 +2,11 @@
     use yii\helpers\Url;
     use yii\helpers\Html;
 
-?> 
-    
+?>
+
 <script>
     var globalPage = 'activate';
+
 </script>
 
 <!--================Home Banner Area =================-->
@@ -28,16 +29,10 @@
     <div class="container">
         <h3 class="text-heading title_color">Добро пожаловать!</h3>
         <p class="sample-text">
-            Мы в двух шагах от того момента когда вы сможите получить 
-            удовольствие от вашего подарка. Вам нужно активировать сертификат. 
-            Для этого найдите код сертификата и введите в поле  "Код сертификата".
-            После этого нажмите кнопку активировать код. Это все. Делать больше ничего не нужно. С вами свяжутся в течении
-            трех рабочих часов. Единственное уточнение - мы работаем по московскому
-            времени.
-       </p> 
+            Мы в двух шагах от того момента когда вы сможите получить удовольствие от вашего подарка. Вам нужно активировать сертификат. Для этого найдите код сертификата и введите в поле "Код сертификата". После этого нажмите кнопку активировать код. Это все. Делать больше ничего не нужно. С вами свяжутся в течении трех рабочих часов. Единственное уточнение - мы работаем по московскому времени.
+        </p>
         <p class="sample-text">
-            Если вы хотите получить долучить дополнительную консультацию по поводу 
-            вашего подарка, нажмите кнопку получить консультацию. 
+            Если вы хотите получить долучить дополнительную консультацию по поводу вашего подарка, нажмите кнопку получить консультацию.
         </p>
     </div>
 </section>
@@ -54,10 +49,10 @@
                             <input type="text" name="first_name" placeholder="Введите удобное для Вас обращение" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите удобное для Вас обращение'" required class="single-input">
                         </div>
                         <div class="mt-10">
-                            <input type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
-                        </div>
+                            <input type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'ХXXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
+                        </div><br>
                         <div class="mt-10">
-                            <input class="main_btn"type="submit" name="" id="" value="Активировать" />
+                            <input class="main_btn" type="submit" name="" id="" value="Активировать" />
                         </div>
                     </form>
                 </div>
