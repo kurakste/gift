@@ -117,6 +117,23 @@ class Items extends \yii\db\ActiveRecord
         $price = $prices[0]->base_pice;
         return $price;
     }
+    
+    public function getActualPurchasePrice() 
+    {
+        $time = new \DateTime('now');
+        $today = $time->format('Y-m-d');
+        
+        $prices = \common\models\Baseprices::find()
+            ->where(['iid' => $this->id])
+            ->andWhere(['<=', 'active_from', $today])
+            ->andWhere(['>', 'active_till', $today])
+            ->all(); 
+        if (count($prices) != 1) {
+            return false;
+        };
+        $price = $prices[0]->purchase_price;
+        return $price;
+    }
 
     /* 
      * If item has 1 active discount today it returns true

@@ -35,7 +35,7 @@ $curentcity = $this->params['city'];
 
     /* This style is needed for fcatlist & scatlist accente selected issue. */
     .accented {
-        list-style-type:disc !important;
+        list-style-type: disc !important;
         font-size: 17px!important;
         text-decoration: underline !important;
     }
