@@ -152,11 +152,26 @@ $curentcity = $this->params['city'];
                 margin-right: 50px;
             }
 
+            @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+                #main-header {
+                    margin-top: 2500px;
+                }
+                .home_banner_area {
+                    margin-bottom: 300px;
+                }
+                .container {
+                    width: 70%;
+                }
 
+                .home_banner_area .banner_inner .banner_content h3 {
+                    margin-bottom: -14px;
+                    font-size: 38px;
+                }
 
-
-
-        }
+                .col-lg-5 {
+                    margin-top: 50px;
+                }
+            }
 
     </style>
 
