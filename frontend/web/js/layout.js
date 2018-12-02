@@ -3,6 +3,8 @@ window.onload = function() {
    if (typeof(initialFcidFromBackend) != 'undefined' && initialFcidFromBackend != null) {
       var globalFcatID = initialFcidFromBackend;
    }
+   // var globalFcatID = initialFcidFromBackend ? initialFcidFromBackend : null;
+   // var globarFcatID = initialFcidFromBackend || null;
    
    if (typeof(initialCityFromBackend) != 'undefined' && initialCityFromBackend != null) {
       var globalCityID = initialCityFromBackend; 
@@ -233,9 +235,9 @@ window.onload = function() {
    function addNewItemInContainer(content) {
       var pcontainer = document.getElementById('pcontainer');   
       var ddiv = document.createElement('div');
-      ddiv.classList.add('col-lg-4')
-      ddiv.classList.add('col-md-4')
-      ddiv.classList.add('col-sm-4')
+      ddiv.classList.add('col-lg-4');
+      ddiv.classList.add('col-md-4');
+      ddiv.classList.add('col-sm-4');
 
       ddiv.innerHTML = content;
       pcontainer.appendChild(ddiv);
