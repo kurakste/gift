@@ -164,4 +164,10 @@ class Certificates extends \yii\db\ActiveRecord
         }
         return $string;
     }
+
+    public function onActivate()
+    {
+        // All we need to do when the sertificate has been activated. 
+        return true;
+    }
 }

@@ -5,6 +5,7 @@ use yii\helpers\Url;
 
 AppAsset::register($this);
 
+$this->registerJsFile('/js/ajax.js');
 $this->registerJsFile('/js/layout.js');
 
 $cities = $this->params['cities'];
