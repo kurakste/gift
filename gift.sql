@@ -7,7 +7,7 @@
 #
 # Адрес: 127.0.0.1 (MySQL 5.5.5-10.3.9-MariaDB-1:10.3.9+maria~bionic)
 # Схема: gift
-# Время создания: 2018-11-24 19:57:40 +0000
+# Время создания: 2018-12-04 14:55:02 +0000
 # ************************************************************
 
 
@@ -50,6 +50,48 @@ VALUES
 	(6,10,4000.00,6000.00,'2018-11-15','2018-12-31');
 
 /*!40000 ALTER TABLE `baseprices` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Дамп таблицы certificates
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `certificates`;
+
+CREATE TABLE `certificates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `purchase_price` decimal(6,2) NOT NULL,
+  `sale_price` decimal(6,2) NOT NULL,
+  `certid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `iid` int(11) NOT NULL DEFAULT 1,
+  `donor_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `donor_phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `donor_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `recipient_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `recipient_phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `activated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `closed_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `status` tinyint(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `certid_index` (`certid`),
+  KEY `status_index` (`status`),
+  KEY `status_iid` (`status`),
+  KEY `fk-certificates-items` (`iid`),
+  CONSTRAINT `fk-certificates-items` FOREIGN KEY (`iid`) REFERENCES `items` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `certificates` WRITE;
+/*!40000 ALTER TABLE `certificates` DISABLE KEYS */;
+
+INSERT INTO `certificates` (`id`, `purchase_price`, `sale_price`, `certid`, `iid`, `donor_name`, `donor_phone`, `donor_email`, `recipient_name`, `recipient_phone`, `created_at`, `activated_at`, `closed_at`, `status`)
+VALUES
+	(1,3000.00,4000.00,'XGVM-X15FBZ',1,'Igor','89176450029','kurakste@gmail.com','Lena','89869347745','2018-12-02 18:30:26','0000-00-00 00:00:00','0000-00-00 00:00:00',1),
+	(2,3000.00,4000.00,'EWE1-S2OUBM',3,'Igor','89176450029','kurakste@gmail.com','Lena','89869347745','2018-12-02 18:28:37','0000-00-00 00:00:00','0000-00-00 00:00:00',1),
+	(3,3000.00,4000.00,'945N-7ZF2WE',1,'Igor','89176450029','kurakste@gmail.com','Lena','89869347745','2018-12-03 17:23:42','2018-12-03 00:00:00','0000-00-00 00:00:00',3),
+	(4,3000.00,4000.00,'CF8Z-PEC362',1,'Igor','89176450029','kurakste@gmail.com','Lena','89869347745','2018-12-02 19:20:35','0000-00-00 00:00:00','0000-00-00 00:00:00',1);
+
+/*!40000 ALTER TABLE `certificates` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -172,7 +214,10 @@ VALUES
 	(16,'5bf1ac1791d0d',1),
 	(17,'5bf84637e4c6c',1),
 	(18,'5bf84637e4c6c',5),
-	(19,'5bf84637e4c6c',6);
+	(19,'5bf84637e4c6c',6),
+	(21,'5bff6f067e359',5),
+	(23,'5bff6f067e359',6),
+	(24,'5c052ed52fdb8',9);
 
 /*!40000 ALTER TABLE `favorites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -296,7 +341,7 @@ LOCK TABLES `items` WRITE;
 
 INSERT INTO `items` (`id`, `fcid`, `scid`, `vid`, `exid`, `name`, `cpu`, `short_description`, `description`, `lifetime`, `rank`, `phisical`)
 VALUES
-	(1,1,1,1,'Квест Сайлент Хилл','Приключение \"Сайлент Хилл\" на 6-ть персон.','silent-hill','Это крутой и страшный квест.','Это полное описание крутого и классного квеста.',90,0,0),
+	(1,1,1,1,'Квест Сайлент Хилл','Приключение \"Сайлент Хилл\" на 6-ть персон.','silent-hill','Крутой и страшный квест. Дух захватывает как страшно. Получите острые ощущения.','Это полное описание крутого и классного квеста.',90,0,0),
 	(3,1,1,1,'Хозяин','Страшное приключение на 4 персоны \"Хозяин\"','master','Участие в квесте: Где-то живет странный человек... каждый год на свой день рождения он делает себе подарок, живой подарок. И в очередной такой праздничный день новые трофеи оказались в заточении. Все участники ','Где-то живет странный человек... каждый год на свой день рождения он делает себе подарок, живой подарок. И в очередной такой праздничный день новые трофеи оказались в заточении. Все участники очнутся, не помня последних суток. Сыро, подвально, темно..\r\n',90,0,0),
 	(5,1,1,1,'Романтик.','Романтический ужин на двоих на крыше.','romantic','Ужин на крыше дома с шикарным видом на реку. ','Ужин на крыше дома с шикарным видом на реку. ',90,0,0),
 	(6,2,1,2,'Чумовой заезд 2','Чумовой заезд. Гонка на картингах для банды в 6-ть человек.','mad-raice','Гонка на картингах для банды в 6-ть человек. Три заезда по три минуты. Лучший получит кубок от заведения!','Гонка на картингах для банды в 6-ть человек. Три заезда по три минуты. Лучший получит кубок от заведения!Гонка на картингах для банды в 6-ть человек. Три заезда по три минуты. Лучший получит кубок от заведения!Гонка на картингах для банды в 6-ть человек. Три заезда по три минуты. Лучший получит кубок от заведения!',90,0,0),
@@ -412,7 +457,8 @@ VALUES
 	('m181111_185617_itemtofcats',1541963967),
 	('m181111_190539_itemtoscats',1541966613),
 	('m181118_145406_favorite',1542565306),
-	('m181124_190926_quote',1543086806);
+	('m181124_190926_quote',1543086806),
+	('m181201_194459_certificate',1543758984);
 
 /*!40000 ALTER TABLE `migration` ENABLE KEYS */;
 UNLOCK TABLES;
