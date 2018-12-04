@@ -69,7 +69,7 @@ window.onload = () => {
       const certidel = document.getElementById('cert_input');   
       let errormsg = document.getElementById('cert_error');   
 
-      certid = certidel.value;
+      let certid = certidel.value;
       const url = '/cert/ajax-check';
       const req = '?certid=' + certid;
       let resp;
@@ -101,7 +101,7 @@ window.onload = () => {
       donemsg.style.display='none';
       acterrormsg.style.display='none';
 
-      certid = certidel.value;
+      let certid = certidel.value;
       
       console.log(certid);
       const url = '/cert/ajax-check';
