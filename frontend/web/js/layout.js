@@ -56,7 +56,9 @@ window.onload = () => {
    if (btnCertActivate != null) btnCertActivate.onclick = btnActivateOnClickHandler;
 
    slist.onchange = cityChangeState;
-   slist2.onchange = cityChangeState;
+   if (slist2) {
+      slist2.onchange = cityChangeState;
+   }
 
    loadCity(); // Этот запрос синхоронный. Все будут ждать, пока не выяснится город. Без этого не правильно загрузятся товары.  
    loadCitiesList();  
