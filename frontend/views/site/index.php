@@ -156,33 +156,51 @@ $curentcity = $this->params['city'];
                 margin-left: 50px;
                 margin-right: 50px;
             }
+        }
 
-
-
-            @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
-                #main-header {
-                    margin-top: 2500px;
-                }
-
-                .home_banner_area .banner_inner .banner_content h3 {
-                    margin-bottom: -14px;
-                    font-size: 38px;
-                }
-
-                .navbar {
-                    width: 90%;
-                }
-
-                #main-header {
-                    text-align: center;
-                }
-
-                .centeredText {
-                    margin-left: 120px;
-                }
-
+        @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+            #main-header {
+                margin-top: 2500px;
             }
 
+            .home_banner_area .banner_inner .banner_content h3 {
+                margin-bottom: -14px;
+                font-size: 38px;
+            }
+
+            .navbar {
+                width: 90%;
+            }
+
+            #main-header {
+                text-align: center;
+            }
+
+            .centeredText {
+                margin-left: 120px;
+            }
+
+        }
+
+        #cert_error {
+            display: none;
+            color: red;
+        }
+        
+        #cert_act_error {
+            display: none;
+            color: red;
+        }
+        
+        #cert_work {
+                    display: none;
+                    color: green;
+                }
+
+        #cert_done {
+                    display: none;
+                    color: green;
+                }
     </style>
 
     <script>
@@ -200,15 +218,24 @@ $curentcity = $this->params['city'];
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
                         </p><br>
                         <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
+                        <p id='cert_error' >
+                            Сертификат не найден в базе. Проверте пожалуйста код.
+                        </p>
+                        <p id='cert_act_error' >
+                            Не удалось активировать ваш сертификат. Отправьте пожалуйста ваше имя и номер телефона через данную форму. Мы вам перезвоним и решим возникшую проблему.
+                        </p>
+                        <p id='cert_work' >
+                            Подождите минуту. Работаю.
+                        </p>
+                        <p id='cert_done' >
+                            Ваш сертификат успешно активирован. Мы позвоним вам в течении 3х рабочих часов.
+                        </p>
                         <br>
                         <p class='text_just'>
                             Кнопка "Уточнить" переведет вас на страницу с подробным описанием товара. Кнопка "активировать" - активация подарка. Нажмите ее и мы свяжимся для уточнения деталей организации вашего мероприятия.
                         </p>
-                        <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                        <!--<a class="white_bg_btn" id="firstBtn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a> -->
-                        <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
-                        <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a>
-
+                        <a class="white_bg_btn" id="certDetailBtn" href="">Уточнить</a>
+                        <a class="white_bg_btn" id="certActivateBtn" href="">Активировать</a>
                     </div>
                     <div class="col-lg-7">
                         <div class="halemet_img">

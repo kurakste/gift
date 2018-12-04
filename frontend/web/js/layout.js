@@ -1,9 +1,11 @@
-window.onload = function() {
+'use strict';
+
+window.onload = () => {
    
    if (typeof(initialFcidFromBackend) != 'undefined' && initialFcidFromBackend != null) {
       var globalFcatID = initialFcidFromBackend;
    }
-   // var globalFcatID = initialFcidFromBackend ? initialFcidFromBackend : null;
+   //var globalFcatID = initialFcidFromBackend ? initialFcidFromBackend : null;
    // var globarFcatID = initialFcidFromBackend || null;
    
    if (typeof(initialCityFromBackend) != 'undefined' && initialCityFromBackend != null) {
@@ -14,13 +16,19 @@ window.onload = function() {
    var globalCitiesList = [];
    var globalQuotesList = [];
 
-   var csrf = document.querySelector("meta[name='csrf-token']").content;
+   const csrf = document.querySelector("meta[name='csrf-token']").content;
    
    
    var fcats = document.getElementById('fcatlist');   
    var scats = document.getElementById('scatlist');  
    var slist = document.getElementById('citieslist');  
+   var slist2= document.getElementById('citieslist2');  
    var btnQuote = document.getElementById('btnQuote');  
+   var btnCertDetail = document.getElementById('certDetailBtn');   
+   var btnCertActivate = document.getElementById('certActivateBtn');
+
+   console.log(btnCertActivate);
+
    var catimagelist = document.getElementsByClassName('cat-image');
    var quoteContainer = document.getElementById('quote-container');
 
@@ -43,9 +51,12 @@ window.onload = function() {
       } 
    }
 
-   if (btnQuote!=null) btnQuote.onclick = btnQuoteOnClickHandler;
+   if (btnQuote != null) btnQuote.onclick = btnQuoteOnClickHandler;
+   if (btnCertDetail != null) btnCertDetail.onclick = btnDetailOnClickHandler;
+   if (btnCertActivate != null) btnCertActivate.onclick = btnActivateOnClickHandler;
 
    slist.onchange = cityChangeState;
+   slist2.onchange = cityChangeState;
 
    loadCity(); // Этот запрос синхоронный. Все будут ждать, пока не выяснится город. Без этого не правильно загрузятся товары.  
    loadCitiesList();  
@@ -53,6 +64,72 @@ window.onload = function() {
    requestForItems();
    
 //-----------------------------------------------------   
+   function btnDetailOnClickHandler() {
+
+      const certidel = document.getElementById('cert_input');   
+      let errormsg = document.getElementById('cert_error');   
+
+      certid = certidel.value;
+      const url = '/cert/ajax-check';
+      const req = '?certid=' + certid;
+      let resp;
+      ajaxget(url, req, false, (resptext) => {
+         try {
+            resp = JSON.parse(resptext);
+         } catch {
+            resp = false;
+         }
+      }); 
+      if (resp) {
+          document.location.href='/cert/description?certid='+certid;
+      } else {
+         errormsg.style.display='block';
+      }
+      return false
+   }
+
+   function btnActivateOnClickHandler() {
+
+      const certidel = document.getElementById('cert_input');   
+      let errormsg = document.getElementById('cert_error');   
+      let workrmsg = document.getElementById('cert_work');   
+      let donemsg = document.getElementById('cert_done');   
+      let acterrormsg = document.getElementById('cert_act_error');   
+         
+      errormsg.style.display='none';
+      workrmsg.style.display='none';
+      donemsg.style.display='none';
+      acterrormsg.style.display='none';
+
+      certid = certidel.value;
+      
+      console.log(certid);
+      const url = '/cert/ajax-check';
+      const req = '?certid=' + certid;
+      let resp;
+
+      ajaxget(url, req, false, (resptext) => {
+         try {
+            resp = JSON.parse(resptext);
+            console.log('ajax resp:', resp);
+         } catch {
+            resp = false;
+         }
+      }); 
+
+      console.log('resp', resp);
+
+      if (resp) {
+         console.log('Activate certificate done.');
+         workrmsg.style.display='none';
+         donemsg.style.display='block';
+      } else {
+         workrmsg.style.display='none';
+         errormsg.style.display='block';
+      }
+      return false
+   }
+
    function btnQuoteOnClickHandler(){
       let quote = getRandomQuote();  
       quoteContainer.innerHTML = quote.body;
@@ -135,9 +212,17 @@ window.onload = function() {
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
       xhr.onreadystatechange = function() {
+         let items;
          if (this.readyState != 4) return;
-         items = JSON.parse(this.responseText);
-         console.log(this.responseText);
+         try {
+            items = JSON.parse(this.responseText);
+         } catch(e) {
+            console.log('Parsing error.');
+            items = [];
+         }
+         
+         console.log('respose:', items);
+
          clearProductContainer()
          generateItemsFromArray(items); 
          refreshAddToCartHendler();
@@ -229,8 +314,6 @@ window.onload = function() {
       }
    }
 
-   
-
    //Add html content (item) in product container
    function addNewItemInContainer(content) {
       var pcontainer = document.getElementById('pcontainer');   
@@ -246,33 +329,25 @@ window.onload = function() {
 
    //Generate item that need to be added in product conteiner.
    function generateItem(name, price, image, cpu, id) {
-      
-     // <div class="col-lg-4 col-md-4 col-sm-6">
-//</div>
-      var tmpl = 
-`
+      var tmpl =`
    <div class="f_p_item">
        <div class="f_p_img">
-           <img class="img-fluid" src="`+ image + `" alt="">
+           <img class="img-fluid" src="${image}" alt="">
            <div class="p_icon">
-               <a class="fproduct-item icon-link" href="#"><i class="lnr lnr-heart" data-cityid="`+ id + `"></i></a>
-               <a class="aproduct-item icon-link" href="/site/checkout?product=`+ cpu +`"><i class="lnr lnr-cart" data-cityid="`+ id + `"></i></a>
+               <a class="fproduct-item icon-link" href="#"><i class="lnr lnr-heart" data-cityid="${id}"></i></a>
+               <a class="aproduct-item icon-link" href="/site/checkout?product=${cpu}"><i class="lnr lnr-cart" data-cityid="${id}"></i></a>
            </div>
        </div>
-       <a href="/site/get-product?product=` + cpu + `">
+       <a href="/site/get-product?product=${cpu}">
 
-           <h4>` + name + ` </h4>
+           <h4>${name}</h4>
        </a>
-       <h5>&#8381 ` + price + ` </h5>
-   </div>
-
-`;
+       <h5>&#8381; ${price} </h5>
+   </div>`;
    
    return tmpl;
    }
-
-
-
+   
    //
    //Just testing function to check wich way work addNewItemInContainer &
    // generateItem.
