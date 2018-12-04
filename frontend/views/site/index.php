@@ -109,17 +109,21 @@ $curentcity = $this->params['city'];
             margin-bottom: 20px;
         }
 
-        #firtstBtn {
+        /*#firtstBtn {
             padding-right: 30px;
-        }
+        }*/
 
-        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
             #main-header {
                 text-align: center;
             }
             .white_bg_btn {
                 margin-left: 25%;
                 text-align: center;
+                width: 70%;
+                height: 70%;
+                font-size: 70%;
+                margin-left: 25%;
             }
             .BtnSpecify {
                 margin-left: 25%;
@@ -133,7 +137,8 @@ $curentcity = $this->params['city'];
 
             .white_bg_btn {
                 float: left;
-                margin: 0 10px 15px 0;
+                /*margin: 0 10px 15px 0;*/
+                margin-bottom: 15px;
                 width: 150px;
                 height: 50px;
             }
@@ -152,15 +157,11 @@ $curentcity = $this->params['city'];
                 margin-right: 50px;
             }
 
+
+
             @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
                 #main-header {
                     margin-top: 2500px;
-                }
-                .home_banner_area {
-                    margin-bottom: 300px;
-                }
-                .container {
-                    width: 70%;
                 }
 
                 .home_banner_area .banner_inner .banner_content h3 {
@@ -168,9 +169,18 @@ $curentcity = $this->params['city'];
                     font-size: 38px;
                 }
 
-                .col-lg-5 {
-                    margin-top: 50px;
+                .navbar {
+                    width: 90%;
                 }
+
+                #main-header {
+                    text-align: center;
+                }
+
+                .centeredText {
+                    margin-left: 120px;
+                }
+
             }
 
     </style>
@@ -184,7 +194,7 @@ $curentcity = $this->params['city'];
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="banner_content row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5"><br><br>
                         <h3 class="mb-30 title_color" id='main-header'>СЕРТИФИКАТ</h3>
                         <p>Вам подарили похожий сертификат?</p>
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
@@ -195,7 +205,8 @@ $curentcity = $this->params['city'];
                             Кнопка "Уточнить" переведет вас на страницу с подробным описанием товара. Кнопка "активировать" - активация подарка. Нажмите ее и мы свяжимся для уточнения деталей организации вашего мероприятия.
                         </p>
                         <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
-                        <a class="white_bg_btn" id="firstBtn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
+                        <!--<a class="white_bg_btn" id="firstBtn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a> -->
+                        <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
                         <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a>
 
                     </div>
@@ -218,7 +229,10 @@ $curentcity = $this->params['city'];
 
                     <div class="banner_content row" id="SelectCityDiv">
                         <div class="col-lg-5">
-                            <h4 class="mb-30 title_color" id='main-header'>ПОКУПАТЕЛЯМ</h4>
+                            <div class="centeredText">
+                                <h4 class="mb-30 title_color" id='main-header'>ПОКУПАТЕЛЯМ</h4>
+                            </div>
+                            <!-- <h4 class="mb-30 title_color" id='main-header'>ПОКУПАТЕЛЯМ</h4> -->
                             <p class='text_just'>
                                 Мы с нашими партнерами, каждый день придумываем для вас подарки. Хотим, что бы у вас была возможность одарить по достоинству любого и по любому поводу. Что-то необычное, яркое и запоминающееся. Думаем что эмоции - самый лучший подарок. Истории которые создают яркие позитивные эмоции мы упаковываем, что бы вы могли их дарить. Такой подарок вы можете отправить как открытку, можете подарить лично, а можете подарить тайно и сохранить интригу. Еще, мы сами любим дарить подарки. Подписывайтесь на нас в соцсетях, участвуйте в конкурсах и получайте наши подарки. Для того, что бы начать поиск подарка выбирайте Ваш город и мы переведем Вас на нужную страничку.
                             </p>
