@@ -114,6 +114,22 @@ $curentcity = $this->params['city'];
         }*/
 
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
+
+            .body {
+                width: 97%;
+            }
+
+            .single-input {
+                width: 85%;
+            }
+
+            .main-header1 {
+                font-size: 16px;
+            }
+
+            .text_just {
+                width: 85%;
+            }
             #main-header {
                 text-align: center;
             }
@@ -145,7 +161,7 @@ $curentcity = $this->params['city'];
 
             .cityListIndex {
                 float: left;
-                margin: 0 0 5 85px;
+                margin: 0 0 5 50px;
             }
 
             .header_area .navbar .nav .nav-item .nav-link {
@@ -153,6 +169,11 @@ $curentcity = $this->params['city'];
             }
 
             .nav-link {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+
+            .nav-item {
                 margin-left: 50px;
                 margin-right: 50px;
             }
@@ -167,10 +188,6 @@ $curentcity = $this->params['city'];
                 .home_banner_area .banner_inner .banner_content h3 {
                     margin-bottom: -14px;
                     font-size: 38px;
-                }
-
-                .navbar {
-                    width: 90%;
                 }
 
                 #main-header {
@@ -196,7 +213,7 @@ $curentcity = $this->params['city'];
                 <div class="banner_content row">
                     <div class="col-lg-5"><br><br>
                         <h3 class="mb-30 title_color" id='main-header'>СЕРТИФИКАТ</h3>
-                        <p>Вам подарили похожий сертификат?</p>
+                        <p class='text_just'>Вам подарили похожий сертификат?</p>
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
                         </p><br>
                         <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
@@ -291,10 +308,10 @@ $curentcity = $this->params['city'];
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="section-top-border">
-                    <h3 class="mb-30 title_color" id='main-header'>ПРЕДПРИНИМАТЕЛЯМ</h3>
+                    <h3 class="mb-30 title_color" id='main-header1'>ПРЕДПРИНИМАТЕЛЯМ</h3>
                     <div class="row">
                         <div class="col-md-9 mt-sm-20 left-align-p">
-                            <p class="text-right text-body">
+                            <p class="text_just">
                                 Как запустить такой сервис в вашем городе?
                             </p>
                             <p class="text_just">
