@@ -48,6 +48,11 @@ return [
                 'contacts' => 'site/about',
             ],
         ],
+        'telegram' => [
+        'class' =>'SonkoDmitry\Yii\TelegramBot\Component', 'aki\telegram\Telegram',
+        'apiToken' => '715590464:AAFQUnRjMY7aM-W0YNMcDDxQt_IrJ5zlmkI',
+        ],
+
     ],
     'params' => $params,
 ];

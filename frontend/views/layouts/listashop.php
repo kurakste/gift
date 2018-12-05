@@ -34,39 +34,44 @@ $curentcity = $this->params['city'];
             height: 40px;
         }
 
-    /* This style is needed for fcatlist & scatlist accente selected issue. */
-    .accented {
-        list-style-type: disc !important;
-        font-size: 17px!important;
-        text-decoration: underline !important;
-    }
-
-    @media only screen and (max-width: 800px) {
-        #logo-img {
-            width:70px;
-        }
-    }
-
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-        .nav navbar-nav menu_nav ml-auto {
-            margin-bottom: 10%;
+        /* This style is needed for fcatlist & scatlist accente selected issue. */
+        .accented {
+            list-style-type: disc !important;
+            font-size: 17px!important;
+            text-decoration: underline !important;
         }
 
-        .footer_title {
-            text-align: center;
+        #callBackMsg {
+            color: green;
+            display: none;
         }
 
-        .text-body .footerText {
-            text-align: justify;
+        @media only screen and (max-width: 800px) {
+            #logo-img {
+                width:70px;
+            }
         }
 
-        .btnCentered {
-            text-align: center;
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+            .nav navbar-nav menu_nav ml-auto {
+                margin-bottom: 10%;
+            }
+
+            .footer_title {
+                text-align: center;
+            }
+
+            .text-body .footerText {
+                text-align: justify;
+            }
+
+            .btnCentered {
+                text-align: center;
+            }
+            .footerText {
+                text-align: justify;
+            }
         }
-        .footerText {
-            text-align: justify;
-        }
-    }
 
     </style>
 
@@ -168,13 +173,14 @@ $curentcity = $this->params['city'];
                                 <h6 class="footer_title">ОБРАТНЫЙ ЗВОНОК</h6>
                                 <p class="footerText">Отправьте нам ваш номер телефона и мы вам перезвоним.</p>
                                 <div id="mc_embed_signup ">
-                                    <form target="_blank " action="# " method="get " class="subscribe_form relative ">
+                                  <!--  <form target="_blank " action="" method="get " class="subscribe_form relative "> -->
                                         <div class="input-group d-flex flex-row ">
-                                            <input name="EMAIL " placeholder="номер телефона " onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required=" " type="email ">
-                                            <button class="btn sub-btn my-arrow "><span class="lnr lnr-arrow-right "></span></button>
+                                            <input name="EMAIL" placeholder="номер телефона" id="inputphonefield" onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required=" " type="email ">
+                                            <button id="btnPhone" class="btn sub-btn my-arrow "><span class="lnr lnr-arrow-right "></span></button>
                                         </div>
+                                        <p id='callBackMsg'>Мы получили запрос и обязательно Вам перезвоним. </p>
                                         <div class="mt-10 info "></div>
-                                    </form>
+                              <!--      </form> -->
                                 </div>
                             </div>
                         </div>

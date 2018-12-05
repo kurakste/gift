@@ -5,8 +5,6 @@ window.onload = () => {
    if (typeof(initialFcidFromBackend) != 'undefined' && initialFcidFromBackend != null) {
       var globalFcatID = initialFcidFromBackend;
    }
-   //var globalFcatID = initialFcidFromBackend ? initialFcidFromBackend : null;
-   // var globarFcatID = initialFcidFromBackend || null;
    
    if (typeof(initialCityFromBackend) != 'undefined' && initialCityFromBackend != null) {
       var globalCityID = initialCityFromBackend; 
@@ -18,37 +16,43 @@ window.onload = () => {
 
    const csrf = document.querySelector("meta[name='csrf-token']").content;
    
-   
-   var fcats = document.getElementById('fcatlist');   
-   var scats = document.getElementById('scatlist');  
+   const fcats = document.getElementById('fcatlist');   
+   const scats = document.getElementById('scatlist');  
+
    var slist = document.getElementById('citieslist');  
-   var slist2= document.getElementById('citieslist2');  
+   var slist2 = document.getElementById('citieslist2');  
+   var btnPhone = document.getElementById('btnPhone');  
    var btnQuote = document.getElementById('btnQuote');  
    var btnCertDetail = document.getElementById('certDetailBtn');   
    var btnCertActivate = document.getElementById('certActivateBtn');
-
-   console.log(btnCertActivate);
-
-   var catimagelist = document.getElementsByClassName('cat-image');
+   var catimagelist = Array.from(document.getElementsByClassName('cat-image'));
    var quoteContainer = document.getElementById('quote-container');
+   const callBackMsg = document.getElementById('callBackMsg');
 
 
    if (fcats!=null) {
+      // console.log(fcats);
+      // fcats.map(
+      //    x => x.children[0].onclick = fcatsclick
+      // );
       for (var i = 0; i < fcats.children.length; i++) {
          fcats.children[i].children[0].onclick = fcatsclick;
       }
    }
    
-   if (fcats!=null) {
+   if (scats!=null) {
+      // scats.map(
+      //   x => x.children[0].onclick =  scatsclick
+      // );
       for (var i = 0; i < scats.children.length; i++) {
          scats.children[i].children[0].onclick = scatsclick;
       }
    }
 
    if (catimagelist!=null) {
-      for (var i=0; i< catimagelist.length; i++) {
-         catimagelist[i].onclick = onCategoryClick;
-      } 
+      catimagelist.map(
+         x => x.onclick = onCategoryClick
+      );
    }
 
    if (btnQuote != null) btnQuote.onclick = btnQuoteOnClickHandler;
@@ -60,21 +64,50 @@ window.onload = () => {
       slist2.onchange = cityChangeState;
    }
 
+   console.log('btnPhone', btnPhone);
+   if (btnPhone) {
+      btnPhone.onclick = getPhoneCall;
+   }
+
    loadCity(); // Этот запрос синхоронный. Все будут ждать, пока не выяснится город. Без этого не правильно загрузятся товары.  
    loadCitiesList();  
    loadQuotesList();
    requestForItems();
    
 //-----------------------------------------------------   
+   function getPhoneCall() {
+      let out;
+      let phonenumber;
+      const phone = document.getElementById('inputphonefield');
+      if (phone) {
+         phonenumber = phone.value; 
+      }
+      const url = '/contact/ajax-send-callback-request';
+      const req = 'phone=' + phonenumber;
+
+      ajaxpost(url, req, true, (resptext) => {
+         let resp;
+         try {
+            resp = JSON.parse(resptext);
+            callBackMsg.style.display='block';
+         } catch {
+            resp = false;
+         }
+         console.log(resp);
+      });
+
+      return false;
+   }
+
    function btnDetailOnClickHandler() {
 
       const certidel = document.getElementById('cert_input');   
       let errormsg = document.getElementById('cert_error');   
-
       let certid = certidel.value;
       const url = '/cert/ajax-check';
-      const req = '?certid=' + certid;
+      const req = 'certid=' + certid;
       let resp;
+
       ajaxget(url, req, false, (resptext) => {
          try {
             resp = JSON.parse(resptext);
@@ -82,6 +115,7 @@ window.onload = () => {
             resp = false;
          }
       }); 
+
       if (resp) {
           document.location.href='/cert/description?certid='+certid;
       } else {
@@ -164,7 +198,6 @@ window.onload = () => {
          globalQuotesList = quotes;
       };
       xhr.send('');
-      
    }
 
    function getCityCpuById (id){
@@ -248,7 +281,6 @@ window.onload = () => {
             favicons[i].onclick = onAddToFavoriteClick;
          }
       }
-
    }
    
    function onAddToFavoriteClick() {
@@ -278,8 +310,6 @@ window.onload = () => {
    function fcatsclick() {
 
       let tmp = fcats.getElementsByClassName('accented');
-
-      // let tmp= this.parentNode;
 
       if (tmp!=null) {
          for (var i = 0; i < tmp.length; i++) {
@@ -350,21 +380,6 @@ window.onload = () => {
    return tmpl;
    }
    
-   //
-   //Just testing function to check wich way work addNewItemInContainer &
-   // generateItem.
-   function fakeProductGenerator()
-   {
-      for (i=1; i<=12; i++) {
-         let name = 'item_' + i;
-         let cost = i * 1000;
-         let image = '/img/product/most-product/m-product-' + i + '.jpg';
-
-         content = generateItem(name, cost, image); 
-         addNewItemInContainer(content);
-      }
-   }
-
 //-------------------------------------------------------function
    function cityChangeState() {
       globalCityID = this.value;
@@ -424,6 +439,4 @@ window.onload = () => {
       console.log(req);
       xhr.send('');
    }
-   
-  
 }

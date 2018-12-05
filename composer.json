@@ -25,7 +25,8 @@
         "dmstr/yii2-adminlte-asset": "^2.1",
         "facebook/webdriver": "^1.6",
         "guzzlehttp/guzzle": "^6.3",
-        "kartik-v/yii2-widget-select2": "@dev"
+        "kartik-v/yii2-widget-select2": "@dev",
+        "sonko-dmitry/yii2-telegram-bot-api": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

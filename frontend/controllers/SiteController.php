@@ -391,24 +391,16 @@ class SiteController extends Controller
 
     public function actionTest()
     {
+        \Yii::$app->mailer->compose()
+            ->setFrom(['yoursiteaudit@yandex.ru' => 'py-pozdravim.ru'])
+            ->setTo(['kurakste@gmail.com'=>'admin'])
+            ->setSubject('CallbackRequest')
+            ->setTextBody('Callback request from...')
+            ->send();
+
         $this->layout = null;
-        /* vd(getcwd()); */
-        $vaucherPath = "./img/vauchers/vaucher.png";
-        $im = imagecreatefrompng($vaucherPath);
-        $name = "Мне бы в небо."; 
-        $shortDescription = "Пилотирование легкомоторного самолета."; 
-        $date = 'Активировать до: 01/02/2019';
-        $cod = "X23F-234234";
-        $fontpath2 = "./fonts/Jura-Bold.ttf";
-        $fontpath1 = "./fonts/12161.otf";
-        $color = imagecolorallocate($im, 0, 0, 0); 
-        imagettftext($im, 32, 0, 420, 260, $color, $fontpath1, $name);
-        imagettftext($im, 28, 0, 420, 350, $color, $fontpath1, $shortDescription);
-        imagettftext($im, 24, 0, 75, 380, $color, $fontpath2, $cod);
-        imagettftext($im, 28, 0, 480, 437, $color, $fontpath1, $date);
-        header("Content-type: image/png"); 
-        imagepng($im); 
-        imagedestroy($im);
+
+        echo 'Done';
         die;
     }
     
