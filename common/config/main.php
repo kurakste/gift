@@ -9,7 +9,6 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        
         'mailer' =>[ 
             'class' => 'yii\swiftmailer\Mailer',
             'transport' => [
@@ -20,7 +19,6 @@ return [
                      'port' => env('EMAIL_PORT'), // Port 25 is a very common port too
                      'encryption' => env('EMAIL_ENC'), // It is often used, check your provider or mail server specs
                      ],
-
             'useFileTransport' => false,
         ],
     ],
