@@ -15,6 +15,7 @@ $curentcity = $this->params['city'];
             margin-bottom: 80px;
         }
 
+
         #firstBtn {
             margin-left: 15px;
             width: 165px;
@@ -71,6 +72,10 @@ $curentcity = $this->params['city'];
             padding: 1px 40px 1px 20px;
         }
 
+        .main-page-image {
+            width: 100%;
+        }
+
         .clearfix:after {
             visibility: hidden;
             display: block;
@@ -109,9 +114,16 @@ $curentcity = $this->params['city'];
             margin-bottom: 20px;
         }
 
-        /*#firtstBtn {
-            padding-right: 30px;
-        }*/
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 714px) {
+            .white_bg_btn {
+                margin-bottom: 30px;
+            }
+            .centeredbtnindex {
+                margin-bottom: 30px;
+            }
+        }
+
 
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
@@ -224,12 +236,11 @@ $curentcity = $this->params['city'];
                         <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                         <!--<a class="white_bg_btn" id="firstBtn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a> -->
                         <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
-                        <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a>
-
+                        <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a><br><br>
                     </div>
                     <div class="col-lg-7">
                         <div class="halemet_img">
-                            <img class='main-page-image' src="/img/vaucher-exp.png" alt="" width="100%">
+                            <img class='main-page-image' src="/img/vaucher-exp.png" alt="">
                         </div>
                     </div>
                 </div>

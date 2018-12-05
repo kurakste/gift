@@ -84,6 +84,12 @@ $curentcity = $this->params['city'];
             .footerText {
                 text-align: justify;
             }
+
+            @media only screen and (min-device-width: 768px) and (max-device-width: 714px) {
+                .white_bg_btn {
+                    margin-bottom: 30px;
+                }
+            }
         }
 
     </style>
