@@ -53,8 +53,40 @@ $curentcity = $this->params['city'];
         }
 
         @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+
+        .accented {
+            list-style-type: disc !important;
+            font-size: 17px !important;
+            text-decoration: underline !important;
+        }
+
+        @media only screen and (max-width: 800px) {
+            #logo-img {
+                width: 70px;
+            }
+        }
+
+        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
             .nav navbar-nav menu_nav ml-auto {
                 margin-bottom: 10%;
+            }
+
+            .centeredHeart {
+                margin-left: 35%;
+            }
+
+            .nav-link {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+
+            .nav-item {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+
+            .single-footer-widget {
+                width: 85%;
             }
 
             .footer_title {
@@ -70,6 +102,12 @@ $curentcity = $this->params['city'];
             }
             .footerText {
                 text-align: justify;
+            }
+
+            @media only screen and (min-device-width: 768px) and (max-device-width: 714px) {
+                .white_bg_btn {
+                    margin-bottom: 30px;
+                }
             }
         }
 
@@ -135,9 +173,11 @@ $curentcity = $this->params['city'];
                                 <li class="nav-item <?php if ($this->params['page']==='act') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">Сертификат</a></li>
                                 <li class="nav-item <?php if ($this->params['page']==='about') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="nav-item"><a href="<?= Url::toRoute(['site/favorite']) ?>" class="cart"><i class="lnr lnr lnr-heart"></i></a></li>
-                            </ul>
+                            <div class="centeredHeart">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="nav-item"><a href="<?= Url::toRoute(['site/favorite']) ?>" class="cart"><i class="lnr lnr lnr-heart"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </nav>
