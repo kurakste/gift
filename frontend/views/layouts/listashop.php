@@ -57,19 +57,17 @@ $curentcity = $this->params['city'];
             }
 
             .nav-link {
-                margin-left: 50px;
-                margin-right: 50px;
+                margin-left: 20px;
+                margin-right: 20px;
             }
 
             .nav-item {
-                margin-left: 50px;
-                margin-right: 50px;
+                margin-left: 20px;
+                margin-right: 20px;
             }
-
-            .single-footer-widget {
+            /*.single-footer-widget {
                 width: 85%;
-            }
-
+            }*/
             .footer_title {
                 text-align: center;
             }
@@ -153,12 +151,9 @@ $curentcity = $this->params['city'];
                                 <li class="nav-item <?php if ($this->params['page']==='how') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-does-it-work']) ?>">Как это работает</a></li>
                                 <li class="nav-item <?php if ($this->params['page']==='act') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">Сертификат</a></li>
                                 <li class="nav-item <?php if ($this->params['page']==='about') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
+                                <li class="nav-item <?= Url::toRoute(['site/favorite']) ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">&#9825;</a></li><br>
                             </ul>
-                            <div class="centeredHeart">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="nav-item"><a href="<?= Url::toRoute(['site/favorite']) ?>" class="cart"><i class="lnr lnr lnr-heart"></i></a></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </nav>

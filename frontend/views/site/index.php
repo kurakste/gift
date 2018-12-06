@@ -140,7 +140,7 @@ $curentcity = $this->params['city'];
             }
 
             .text_just {
-                width: 85%;
+                width: 99%;
             }
             #main-header {
                 text-align: center;
@@ -151,7 +151,7 @@ $curentcity = $this->params['city'];
                 width: 70%;
                 height: 70%;
                 font-size: 70%;
-                margin-left: 25%;
+                margin-top: 10px;
             }
             .BtnSpecify {
                 margin-left: 25%;
@@ -166,9 +166,13 @@ $curentcity = $this->params['city'];
             .white_bg_btn {
                 float: left;
                 /*margin: 0 10px 15px 0;*/
-                margin-bottom: 15px;
+                /*margin-bottom: 15px;*/
                 width: 150px;
                 height: 50px;
+            }
+
+            #secondBtn {
+                margin-bottom: 15px;
             }
 
             .cityListIndex {
@@ -176,22 +180,22 @@ $curentcity = $this->params['city'];
                 margin: 0 0 5 50px;
             }
 
-            .header_area .navbar .nav .nav-item .nav-link {
-                line-height: 30px;
-            }
-
-            .nav-link {
-                margin-left: 50px;
+            /*.header_area .navbar .nav .nav-item .nav-link {
+                line-height: 25px;
+            }*/
+            /*.nav-link {
+                margin-left: 25px;
                 margin-right: 50px;
             }
 
             .nav-item {
-                margin-left: 50px;
+                margin-left: 25px;
                 margin-right: 50px;
             }
 
-
-
+            .li {
+                margin-left: 25px;
+            }*/
             @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
                 #main-header {
                     margin-top: 2500px;
@@ -236,7 +240,7 @@ $curentcity = $this->params['city'];
                         <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                         <!--<a class="white_bg_btn" id="firstBtn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a> -->
                         <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Уточнить</a>
-                        <a class="white_bg_btn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a><br><br>
+                        <a class="white_bg_btn" id="secondBtn" href="<?= Url::toRoute(['/site/activate']) ?>">Активировать</a><br><br>
                     </div>
                     <div class="col-lg-7">
                         <div class="halemet_img">
