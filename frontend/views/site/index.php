@@ -16,6 +16,22 @@ $curentcity = $this->params['city'];
         }
 
 
+        #main-header {
+            margin-top: 70px;
+        }
+
+        .container {
+            text-align: justify;
+        }
+
+        #certDetailBtn {
+            margin-bottom: 10px;
+        }
+
+        #certActivateBtn {
+            margin-bottom: 10px;
+        }
+
         #firstBtn {
             margin-left: 15px;
             width: 165px;
@@ -47,6 +63,7 @@ $curentcity = $this->params['city'];
 
         #cert_input {
             max-width: 400px;
+            margin-bottom: 10px;
         }
 
         /* .send-phone-button{ */
@@ -74,6 +91,7 @@ $curentcity = $this->params['city'];
 
         .main-page-image {
             width: 100%;
+            margin-top: 120px;
         }
 
         .clearfix:after {
@@ -89,6 +107,7 @@ $curentcity = $this->params['city'];
             display: inline-block;
         }
 
+
         /* start commented backslash hack \*/
 
         * html .clearfix {
@@ -103,10 +122,6 @@ $curentcity = $this->params['city'];
 
         #raw_but {
             padding-bottom: 50px;
-        }
-
-        .main-page-image {
-            margin-top: 50px;
         }
 
         .BtnCenter {
@@ -186,7 +201,7 @@ $curentcity = $this->params['city'];
             /*.nav-link {
                 margin-left: 25px;
                 margin-right: 50px;
-            }
+            }*/
         }
 
         @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
@@ -212,40 +227,41 @@ $curentcity = $this->params['city'];
             }
             .li {
                 margin-left: 25px;
-            }*/
-            @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+            }
+            */ @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
                 #main-header {
                     margin-top: 2500px;
                 }
 
-            .centeredText {
-                margin-left: 120px;
+                .centeredText {
+                    margin-left: 120px;
+                }
+
+            }
+            #main-header {
+                text-align: center;
             }
 
-        }
-                #main-header {
-                    text-align: center;
-                }
+            #cert_error {
+                display: none;
+                color: red;
+            }
 
-        #cert_error {
-            display: none;
-            color: red;
-        }
-        
-        #cert_act_error {
-            display: none;
-            color: red;
-        }
-        
-        #cert_work {
-                    display: none;
-                    color: green;
-                }
+            #cert_act_error {
+                display: none;
+                color: red;
+            }
 
-        #cert_done {
-                    display: none;
-                    color: green;
-                }
+            #cert_work {
+                display: none;
+                color: green;
+            }
+
+            #cert_done {
+                display: none;
+                color: green;
+            }
+
     </style>
 
     <script>
@@ -263,16 +279,16 @@ $curentcity = $this->params['city'];
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
                         </p><br>
                         <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
-                        <p id='cert_error' >
+                        <p id='cert_error'>
                             Сертификат не найден в базе. Проверте пожалуйста код.
                         </p>
-                        <p id='cert_act_error' >
+                        <p id='cert_act_error'>
                             Не удалось активировать ваш сертификат. Отправьте пожалуйста ваше имя и номер телефона через данную форму. Мы вам перезвоним и решим возникшую проблему.
                         </p>
-                        <p id='cert_work' >
+                        <p id='cert_work'>
                             Подождите минуту. Работаю.
                         </p>
-                        <p id='cert_done' >
+                        <p id='cert_done'>
                             Ваш сертификат успешно активирован. Мы позвоним вам в течении 3х рабочих часов.
                         </p>
                         <br>
