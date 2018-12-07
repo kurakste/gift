@@ -1,13 +1,24 @@
 'use strict';
+// Why array looks like blended?
+// How use polifil. Have i to use some if statements? 
+// Is fetch work well with cross domain requests?
+//
+
+if (typeof(initialCityFromBackend) != 'undefined' && initialCityFromBackend != null) {
+   var globalCityID = initialCityFromBackend; 
+}
+
+const mark  = new Market(globalCityID);
 
 window.onload = () => {
-   
+
+   console.log(mark);
+   mark.setFcats(2);
+   mark.setScats(2);
+   console.log(mark);
+
    if (typeof(initialFcidFromBackend) != 'undefined' && initialFcidFromBackend != null) {
       var globalFcatID = initialFcidFromBackend;
-   }
-   
-   if (typeof(initialCityFromBackend) != 'undefined' && initialCityFromBackend != null) {
-      var globalCityID = initialCityFromBackend; 
    }
 
    var globalScatID = -99;
@@ -31,7 +42,6 @@ window.onload = () => {
 
 
    if (fcats!=null) {
-      // console.log(fcats);
       // fcats.map(
       //    x => x.children[0].onclick = fcatsclick
       // );
@@ -64,7 +74,6 @@ window.onload = () => {
       slist2.onchange = cityChangeState;
    }
 
-   console.log('btnPhone', btnPhone);
    if (btnPhone) {
       btnPhone.onclick = getPhoneCall;
    }
@@ -72,7 +81,8 @@ window.onload = () => {
    loadCity(); // Этот запрос синхоронный. Все будут ждать, пока не выяснится город. Без этого не правильно загрузятся товары.  
    loadCitiesList();  
    loadQuotesList();
-   requestForItems();
+   //requestForItems();
+   getItems();
    
 //-----------------------------------------------------   
    function getPhoneCall() {
@@ -93,7 +103,6 @@ window.onload = () => {
          } catch {
             resp = false;
          }
-         console.log(resp);
       });
 
       return false;
@@ -139,7 +148,6 @@ window.onload = () => {
 
       let certid = certidel.value;
       
-      console.log(certid);
       const url = '/cert/ajax-check';
       const req = '?certid=' + certid;
       let resp;
@@ -147,16 +155,12 @@ window.onload = () => {
       ajaxget(url, req, false, (resptext) => {
          try {
             resp = JSON.parse(resptext);
-            console.log('ajax resp:', resp);
          } catch {
             resp = false;
          }
       }); 
 
-      console.log('resp', resp);
-
       if (resp) {
-         console.log('Activate certificate done.');
          workrmsg.style.display='none';
          donemsg.style.display='block';
       } else {
@@ -216,14 +220,12 @@ window.onload = () => {
       var req = '';
 
       req = url; 
-      console.log(req);
       xhr.open("GET", req, true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
       xhr.onreadystatechange = function() {
          if (this.readyState != 4) return;
          let cities = JSON.parse(this.responseText);
-         console.log(cities);
          globalCitiesList = cities;
       };
       xhr.send('');
@@ -242,7 +244,6 @@ window.onload = () => {
 
       req = url + '?fcid=' + globalFcatID + '&scid=' + globalScatID +
          '&cityid=' + globalCityID;
-      console.log(req);
       xhr.open("GET", req, true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -252,17 +253,33 @@ window.onload = () => {
          try {
             items = JSON.parse(this.responseText);
          } catch(e) {
-            console.log('Parsing error.');
             items = [];
          }
          
-         console.log('respose:', items);
-
          clearProductContainer()
          generateItemsFromArray(items); 
          refreshAddToCartHendler();
       }
       xhr.send('');
+   }
+
+   function getItems() {
+      const url = '/ajax/get-products';
+      const req = 'cityid=' + globalCityID;
+      let resp;
+
+      ajaxget(url, req, true, (resptext) => {
+         try {
+            resp = JSON.parse(resptext);
+            market.items = resp;
+            let tmp = market.getPageCount();
+            console.log('ajax resp ok:', tmp);
+
+         } catch {
+            resp = false;
+            console.log('ajax resp false:', resp);
+         }
+      }); 
    }
 
    function generateItemsFromArray(items) {
@@ -383,7 +400,6 @@ window.onload = () => {
 //-------------------------------------------------------function
    function cityChangeState() {
       globalCityID = this.value;
-      console.log(globalCityID);
       storeCityWhenChanged(this.value);
       if (typeof(globalPage) != 'undefined' && globalPage != null) {
          if (globalPage == 'main') {
@@ -394,7 +410,6 @@ window.onload = () => {
             else {
                let homelink1 = document.getElementById('home-link-1');   
                let homelink2 = document.getElementById('home-link-2');   
-               console.log(homelink1);
          }
       }
       requestForItems();
@@ -407,14 +422,12 @@ window.onload = () => {
       var req = '';
 
       req = url + '?cityid=' + cityid;
-      console.log(req);
       xhr.open("GET", req, true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
       xhr.onreadystatechange = function() {
          if (this.readyState != 4) return;
          items = JSON.parse(this.responseText);
-         console.log(this.responseText);
       }
       xhr.send('');
    }
@@ -433,10 +446,8 @@ window.onload = () => {
          let out =settings.city;
          globalCityID = out;
          requestForItems();
-         console.log(globalCityID);
          return out;
       }
-      console.log(req);
       xhr.send('');
    }
 }

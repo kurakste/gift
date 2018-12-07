@@ -47,16 +47,31 @@
             <div class="col-lg-9">
                 <div class="product_top_bar">
                     <div class="left_dorp">
-                    <p>Выбрать подарок в <span id="cityspan"></span> </p>
+                        <select class="sorting" style="display: none;">
+                            <option value="1">Default sorting</option>
+                            <option value="2">Default sorting 01</option>
+                            <option value="4">Default sorting 02</option>
+                        </select><div class="nice-select sorting" tabindex="0"><span class="current">Default sorting</span><ul class="list"><li data-value="1" class="option selected">Default sorting</li><li data-value="2" class="option">Default sorting 01</li><li data-value="4" class="option">Default sorting 02</li></ul></div>
+                        <select class="show" style="display: none;">
+                            <option value="1">Show 12</option>
+                            <option value="2">Show 14</option>
+                            <option value="4">Show 16</option>
+                        </select><div class="nice-select show" tabindex="0"><span class="current">Show 12</span><ul class="list"><li data-value="1" class="option selected">Show 12</li><li data-value="2" class="option">Show 14</li><li data-value="4" class="option">Show 16</li></ul></div>
                     </div>
                     <div class="right_page ml-auto">
                         <nav class="cat_page" aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item blank"><a class="page-link" href="#">...</a></li>
+                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                            </ul>
                         </nav>
                     </div>
-                </div>
-                <div class="latest_product_inner row" id = 'pcontainer'>
-                    <i class="fa fa-spinner myspin"></i>
-                </div>
+                    </div>
             </div>
             <div class="col-lg-3">
                 <div class="left_sidebar_area">

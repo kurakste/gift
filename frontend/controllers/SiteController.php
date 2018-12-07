@@ -155,7 +155,7 @@ class SiteController extends Controller
             };
         }
         
-        \Yii::$app->view->params['fcid'] = $fcid; // Send fcid to template if it comes from get.
+        \Yii::$app->view->params['fcid'] = $fcid; // Send fcid to template.
         
         $cookies = Yii::$app->request->cookies;
 
@@ -282,8 +282,8 @@ class SiteController extends Controller
             $tmp['cpu'] = $item->cpu;
             $out[] = $tmp;
         }
-
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
         return $out;
     }
  
