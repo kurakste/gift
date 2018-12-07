@@ -20,6 +20,26 @@ $curentcity = $this->params['city'];
             margin-top: 70px;
         }
 
+        #cert_error {
+            display: none;
+            color: red;
+        }
+
+        #cert_act_error {
+            display: none;
+            color: red;
+        }
+
+        #cert_work {
+            display: none;
+            color: green;
+        }
+
+        #cert_done {
+            display: none;
+            color: green;
+        }
+
         .container {
             text-align: justify;
         }
