@@ -1,22 +1,26 @@
-   function ajaxget(url, req, asinc, callback) {
-      var xhr = new XMLHttpRequest();
-      req = url + '?' + req; 
-      xhr.open("GET", req, asinc);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onreadystatechange = function() {
-         if (this.readyState != 4) return;
-         callback(this.responseText);
-      };
-      xhr.send('');
-   }
-   
-   function ajaxpost(url, params, asinc, callback) {
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", url, asinc);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onreadystatechange = function() {
-         if (this.readyState != 4) return;
-         callback(this.responseText);
-      };
-      xhr.send(params);
-   }
+'use strict';
+
+function httpGet(url) {
+
+  return new Promise(function(resolve, reject) {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+
+    xhr.onload = function() {
+      if (this.status == 200) {
+        resolve(this.response);
+      } else {
+        var error = new Error(this.statusText);
+        error.code = this.status;
+        reject(error);
+      }
+    };
+
+    xhr.onerror = function() {
+      reject(new Error("Network Error"));
+    };
+
+    xhr.send();
+  });
+}

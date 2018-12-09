@@ -35,7 +35,7 @@ class SiteController extends Controller
             $cityid = $cookies->getValue('city');
             $city = \common\models\Citys::find()->where(['id' => $cityid])->one();
             if ($city == null) {
-                throw new \yii\web\HttpException(404, 'Can\'t find city like that.');
+                throw new \yii\web\HttpException(404, 'Can\'t find city like that:'.$cityid);
             }
             \Yii::$app->view->params['city'] = $city;
             \Yii::$app->view->params['citycpu']=$city->cpu;
@@ -155,7 +155,7 @@ class SiteController extends Controller
             };
         }
         
-        \Yii::$app->view->params['fcid'] = $fcid; // Send fcid to template if it comes from get.
+        \Yii::$app->view->params['fcid'] = $fcid; // Send fcid to template.
         
         $cookies = Yii::$app->request->cookies;
 
@@ -282,8 +282,8 @@ class SiteController extends Controller
             $tmp['cpu'] = $item->cpu;
             $out[] = $tmp;
         }
-
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
         return $out;
     }
  
@@ -300,7 +300,7 @@ class SiteController extends Controller
         $request = Yii::$app->request;
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        $cityid= (int)$request->get('cityid') ?? null;
+        $cityid= (int)$request->post('cityid') ?? null;
 
 
         if (($cityid!==null)) {
@@ -311,7 +311,7 @@ class SiteController extends Controller
             ]));
             return  $cityid;
         }
-        return 'error';
+        return false;
     }
 
     public function actionAjaxAddItemToFav()
