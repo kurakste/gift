@@ -15,6 +15,14 @@ $curentcity = $this->params['city'];
             margin-bottom: 80px;
         }
 
+        @media screen and (min-width: 767px) {
+            .smallcertificateformobileversion {
+                display: none;
+            }
+
+        }
+
+
 
         #main-header {
             margin-top: 70px;
@@ -163,9 +171,31 @@ $curentcity = $this->params['city'];
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
             .body {
-                width: 97%;
+                width: 95%;
+            }
+            #imageSmall {
+                background-image: url("/img/vaucher-exp-small.png");
+
             }
 
+            .smallcertificateformobileversion {
+                display: inline;
+                width: 40%;
+                height: 40%;
+            }
+
+            .text-body {
+                width: 95%;
+                margin-right: 10px;
+            }
+
+            .icon-bar {
+                margin-right: 10px;
+            }
+
+            .navbar-toggler {
+                margin-right: 10px;
+            }
             .single-input {
                 width: 85%;
             }
@@ -175,7 +205,7 @@ $curentcity = $this->params['city'];
             }
 
             .text_just {
-                width: 99%;
+                width: 95%;
             }
             #main-header {
                 text-align: center;
@@ -218,10 +248,10 @@ $curentcity = $this->params['city'];
             /*.header_area .navbar .nav .nav-item .nav-link {
                 line-height: 25px;
             }*/
-            /*.nav-link {
+            .nav-link {
                 margin-left: 25px;
                 margin-right: 50px;
-            }*/
+            }
         }
 
         @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
@@ -296,6 +326,7 @@ $curentcity = $this->params['city'];
                     <div class="col-lg-5"><br><br>
                         <h3 class="mb-30 title_color" id='main-header'>СЕРТИФИКАТ</h3>
                         <p class='text_just'>Вам подарили похожий сертификат?</p>
+                        <div id="imageSmall"></div>
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
                         </p><br>
                         <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">

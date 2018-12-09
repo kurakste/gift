@@ -35,9 +35,10 @@ $curentcity = $this->params['city'];
         }
 
         /* This style is needed for fcatlist & scatlist accente selected issue. */
+
         .accented {
             list-style-type: disc !important;
-            font-size: 17px!important;
+            font-size: 17px !important;
             text-decoration: underline !important;
         }
 
@@ -48,66 +49,71 @@ $curentcity = $this->params['city'];
 
         @media only screen and (max-width: 800px) {
             #logo-img {
-                width:70px;
+                width: 70px;
             }
         }
 
         @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
 
-        .accented {
-            list-style-type: disc !important;
-            font-size: 17px !important;
-            text-decoration: underline !important;
-        }
-
-        @media only screen and (max-width: 800px) {
-            #logo-img {
-                width: 70px;
-            }
-        }
-
-        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
-            .nav navbar-nav menu_nav ml-auto {
-                margin-bottom: 10%;
+            .accented {
+                list-style-type: disc !important;
+                font-size: 17px !important;
+                text-decoration: underline !important;
             }
 
-            .centeredHeart {
-                margin-left: 35%;
-            }
-
-            .nav-link {
-                margin-left: 20px;
-                margin-right: 20px;
-            }
-
-            .nav-item {
-                margin-left: 20px;
-                margin-right: 20px;
-            }
-            /*.single-footer-widget {
-                width: 85%;
-            }*/
-            .footer_title {
-                text-align: center;
-            }
-
-            .text-body .footerText {
-                text-align: justify;
-            }
-
-            .btnCentered {
-                text-align: center;
-            }
-            .footerText {
-                text-align: justify;
-            }
-
-            @media only screen and (min-device-width: 768px) and (max-device-width: 714px) {
-                .white_bg_btn {
-                    margin-bottom: 30px;
+            @media only screen and (max-width: 800px) {
+                #logo-img {
+                    width: 70px;
                 }
             }
-        }
+
+            @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
+                .nav navbar-nav menu_nav ml-auto {
+                    margin-bottom: 10%;
+                }
+
+                .centeredHeart {
+                    margin-left: 35%;
+                }
+
+                .nav-link {
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+
+                .nav-item {
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+                /*.single-footer-widget {
+                width: 85%;
+            }*/
+                .footer_title {
+                    text-align: center;
+                }
+
+                .text-body .footerText {
+                    text-align: justify;
+                }
+
+                .text-body {
+                    width: 95%;
+                    margin-right: 10px;
+                }
+
+                .btnCentered {
+                    text-align: center;
+                }
+                .footerText {
+                    text-align: justify;
+                }
+
+                @media only screen and (min-device-width: 768px) and (max-device-width: 714px) {
+                    .white_bg_btn {
+                        margin-bottom: 30px;
+                    }
+                }
+            }
 
     </style>
 
@@ -208,14 +214,14 @@ $curentcity = $this->params['city'];
                                 <h6 class="footer_title">ОБРАТНЫЙ ЗВОНОК</h6>
                                 <p class="footerText">Отправьте нам ваш номер телефона и мы вам перезвоним.</p>
                                 <div id="mc_embed_signup ">
-                                  <!--  <form target="_blank " action="" method="get " class="subscribe_form relative "> -->
-                                        <div class="input-group d-flex flex-row ">
-                                            <input name="EMAIL" placeholder="номер телефона" id="inputphonefield" onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required=" " type="email ">
-                                            <button id="btnPhone" class="btn sub-btn my-arrow "><span class="lnr lnr-arrow-right "></span></button>
-                                        </div>
-                                        <p id='callBackMsg'>Мы получили запрос и обязательно Вам перезвоним. </p>
-                                        <div class="mt-10 info "></div>
-                              <!--      </form> -->
+                                    <!--  <form target="_blank " action="" method="get " class="subscribe_form relative "> -->
+                                    <div class="input-group d-flex flex-row ">
+                                        <input name="EMAIL" placeholder="номер телефона" id="inputphonefield" onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required=" " type="email ">
+                                        <button id="btnPhone" class="btn sub-btn my-arrow "><span class="lnr lnr-arrow-right "></span></button>
+                                    </div>
+                                    <p id='callBackMsg'>Мы получили запрос и обязательно Вам перезвоним. </p>
+                                    <div class="mt-10 info "></div>
+                                    <!--      </form> -->
                                 </div>
                             </div>
                         </div>
