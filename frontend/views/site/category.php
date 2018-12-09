@@ -6,6 +6,12 @@
     $fcid = $this->params['fcid'];
     $scid = -99;
 
+
+    $this->registerJsFile('/js/helper.js');
+    $this->registerJsFile('/js/class/layoutclass.js');
+    $this->registerJsFile('/js/class/categorypageclass.js');
+    $this->registerJsFile('/js/catpage.js');
+
 ?> 
 <style>
     #pconteiner {
@@ -72,6 +78,8 @@
                         </nav>
                     </div>
                     </div>
+                <div class="latest_product_inner row" id="pcontainer">
+                </div>
             </div>
             <div class="col-lg-3">
                 <div class="left_sidebar_area">

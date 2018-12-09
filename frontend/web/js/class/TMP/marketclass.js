@@ -1,6 +1,6 @@
 'use strict';
 
-class Market {
+class CatPageClass {
 
    constructor(cityid) {
       this.cityid = cityid;
@@ -12,10 +12,28 @@ class Market {
       this.scid = -99; 
       this.lprice = -1;
       this.hprice = -1;
-      this.pageCount = this.calcPageCount();
-      this.loadItems();
-      this.applyFilter();
+      this.loadItems(cityid);
    } 
+
+   loadItems(cityid) {
+      let url =`/ajax/get-products?cityid=${cityid}`; 
+      let data;
+      httpGet(url)
+         .then(
+            (response) => {
+               try {
+                  data = JSON.parse(response);
+                  this.items = data; 
+                  this.applyFilter();
+                  console.log('We gets data:', this);
+               } catch(e) {
+                  myErrorHandler(e);
+               }
+            })
+         .catch((e) => {
+            myErrorHandler(e);
+         });
+   }
 
    setFcats(fcid) {
       this.fcid = fcid;
@@ -26,28 +44,17 @@ class Market {
       this.scid = scid;
       this.applyFilter();
    }
+   setLprice(price) {
+      this.lprice = price;
+      this.applyFilter();
+   }
+
+   setHprice(price) {
+      this.hprice = price;
+      this.applyfilter();
+   }
    
    getItems() {}
-
-   async loadItems() {
-      const url = `/ajax/get-products?cityid=${this.cityid}`;
-      
-      await fetch(url, {
-         method: 'GET',
-      })
-         .then(res => res.text())
-            .then(async res=> {
-               let data; 
-               try {
-                  data = JSON.parse(res);
-               } catch(e) {
-                  data = res;
-               }
-               console.log('result:', data);
-               return await data; 
-            })
-            .then(json => this.items = json);
-   }
 
    applyFilter() {
       const that = this;
@@ -64,7 +71,7 @@ class Market {
 
    calcPageCount() {
       let length = this.fitems.length;
-      let out = parseInt(length/this.itemOnPage);
+      let out = Math.ceil(length/this.itemOnPage);
       return out;
    }
 

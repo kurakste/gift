@@ -7,6 +7,12 @@ $citycpu = $this->params['citycpu'];
 $cities = $this->params['cities'];
 $curentcity = $this->params['city'];
 
+$this->registerJsFile('/js/helper.js');
+$this->registerJsFile('/js/class/layoutclass.js');
+$this->registerJsFile('/js/class/mainpageclass.js');
+$this->registerJsFile('/js/main.js');
+
+
 ?>
 
     <style>

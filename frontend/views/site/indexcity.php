@@ -6,6 +6,11 @@ use yii\helpers\Url;
 $citycpu = $this->params['citycpu'];
 $curentcity = $this->params['city'];
 
+$this->registerJsFile('/js/helper.js');
+$this->registerJsFile('/js/class/layoutclass.js');
+$this->registerJsFile('/js/class/maincitypageclass.js');
+$this->registerJsFile('/js/maincity.js');
+
 ?>
 
 <style>

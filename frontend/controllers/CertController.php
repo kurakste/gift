@@ -15,7 +15,7 @@ class CertController extends Controller
 
     public function beforeAction($action)
     {
-        //this$this->enableCsrfValidation = false;
+        //$this->enableCsrfValidation = false;
         
         $cities = \common\models\Citys::find()->all();
         \Yii::$app->view->params['cities'] = $cities;
@@ -132,13 +132,17 @@ class CertController extends Controller
 
     public function actionAjaxActivate()
     {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
         $request = Yii::$app->request;
-        $certid = $request->post();
+        $certid = $request->post('certid');
+//        vd($request->post());
         $cert = \common\models\Certificates::find()
             ->where(['certid' => $certid])
             ->one();
         
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        if (!$cert) return false;
+        
         if ($cert) {
             if ($cert->status === \common\models\Certificates::ACTIVETED) {
                 //Crtificate alredy cativated. We need just fier event. That is it.

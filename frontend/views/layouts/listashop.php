@@ -5,11 +5,7 @@ use yii\helpers\Url;
 
 AppAsset::register($this);
 
-$this->registerJsFile('/js/ajax.js');
-/* $this->registerJsFile('/js/market.js'); */
-$this->registerJsFile('/js/marketclass.js');
-/* $this->registerJsFile('/js/itemsbox.js'); */
-$this->registerJsFile('/js/layout.js');
+//
 
 $cities = $this->params['cities'];
 
@@ -178,7 +174,7 @@ $curentcity = $this->params['city'];
                                 <div id="mc_embed_signup ">
                                   <!--  <form target="_blank " action="" method="get " class="subscribe_form relative "> -->
                                         <div class="input-group d-flex flex-row ">
-                                            <input name="EMAIL" placeholder="номер телефона" id="inputphonefield" onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required=" " type="email ">
+                                            <input name="EMAIL" placeholder="номер телефона" id="inputphonefield" onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required="" type="email ">
                                             <button id="btnPhone" class="btn sub-btn my-arrow "><span class="lnr lnr-arrow-right "></span></button>
                                         </div>
                                         <p id='callBackMsg'>Мы получили запрос и обязательно Вам перезвоним. </p>
