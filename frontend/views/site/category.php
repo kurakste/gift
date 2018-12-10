@@ -53,16 +53,30 @@
             <div class="col-lg-9">
                 <div class="product_top_bar">
                     <div class="left_dorp">
-                        <select class="sorting" style="display: none;">
-                            <option value="1">Default sorting</option>
-                            <option value="2">Default sorting 01</option>
-                            <option value="4">Default sorting 02</option>
-                        </select><div class="nice-select sorting" tabindex="0"><span class="current">Default sorting</span><ul class="list"><li data-value="1" class="option selected">Default sorting</li><li data-value="2" class="option">Default sorting 01</li><li data-value="4" class="option">Default sorting 02</li></ul></div>
+                        <select class="sorting" style="display: none;" id = 'sort-selector'>
+                            <option value="1">Возрастание</option>
+                            <option value="2">Убывание</option>
+                        </select>
+                        <div class="nice-select sorting" tabindex="0">
+                            <span class="current">Возрастание</span>
+                            <ul class="list">
+                                <li data-value="1" class="option selected">Возрастание</li>
+                                <li data-value="2" class="option">Убывание</li>
+                            </ul>
+                        </div>
                         <select class="show" style="display: none;">
-                            <option value="1">Show 12</option>
-                            <option value="2">Show 14</option>
-                            <option value="4">Show 16</option>
-                        </select><div class="nice-select show" tabindex="0"><span class="current">Show 12</span><ul class="list"><li data-value="1" class="option selected">Show 12</li><li data-value="2" class="option">Show 14</li><li data-value="4" class="option">Show 16</li></ul></div>
+                            <option value="10">Показать 10</option>
+                            <option value="15">Показать 15</option>
+                            <option value="20">Показать 20</option>
+                        </select>
+                        <div class="nice-select show" tabindex="0">
+                            <span class="current">Показать 10</span>
+                            <ul class="list">
+                                <li data-value="10" class="option selected">Показать 10</li>
+                                <li data-value="15" class="option">Показать 15</li>
+                                <li data-value="20" class="option">Показать 20</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="right_page ml-auto">
                         <nav class="cat_page" aria-label="Page navigation example">

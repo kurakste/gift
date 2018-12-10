@@ -10,6 +10,10 @@ class CategoryPageClass extends LayoutClass {
     const fcats = document.getElementById('fcatlist');   
     const scats = document.getElementById('scatlist');  
     const price = document.getElementById('amount');
+    const sortsel = document.getElementById('sort-selector');
+
+    
+    sortsel.onchange = this.onSortChange; 
 
     if (price != null) {
       console.log('price:', price);
@@ -46,7 +50,18 @@ class CategoryPageClass extends LayoutClass {
 
     });
   }
-
+  
+  onSortChange() {
+    console.log('filter changed');
+    if (parseInt(this.value) === 1) {
+      CategoryPageClass.sort ='ASC';
+    } else  {
+      CategoryPageClass.sort ='DESC';
+    }
+    CategoryPageClass.refreshItems();
+    return true
+  }
+  
   onMouseUpFromSlider() {
     const amoutn = document.getElementById('amount');   
     const range = amount.value.split(' - ');
@@ -100,7 +115,7 @@ class CategoryPageClass extends LayoutClass {
    }
   onPriceChange() {
     console.log(this.value);
-  
+    CategoryPageClass.refreshItems()
   }
    scatsclick() {
       const scats = document.getElementById('scatlist');  
@@ -118,27 +133,33 @@ class CategoryPageClass extends LayoutClass {
       return false; // Prevent default action on a tags
    }
 
-   static applyFilter() {
-      const out = CategoryPageClass.items.filter(el => {
-         const ffcat = (CategoryPageClass.fcatid === -99) ? true : (el.fcid === CategoryPageClass.fcatid);
-         const fscat = (CategoryPageClass.scatid === -99) ? true : (el.scid === CategoryPageClass.scatid);
-         const flow = (CategoryPageClass.lprice === 0) ? true : (el.price > CategoryPageClass.lprice);
-         const fupper = (CategoryPageClass.hprice === 10000) ? true : (el.price < CategoryPageClass.hprice);
+  static applyFilter() {
+    const out = CategoryPageClass.items.filter(el => {
+      const ffcat = (CategoryPageClass.fcatid === -99) ? true : (el.fcid === CategoryPageClass.fcatid);
+      const fscat = (CategoryPageClass.scatid === -99) ? true : (el.scid === CategoryPageClass.scatid);
+      const flow = (CategoryPageClass.lprice === 0) ? true : (el.price > CategoryPageClass.lprice);
+      const fupper = (CategoryPageClass.hprice === 10000) ? true : (el.price < CategoryPageClass.hprice);
 
-         return (ffcat && fscat && flow && fupper);
-      });
-      console.log('Filtred out:', out);
-      return out;
-   }
+      return (ffcat && fscat && flow && fupper);
+    });
+    console.log('Filtred out:', out);
+    return out;
+  }
 
-   static refreshItems() {
-     const items = CategoryPageClass.applyFilter();
-     CategoryPageClass.clearProductContainer();
-     items.forEach(function(item) {
-       var content = CategoryPageClass.generateItem(item.name, item.price, item.image, item.cpu, item.id);
-       CategoryPageClass.addNewItemInContainer(content);
-     }); 
-   }
+  static refreshItems() {
+    const items = CategoryPageClass.applyFilter();
+    if (CategoryPageClass.sort === 'ASC') {
+      items.sort((a, b) => a.price - b.price);
+    } else {
+      items.sort((a, b) => b.price - a.price);
+    }
+    console.log('Filtered & sorted items', items);
+    CategoryPageClass.clearProductContainer();
+    items.forEach(function(item) {
+     var content = CategoryPageClass.generateItem(item.name, item.price, item.image, item.cpu, item.id);
+     CategoryPageClass.addNewItemInContainer(content);
+    }); 
+  }
 
    static clearProductContainer(){
      var pcontainer = document.getElementById('pcontainer');   
@@ -184,3 +205,5 @@ class CategoryPageClass extends LayoutClass {
 CategoryPageClass.items =[];
 CategoryPageClass.lprice = 0;
 CategoryPageClass.hprice = 10000;
+CategoryPageClass.sort ='ASC' //up crease (second value DESC);
+

@@ -53,7 +53,7 @@ class AjaxController extends Controller
             $tmp['name'] = $item->name;
             $tmp['description'] = $item->description;
             $tmp['image'] = $item->getMainImage();
-            $tmp['price'] = $item->getActualPrice();
+            $tmp['price'] = (float)$item->getActualPrice();
             $tmp['cpu'] = $item->cpu;
             $out[] = $tmp;
         }
