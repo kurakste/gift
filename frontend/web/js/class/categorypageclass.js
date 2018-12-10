@@ -11,9 +11,13 @@ class CategoryPageClass extends LayoutClass {
     const scats = document.getElementById('scatlist');  
     const price = document.getElementById('amount');
     const sortsel = document.getElementById('sort-selector');
+    const iopagesel = document.getElementById('iemsOnPage'); 
+
 
     
     sortsel.onchange = this.onSortChange; 
+    iopagesel.onchange = this.onItemsOnPageChange;
+
 
     if (price != null) {
       console.log('price:', price);
@@ -47,9 +51,66 @@ class CategoryPageClass extends LayoutClass {
       console.log('onLoadItemsDone event triggered');
       console.log(this);
       CategoryPageClass.refreshItems()
+      CategoryPageClass.generatePaginator()
 
     });
   }
+
+  onItemsOnPageChange() {
+    console.log('Hi from onItemsOnPageChange',this.value);
+    
+    CategoryPageClass.itemsOnPage = parseInt(this.value); 
+    CategoryPageClass.currentPageNumber = 1;
+    
+
+    CategoryPageClass.refreshItems()
+    CategoryPageClass.generatePaginator()
+    
+    return true;
+    
+  }
+
+  static generatePaginator() {
+   const iop = CategoryPageClass.itemsOnPage; 
+   const cpn = CategoryPageClass.currentPageNumber;
+   const pcont = document.getElementById('paginator');
+   const items = CategoryPageClass.applyFilterAndSorting();
+   const pages = Math.ceil(items.length/iop);
+
+   if (pages <= 7) {
+     pcont.innerHTML = '';
+     for (let i = 1; i<=pages; i++) {
+       let li = document.createElement('li');
+       li.classList.add('page-item');
+       li.onclick = CategoryPageClass.onPaginatorPageClick;
+       if (i == cpn) li.classList.add('active');
+       li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+       pcont.appendChild(li);
+     }
+    } else {
+      err('categorypageclass.js','GeneratePaginator', 'Не выведен товар на страницу. Превышен лимит семи страниц');
+    } 
+  }
+  
+  static onPaginatorPageClick() {
+    
+    const par = this.parentNode.childNodes;
+    console.log('pareent:', par)
+    par.forEach(e => {
+      console.log('clering classes:', e);
+      e.classList.remove('active');
+    })
+    
+    let newPN = parseInt(this.firstChild.innerHTML);
+    
+    this.classList.add('active');
+    console.log('parent node:', this.parentNode);
+    CategoryPageClass.currentPageNumber = newPN;
+    console.log('On page click', newPN); 
+    CategoryPageClass.refreshItems()
+    return false;
+  }
+
   
   onSortChange() {
     console.log('filter changed');
@@ -58,7 +119,9 @@ class CategoryPageClass extends LayoutClass {
     } else  {
       CategoryPageClass.sort ='DESC';
     }
+    CategoryPageClass.currentPageNumber = 1;
     CategoryPageClass.refreshItems();
+    CategoryPageClass.generatePaginator()
     return true
   }
   
@@ -69,6 +132,7 @@ class CategoryPageClass extends LayoutClass {
     CategoryPageClass.hprice = parseInt(range[1]);
 
     CategoryPageClass.refreshItems()
+    CategoryPageClass.generatePaginator()
     console.log('Price filter changed:', range);
   }
 
@@ -133,7 +197,7 @@ class CategoryPageClass extends LayoutClass {
       return false; // Prevent default action on a tags
    }
 
-  static applyFilter() {
+  static applyFilterAndSorting() {
     const out = CategoryPageClass.items.filter(el => {
       const ffcat = (CategoryPageClass.fcatid === -99) ? true : (el.fcid === CategoryPageClass.fcatid);
       const fscat = (CategoryPageClass.scatid === -99) ? true : (el.scid === CategoryPageClass.scatid);
@@ -142,20 +206,26 @@ class CategoryPageClass extends LayoutClass {
 
       return (ffcat && fscat && flow && fupper);
     });
+    if (CategoryPageClass.sort === 'ASC') {
+      out.sort((a, b) => a.price - b.price);
+    } else {
+      out.sort((a, b) => b.price - a.price);
+    }
     console.log('Filtred out:', out);
     return out;
   }
 
   static refreshItems() {
-    const items = CategoryPageClass.applyFilter();
-    if (CategoryPageClass.sort === 'ASC') {
-      items.sort((a, b) => a.price - b.price);
-    } else {
-      items.sort((a, b) => b.price - a.price);
-    }
-    console.log('Filtered & sorted items', items);
+
+    const iop = CategoryPageClass.itemsOnPage; 
+    const cpn = CategoryPageClass.currentPageNumber;
+    const items = CategoryPageClass.applyFilterAndSorting();
+    const pageItems = items.slice((cpn - 1) * iop, (cpn*iop));
+    console.log('low index:', (cpn - 1)*iop);
+    console.log('hi index:', (cpn*iop));
+    console.log('Filtered & sorted items', pageItems);
     CategoryPageClass.clearProductContainer();
-    items.forEach(function(item) {
+    pageItems.forEach(function(item) {
      var content = CategoryPageClass.generateItem(item.name, item.price, item.image, item.cpu, item.id);
      CategoryPageClass.addNewItemInContainer(content);
     }); 
@@ -206,4 +276,5 @@ CategoryPageClass.items =[];
 CategoryPageClass.lprice = 0;
 CategoryPageClass.hprice = 10000;
 CategoryPageClass.sort ='ASC' //up crease (second value DESC);
-
+CategoryPageClass.itemsOnPage = 12; 
+CategoryPageClass.currentPageNumber = 1;

@@ -64,31 +64,31 @@
                                 <li data-value="2" class="option">Убывание</li>
                             </ul>
                         </div>
-                        <select class="show" style="display: none;">
-                            <option value="10">Показать 10</option>
-                            <option value="15">Показать 15</option>
-                            <option value="20">Показать 20</option>
+                        <select class="show" style="display: none;" id = 'iemsOnPage'>
+                            <option value="12">12</option>
+                            <option value="24">24</option>
+                            <option value="48">48</option>
                         </select>
                         <div class="nice-select show" tabindex="0">
-                            <span class="current">Показать 10</span>
+                            <span class="current">12</span>
                             <ul class="list">
-                                <li data-value="10" class="option selected">Показать 10</li>
-                                <li data-value="15" class="option">Показать 15</li>
-                                <li data-value="20" class="option">Показать 20</li>
+                                <li data-value="12" class="option selected">12</li>
+                                <li data-value="24" class="option">24</li>
+                                <li data-value="48" class="option">48</li>
                             </ul>
                         </div>
                     </div>
                     <div class="right_page ml-auto">
                         <nav class="cat_page" aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a></li>
+                            <ul class="pagination" id='paginator'>
+<!--                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a></li>
                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item blank"><a class="page-link" href="#">...</a></li>
                                 <li class="page-item"><a class="page-link" href="#">6</a></li>
                                 <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
-                            </ul>
+-->                            </ul>
                         </nav>
                     </div>
                     </div>
