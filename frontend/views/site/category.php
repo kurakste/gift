@@ -109,8 +109,10 @@
                         <div class="widgets_inner">
                             <h4>По цене</h4>
                             <div class="range_item">
-                                <div id="slider-range"></div>
+                                <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 2%; width: 98%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 2%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;"></span></div>
                                 <div class="row m0">
+                                    <label for="amount">Price : </label>
+                                    <input type="text" id="amount" readonly="">
                                 </div>
                             </div>
                         </div>

@@ -35,10 +35,11 @@ class AppAsset extends AssetBundle
         "/vendors/isotope/isotope-min.js",
         "/vendors/owl-carousel/owl.carousel.min.js",
         "/js/jquery.ajaxchimp.min.js",
+        "vendors/jquery-ui/jquery-ui.js",
         "/vendors/counter-up/jquery.waypoints.min.js",
-//        "/vendors/flipclock/timer.js",
- //       "/vendors/counter-up/jquery.counterup.js",
-//        "/js/mail-script.js",
+        "/vendors/flipclock/timer.js",
+       "/vendors/counter-up/jquery.counterup.js",
+        "/js/mail-script.js",
         "/js/theme.js",
     ];
     public $depends = [

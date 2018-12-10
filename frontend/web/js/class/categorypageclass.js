@@ -1,5 +1,4 @@
 'use strict';
-
 class CategoryPageClass extends LayoutClass {
   
   constructor() {
@@ -10,7 +9,13 @@ class CategoryPageClass extends LayoutClass {
     super.init();
     const fcats = document.getElementById('fcatlist');   
     const scats = document.getElementById('scatlist');  
+    const price = document.getElementById('amount');
 
+    if (price != null) {
+      console.log('price:', price);
+      price.onchange = () => alert('hi');
+//        this.onPriceChange;
+    }
     if (fcats!=null) {
       for (var i = 0; i < fcats.children.length; i++) {
          fcats.children[i].children[0].onclick = this.fcatsclick;
@@ -22,6 +27,11 @@ class CategoryPageClass extends LayoutClass {
          scats.children[i].children[0].onclick = this.scatsclick;
       }
     }
+
+    let sl = document.getElementsByClassName('ui-slider-handle');
+    sl[0].onmouseup = this.onMouseUpFromSlider;
+    sl[1].onmouseup = this.onMouseUpFromSlider;
+    console.log(sl[1]);
 
     window.addEventListener('onChangeCity', e => {
       console.log('Hi from category onRefreshDependsData');
@@ -35,7 +45,16 @@ class CategoryPageClass extends LayoutClass {
       CategoryPageClass.refreshItems()
 
     });
+  }
 
+  onMouseUpFromSlider() {
+    const amoutn = document.getElementById('amount');   
+    const range = amount.value.split(' - ');
+    CategoryPageClass.lprice = parseInt(range[0]);
+    CategoryPageClass.hprice = parseInt(range[1]);
+
+    CategoryPageClass.refreshItems()
+    console.log('Price filter changed:', range);
   }
 
   loadItems() {
@@ -79,7 +98,10 @@ class CategoryPageClass extends LayoutClass {
       CategoryPageClass.refreshItems();
       return false; // Prevent default action on a tags
    }
-   
+  onPriceChange() {
+    console.log(this.value);
+  
+  }
    scatsclick() {
       const scats = document.getElementById('scatlist');  
       let tmp = scats.getElementsByClassName('accented');
@@ -100,8 +122,8 @@ class CategoryPageClass extends LayoutClass {
       const out = CategoryPageClass.items.filter(el => {
          const ffcat = (CategoryPageClass.fcatid === -99) ? true : (el.fcid === CategoryPageClass.fcatid);
          const fscat = (CategoryPageClass.scatid === -99) ? true : (el.scid === CategoryPageClass.scatid);
-         const flow = (CategoryPageClass.lprice === -1) ? true : (el.price > CategoryPageClass.lprice);
-         const fupper = (CategoryPageClass.hprice === -1) ? true : (el.price < CategoryPageClass.hprice);
+         const flow = (CategoryPageClass.lprice === 0) ? true : (el.price > CategoryPageClass.lprice);
+         const fupper = (CategoryPageClass.hprice === 10000) ? true : (el.price < CategoryPageClass.hprice);
 
          return (ffcat && fscat && flow && fupper);
       });
@@ -160,5 +182,5 @@ class CategoryPageClass extends LayoutClass {
    }
 }
 CategoryPageClass.items =[];
-CategoryPageClass.lprice = -1;
-CategoryPageClass.hprice = -1;
+CategoryPageClass.lprice = 0;
+CategoryPageClass.hprice = 10000;

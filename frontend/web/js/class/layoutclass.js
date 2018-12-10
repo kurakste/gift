@@ -26,8 +26,6 @@ class LayoutClass {
 
       this.loadCity();
 
-      
-
       window.addEventListener('onCityChange', e => {
         console.log('Hi from event test:', e.detail.cityId);
         let cid = parseInt(e.detail.cityId);
@@ -50,6 +48,7 @@ class LayoutClass {
       });
 
     }
+
 
   loadCitiesList() {
     const url = '/ajax/get-city-list';
