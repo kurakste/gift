@@ -21,6 +21,23 @@ $curentcity = $this->params['city'];
             width: 120px;
         }
 
+        .header_social {
+            height: 130%;
+            width: 130%;
+        }
+
+        .footer-area {
+            text-align: justify;
+        }
+
+        .footertext {
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-top: 10px;
+        }
+
         .icon-link {
             padding-top: 15px;
         }
@@ -69,6 +86,10 @@ $curentcity = $this->params['city'];
             @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
                 .nav navbar-nav menu_nav ml-auto {
                     margin-bottom: 10%;
+                }
+
+                .single-footer-widget {
+                    text-align: justify;
                 }
 
                 .centeredHeart {
@@ -141,9 +162,10 @@ $curentcity = $this->params['city'];
                 <div class="container">
                     <div class="float-right">
                         <ul class="header_social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vk"></i></a></li>
+                            <!--сделать страничку в фейсбуке
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+                            <li><a href="https://www.instagram.com/gift_sertificate/?r=nametag" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+                            <li><a href="https://vk.com/public174714338" target="_blank"><i class="fa fa-vk fa-2x"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -211,16 +233,16 @@ $curentcity = $this->params['city'];
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-widget">
                                 <h6 class="footer_title">ОБРАТНЫЙ ЗВОНОК</h6>
-                                <p class="footerText">Отправьте нам ваш номер телефона и мы вам перезвоним.</p>
+                                <p class="footerText">Отправьте нам ваш номер телефона и мы вам перезвоним.</p><br>
                                 <div id="mc_embed_signup ">
-                                  <!--  <form target="_blank " action="" method="get " class="subscribe_form relative "> -->
-                                        <div class="input-group d-flex flex-row ">
-                                            <input name="EMAIL" placeholder="номер телефона" id="inputphonefield" onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required="" type="email ">
-                                            <button id="btnPhone" class="btn sub-btn my-arrow "><span class="lnr lnr-arrow-right "></span></button>
-                                        </div>
-                                        <p id='callBackMsg'>Мы получили запрос и обязательно Вам перезвоним. </p>
-                                        <div class="mt-10 info "></div>
-                              <!--      </form> -->
+                                    <!--  <form target="_blank " action="" method="get " class="subscribe_form relative "> -->
+                                    <div class="input-group d-flex flex-row ">
+                                        <input name="EMAIL" placeholder="номер телефона" id="inputphonefield" onfocus="this.placeholder='' " onblur="this.placeholder='Номер телефона' " required="" type="email ">
+                                        <button id="btnPhone" class="btn sub-btn my-arrow "><span class="lnr lnr-arrow-right "></span></button>
+                                    </div>
+                                    <p id='callBackMsg'>Мы получили запрос и обязательно Вам перезвоним. </p>
+                                    <div class="mt-10 info "></div>
+                                    <!--      </form> -->
                                 </div>
                             </div>
                         </div>
