@@ -454,5 +454,8 @@ $this->registerJsFile('/js/main.js');
                 </div>
             </div>
         </div>
+
+
+
     </section>
     <!--================End Latest Product Area =================-->
