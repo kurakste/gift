@@ -26,7 +26,8 @@
         "facebook/webdriver": "^1.6",
         "guzzlehttp/guzzle": "^6.3",
         "kartik-v/yii2-widget-select2": "@dev",
-        "sonko-dmitry/yii2-telegram-bot-api": "^1.0"
+        "sonko-dmitry/yii2-telegram-bot-api": "^1.0",
+        "yandex-money/yandex-money-sdk-php": "3.0.*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

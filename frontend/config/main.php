@@ -46,6 +46,7 @@ return [
                 'howto' => 'site/how-does-it-work',
                 'activate' => 'site/activate',
                 'contacts' => 'site/about',
+                'checkout' => 'checkout',
             ],
         ],
         'telegram' => [

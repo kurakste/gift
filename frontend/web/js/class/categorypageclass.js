@@ -259,7 +259,7 @@ class CategoryPageClass extends LayoutClass {
            <img class="img-fluid" src="${image}" alt="">
            <div class="p_icon">
                <a class="fproduct-item icon-link" href="#"><i class="lnr lnr-heart" data-cityid="${id}"></i></a>
-               <a class="aproduct-item icon-link" href="/site/checkout?product=${cpu}"><i class="lnr lnr-cart" data-cityid="${id}"></i></a>
+               <a class="aproduct-item icon-link" href="/checkout?product=${cpu}"><i class="lnr lnr-cart" data-cityid="${id}"></i></a>
            </div>
        </div>
        <a href="/site/get-product?product=${cpu}">

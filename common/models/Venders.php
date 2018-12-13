@@ -62,6 +62,11 @@ class Venders extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Items::className(), ['vid' => 'id']);
     }
+    
+    public function getCity()
+    {
+        return $this->hasOne(Citys::className(), ['id' => 'cityid']);
+    }
 
     /**
      * @return \yii\db\ActiveQuery

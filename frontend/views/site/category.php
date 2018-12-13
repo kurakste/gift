@@ -26,9 +26,9 @@
     }
 </style>
 <script>
-    var initialFcidFromBackend =  <?= $fcid ?>; 
-    var initialCityFromBackend = <?= $city->id?>;
-    var globalPage = 'category';
+    /* var initialFcidFromBackend =  <?= $fcid ?>; */ 
+    /* var initialCityFromBackend = <?= $city->id?>; */
+    /* var globalPage = 'category'; */
 </script>
 <!--================Home Banner Area =================-->
 <section class="banner_area">

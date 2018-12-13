@@ -46,15 +46,15 @@
                             </div>
                         </section>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="from" name="from">
+                            <input type="text" class="form-control" id="from" name="from" form = 'getPaymentPageForm'>
                             <span class="placeholder" data-placeholder="Введите удобное для вас обращение"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="number" name="number">
+                            <input type="text" class="form-control" id="fnumber" name="fphone" form = 'getPaymentPageForm'>
                             <span class="placeholder" data-placeholder="Ваш номер телефона:"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="compemailany">
+                            <input type="text" class="form-control" id="femail" name="femail" form = 'getPaymentPageForm'>
                             <span class="placeholder" data-placeholder="Введите Email"></span>
                         </div>
                         <section class="sample-text-area">
@@ -68,11 +68,11 @@
                             </div>
                         </section>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="from" name="from">
+                            <input type="text" class="form-control" id="to" name="to" form = 'getPaymentPageForm'>
                             <span class="placeholder" data-placeholder="Введите удобное для вас обращение"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="number" name="number">
+                            <input type="text" class="form-control" id="tophone" name="tophone" form = 'getPaymentPageForm'>
                             <span class="placeholder" data-placeholder="Ваш номер телефона того, кому дарим подарок"></span>
                         </div>
                     </form>
@@ -121,15 +121,21 @@
                             <div class="switch-wrap d-flex justify-content-between">
                                 <p>Подарить инкогнито:</p>
                                 <div class="primary-switch1">
-                                    <input type="checkbox" id="default-switch2">
+                                    <input form='getPaymentPageForm' type="checkbox" id="default-switch2">
                                     <label for="default-switch"></label>
                                 </div>
                             </div>
                         </div>
-                        
                         <p><strong>Полная стоимость услуги составляет: &#8381 <?= $product->getActualPrice()?> </strong></p>
-                        
-                        <a class="main_btn" href="#">Оплатить</a>
+                            <form action="/checkout/get-payment-page" method="POST" id='getPaymentPageForm'>
+                                <?= Html :: hiddenInput(\Yii :: $app->getRequest()->csrfParam, \Yii :: $app->getRequest()->getCsrfToken(), []) ?>
+                                <input type='hidden' name="productcpu" id="productcpu" value="<?= $product->cpu ?>" />
+                                <input type="hidden" name="acs_uri" id="acs_uri" value="<?= $pparam['acs_uri'] ?>" />
+                                <input type="hidden" name="cps_context_id" id="cps_context_id" value="<?= $pparam['cps_context_id'] ?>" />
+                                <input type="hidden" name="paymentType" id="paymentType" value="<?= $pparam['paymentType'] ?>" />
+                                <input type="hidden" name="certid" id="certid" value="<?= $certid ?>" />
+                                <input class="main_btn" type="submit" name="" id="" value="Оформить" />
+                            </form>
                     </div>
                 </div>
             </div>
@@ -137,3 +143,10 @@
     </div>
 </section>
 <!--================End Checkout Area =================-->
+<!--
+                            <form action="<?// $acs_uri ?>" method="post">
+                                <input type='hidden' name="cps_context_id" id="cps_context_id" value="<? //$cps_context_id ?>" />
+                                <input type="hidden" name="paymentType" id="paymentType" value="<? //$paymentType ?>" />
+                                <input type="submit" name="" id="" value="Оплатить" />
+                            </form>
+-->
