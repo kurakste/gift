@@ -12,17 +12,17 @@ class ItemsWithCats extends Items
     public $scats_ids = [];
 
 
-    public function rules()
-    {
-        return ArrayHelper::merge(parent::rules(), [
-            ['fcats_ids, scats_ids', 'safe']
-            /* ['fcats_ids', 'each', 'rule' => [ 'exist' => Fcategorys::classname(), 'targetAttribute' => 'id'], */
-            /* ], */
-            /* ['scats_ids', 'each', 'rule' => [ */
-            /*     'exist' => Scategorys::classname(), 'targetAttribute' => 'id'] */
-            /* ], */
-        ]);
-    }
+    /* public function rules() */
+    /* { */
+    /*     return ArrayHelper::merge(parent::rules(), [ */
+    /*         /1* ['fcats_ids, scats_ids', 'safe'] *1/ */
+    /*         /1* ['fcats_ids', 'each', 'rule' => [ 'exist' => Fcategorys::classname(), 'targetAttribute' => 'id'], *1/ */
+    /*         /1* ], *1/ */
+    /*         /1* ['scats_ids', 'each', 'rule' => [ *1/ */
+    /*         /1*     'exist' => Scategorys::classname(), 'targetAttribute' => 'id'] *1/ */
+    /*         /1* ], *1/ */
+    /*     ]); */
+    /* } */
 
     public function attributeLabels()
     {
@@ -62,11 +62,11 @@ class ItemsWithCats extends Items
             }
     }
 
-    public function saveFcats()
+    public function saveFcats($fcats_ids)
     {
         Itemtofcats::deleteAll(['iid' => $this->id]);
-        if (is_array($this->fcats_ids)) {
-            foreach($this->fcats_ids as $fcid) {
+        if (is_array($fcats_ids)) {
+            foreach($fcats_ids as $fcid) {
                 $fc = new Itemtofcats();
                 $fc->iid = $this->id;
                 $fc->fcid = $fcid;
@@ -75,11 +75,11 @@ class ItemsWithCats extends Items
         }
     }
     
-    public function saveScats()
+    public function saveScats($scats_ids)
     {
         Itemtoscats::deleteAll(['iid' => $this->id]);
-        if (is_array($this->scats_ids)) {
-            foreach($this->scats_ids as $scid) {
+        if (is_array($scats_ids)) {
+            foreach($scats_ids as $scid) {
                 $fc = new Itemtoscats();
                 $fc->iid = $this->id;
                 $fc->scid = $scid;

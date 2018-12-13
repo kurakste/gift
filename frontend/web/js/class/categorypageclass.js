@@ -199,13 +199,31 @@ class CategoryPageClass extends LayoutClass {
 
   static applyFilterAndSorting() {
     const out = CategoryPageClass.items.filter(el => {
-      const ffcat = (CategoryPageClass.fcatid === -99) ? true : (el.fcid === CategoryPageClass.fcatid);
-      const fscat = (CategoryPageClass.scatid === -99) ? true : (el.scid === CategoryPageClass.scatid);
+      let ffcat = true;
+      let fscat =true;
+
+      if (CategoryPageClass.fcatid === -99) {
+        ffcat = true;
+      } else {
+        const tmp = el.fcid.indexOf(parseInt(CategoryPageClass.fcatid));
+        ffcat = (tmp === -1) ? false : true; 
+      }
+
+
+      if (CategoryPageClass.scatid === -99) {
+        fscat = true;
+      } else {
+        const tmp = el.scid.indexOf(parseInt(CategoryPageClass.scatid));
+        fscat = (tmp === -1) ? false : true; 
+      }
+
+//      fscat = (CategoryPageClass.scatid === -99) ? true : (el.scid === parseInt(CategoryPageClass.scatid));
       const flow = (CategoryPageClass.lprice === 0) ? true : (el.price > CategoryPageClass.lprice);
       const fupper = (CategoryPageClass.hprice === 10000) ? true : (el.price < CategoryPageClass.hprice);
 
       return (ffcat && fscat && flow && fupper);
     });
+    
     if (CategoryPageClass.sort === 'ASC') {
       out.sort((a, b) => a.price - b.price);
     } else {

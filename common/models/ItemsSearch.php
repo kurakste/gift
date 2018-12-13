@@ -18,7 +18,7 @@ class ItemsSearch extends Items
     public function rules()
     {
         return [
-            [['id', 'fcid', 'scid', 'vid', 'lifetime', 'rank', 'phisical'], 'integer'],
+            [['id', 'vid', 'lifetime', 'rank', 'phisical'], 'integer'],
             [['exid', 'name', 'cpu', 'short_description', 'description'], 'safe'],
         ];
     }
@@ -62,8 +62,6 @@ class ItemsSearch extends Items
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'fcid' => $this->fcid,
-            'scid' => $this->scid,
             'vid' => $this->vid,
             'lifetime' => $this->lifetime,
             'rank' => $this->rank,

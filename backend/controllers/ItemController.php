@@ -72,11 +72,11 @@ class ItemController extends Controller
         $venders = ArrayHelper::map(\common\models\Venders::find()->all(), 'id', 'name');
         
 //        vd($fcategorys);
-//        $model->load(Yii::$app->request->post());
-//        vd($model);
+        $fcats_ids = Yii::$app->request->post('ItemsWithCats')['fcats_ids'];
+        $scats_ids = Yii::$app->request->post('ItemsWithCats')['scats_ids'];
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            $model->saveFcats();
- //           $model->saveScats();
+                $model->saveFcats($fcats_ids);
+                $model->saveScats($scats_ids);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -103,16 +103,13 @@ class ItemController extends Controller
         $scategorys = ArrayHelper::map(\common\models\Scategorys::find()->all(), 'id', 'name');
         $venders = ArrayHelper::map(\common\models\Venders::find()->all(), 'id', 'name');
 
-        if (Yii::$app->request->post()) {
-         //   vd(Yii::$app->request->post());
-            $model->load(Yii::$app->request->post());
-            $model->fcats_ids =Yii::$app->request->post()['ItemsWithCats']['fcats_ids'];
-            $model->scats_ids =Yii::$app->request->post()['ItemsWithCats']['scats_ids'];
-        }
+        $fcats_ids = Yii::$app->request->post('ItemsWithCats')['fcats_ids'];
+        $scats_ids = Yii::$app->request->post('ItemsWithCats')['scats_ids'];
+        $model->load(Yii::$app->request->post());
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->saveFcats();
-            $model->saveScats();
-//           vd($model); 
+            $model->saveFcats($fcats_ids);
+            $model->saveScats($scats_ids);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

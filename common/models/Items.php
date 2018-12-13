@@ -8,8 +8,6 @@ use Yii;
  * This is the model class for table "items".
  *
  * @property int $id
- * @property int $fcid
- * @property int $scid
  * @property int $vid
  * @property string $exid
  * @property string $name
@@ -47,13 +45,11 @@ class Items extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fcid', 'scid', 'vid', 'lifetime', 'rank', 'phisical'], 'integer'],
+            [['vid', 'lifetime', 'rank', 'phisical'], 'integer'],
             [['exid', 'name', 'cpu', 'short_description', 'phisical'], 'required'],
             [['description'], 'string'],
             [['exid', 'name', 'cpu', 'short_description'], 'string', 'max' => 255],
             [['cpu'], 'unique'],
-            [['fcid'], 'exist', 'skipOnError' => true, 'targetClass' => Fcategorys::className(), 'targetAttribute' => ['fcid' => 'id']],
-            [['scid'], 'exist', 'skipOnError' => true, 'targetClass' => Scategorys::className(), 'targetAttribute' => ['scid' => 'id']],
             [['vid'], 'exist', 'skipOnError' => true, 'targetClass' => Venders::className(), 'targetAttribute' => ['vid' => 'id']],
         ];
     }
@@ -65,8 +61,6 @@ class Items extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'fcid' => 'Fcid',
-            'scid' => 'Scid',
             'vid' => 'Vid',
             'exid' => 'Exid',
             'name' => 'Name',
@@ -260,22 +254,6 @@ class Items extends \yii\db\ActiveRecord
             return '';
         }
     
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getFc()
-    {
-        return $this->hasOne(Fcategorys::className(), ['id' => 'fcid']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSc()
-    {
-        return $this->hasOne(Scategorys::className(), ['id' => 'scid']);
     }
 
     /**

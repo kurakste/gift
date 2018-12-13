@@ -13,8 +13,6 @@ class m181020_171051_items extends Migration
     {
          $this->createTable('items', [
             'id' => Schema::TYPE_PK,
-            /* 'fcid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1', */
-            /* 'scid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1', */
             'vid' => Schema::TYPE_INTEGER.' NOT NULL DEFAULT 1',
             'exid' => Schema::TYPE_STRING.' NOT NULL',
             'name' => Schema::TYPE_STRING.' NOT NULL',
@@ -33,22 +31,6 @@ class m181020_171051_items extends Migration
          $this->execute("ALTER TABLE items ADD CONSTRAINT unique_item_cpu UNIQUE(cpu)");
          
          $this->addForeignKey(
-            'fk-items-fcategory',
-            'items',
-            'fcid',
-            'fcategorys',
-            'id',
-            'CASCADE'
-        );
-         $this->addForeignKey(
-            'fk-items-scategory',
-            'items',
-            'scid',
-            'scategorys',
-            'id',
-            'CASCADE'
-        );
-         $this->addForeignKey(
             'fk-items-vender',
             'items',
             'vid',
@@ -62,12 +44,6 @@ class m181020_171051_items extends Migration
     public function down()
     {
         $this->dropTable('items');
-        $this->dropForeignKey(
-            'fk-items-fcategory',
-            'items');
-        $this->addForeignKey(
-            'fk-items-scategory',
-            'items');
         $this->addForeignKey(
             'fk-items-vendor',
             'items');

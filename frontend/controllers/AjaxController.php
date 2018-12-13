@@ -48,8 +48,8 @@ class AjaxController extends Controller
         foreach ($items as $item) {
             $tmp = [];
             $tmp['id'] = $item->id;
-            $tmp['fcid'] = $item->fcid;
-            $tmp['scid'] = $item->scid;
+            $tmp['fcid'] = ArrayHelper::getColumn($item->fcats, 'id');
+            $tmp['scid'] = ArrayHelper::getColumn($item->scats, 'id');
             $tmp['name'] = $item->name;
             $tmp['description'] = $item->description;
             $tmp['image'] = $item->getMainImage();
