@@ -13,6 +13,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Items;
+use \YandexMoney\API;
+use \YandexMoney\ExternalPayment;
 
 /**
  * Site controller
@@ -201,23 +203,6 @@ class SiteController extends Controller
         return $this->render('product', ['product' =>$product]);
     }
 
-    public function actionCheckout()
-    {
-        \Yii::$app->view->params['page'] = 'product-detail';
-        $request = Yii::$app->request;
-        $product = $request->get('product');
-        //vd($request->post());
-        $product =\common\models\Items::find()
-            ->where(['=', 'cpu', $product])
-            ->with('images')
-           ->one(); 
-        if ($product === null) {
-            throw new \yii\web\NotFoundHttpException("Product not found");
-        }
-        $this->view->title = "Подарок | оформление | " .$product->name ;
-    
-        return $this->render('checkout', ['product' =>$product]);
-    }
         /**
      * Displays homepage.
      *
@@ -391,17 +376,61 @@ class SiteController extends Controller
 
     public function actionTest()
     {
-        \Yii::$app->mailer->compose()
-            ->setFrom(['yoursiteaudit@yandex.ru' => 'py-pozdravim.ru'])
-            ->setTo(['kurakste@gmail.com'=>'admin'])
-            ->setSubject('CallbackRequest')
-            ->setTextBody('Callback request from...')
-            ->send();
 
-        $this->layout = null;
+        $response = ExternalPayment::getInstanceId('7A5C1C3227365BA3E00B75C1C4B2910D418114D060C631BCB43D35E2838557FE');
+        if($response->status == "success") {
+            $instance_id = $response->instance_id;
+            }   
+        else {
+            // throw
+        }
 
-        echo 'Done';
-        die;
+        $external_payment = new ExternalPayment($instance_id);
+        
+        $payment_options = [
+            'pattern_id' => 'p2p',
+            'instance_id' => '7A5C1C3227365BA3E00B75C1C4B2910D418114D060C631BCB43D35E2838557FE',
+            'to' => '410015977582606',
+            'amount' => 50,
+            'message' => 'Оплата по счету номер 3',
+        ];
+
+        $response = $external_payment->request($payment_options);
+
+        if($response->status == "success") {
+            $request_id = $response->request_id;
+        } else {
+            // throw exception with $response->message
+        }
+//        vd($response);
+        $process_options = [
+            "request_id" => $request_id,
+            "instance_id" =>'7A5C1C3227365BA3E00B75C1C4B2910D418114D060C631BCB43D35E2838557FE',
+            'ext_auth_success_uri' => 'http://www.my-pozdravim.ru/payment/success',
+            'ext_auth_fail_uri' => 'http://www.my-pozdravim.ru/payment/success', 
+        ];
+        $result = $external_payment->process($process_options);
+        // process $result according to docs
+        
+  //      vd($result);
+
+        $cps_context_id = $result->acs_params->cps_context_id; 
+        $paymentType = $result->acs_params->paymentType;
+        $acs_uri = $result->acs_uri;
+
+        $this->layout = 'none';
+
+        return $this->render('test', [
+            'acs_uri' => $acs_uri, 
+            'cps_context_id' => $cps_context_id,
+            'paymentType' => $paymentType,
+        ]); 
     }
+
+    public function actionTest2()
+    {
+        
+        die;
+    }    
     
 }

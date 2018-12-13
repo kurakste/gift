@@ -26,7 +26,8 @@ use Yii;
  */
 class Certificates extends \yii\db\ActiveRecord
 {
-    const NEWITEM = 1; 
+    const NEWITEM = 0; 
+    const SENDFORPAYMENT = 1; 
     const PAID = 2; 
     const ACTIVETED = 3; 
     const FINISHED = 4; 

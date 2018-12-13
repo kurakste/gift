@@ -7,7 +7,7 @@ use yii\web\Controller;
 
 
 
-class CertController extends Controller
+class PayController extends Controller
 {
     
     public function actionIndex()
