@@ -35,10 +35,10 @@
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Оригинальные подарки в г. <?= $city->name ?></h2>
+                <h2>ОРИГИНАЛЬНЫЕ ПОДАРКИ В г. <?= $city->name ?></h2>
                 <div class="page_link">
-                    <a href="<?= Url::toRoute(['site/index']) ?>">Главная</a>
-                    <a href="#">Категории</a>
+                    <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="#">КАТЕГОРИИ</a>
                 </div>
             </div>
         </div>

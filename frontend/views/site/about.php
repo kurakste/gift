@@ -2,8 +2,18 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 
+$citycpu = $this->params['citycpu'];
+$cities = $this->params['cities'];
+$curentcity = $this->params['city'];
+
 ?>
 <style>
+
+    #imgForClients {
+        border-radius:15px !important;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3)!important;
+    }
+
     @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
         .banner_area {
             height: 50%;
@@ -22,7 +32,10 @@ use yii\helpers\Html;
             text-align: justify;
         }
     }
-
+    #first_block {
+        margin-top:70px;
+        padding-bottom: 60px;
+    }
 </style>
 <script>
     var globalPage = 'about';
@@ -34,64 +47,104 @@ use yii\helpers\Html;
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Контакты</h2>
+                <h2>КОНТАКТЫ</h2>
                 <div class="page_link">
-                    <a href="<?= url::toRoute(['site/index']) ?>">Главная</a>
-                    <a href="#">Контакты</a>
+                    <a href="<?= url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="#">КОНТАКТЫ</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="container">
 
-    <div class="section-top-border text-right">
-        <h3 class="mb-30 title_color">Оставьте ваш отзыв</h3>
-        <div class="row">
-            <div class="col-md-9">
-                <div class="banner_content text-center">
-                    <h2 class="h2Black">Оставьте ваш отзыв</h2>
+
+    <!--================Feature Product Area =================-->
+    <!-- <section class="home_banner_area"> -->
+    <section class="feature_product_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="raw">
+
+                    <div id="first_block" class="banner_content row" id="SelectCityDiv">
+                        <div class="col-lg-5">
+                            <div class="centeredText">
+                                <h4 class="mb-30 title_color" id='main-header'>ПОКУПАТЕЛЯМ</h4>
+                            </div>
+                            <!-- <h4 class="mb-30 title_color" id='main-header'>ПОКУПАТЕЛЯМ</h4> -->
+                            <p class='text_just'>
+                                Мы с нашими партнерами, каждый день придумываем для вас подарки. Хотим, что бы у вас была возможность одарить по достоинству любого и по любому поводу. Что-то необычное, яркое и запоминающееся. Думаем что эмоции - самый лучший подарок. Истории которые создают яркие позитивные эмоции мы упаковываем, что бы вы могли их дарить. Такой подарок вы можете отправить как открытку, можете подарить лично, а можете подарить тайно и сохранить интригу. Еще, мы сами любим дарить подарки. Подписывайтесь на нас в соцсетях, участвуйте в конкурсах и получайте наши подарки. Для того, что бы начать поиск подарка выбирайте Ваш город и мы переведем Вас на нужную страничку.
+                            </p>
+
+                            <select class="cityListIndex" id='citieslist2' name='city2'>
+                            <?php foreach ($cities as $city): ?>
+                                <option 
+                                    <?php if ($curentcity->id == $city->id) echo "selected"; ?>
+                                value ="<?= $city->id ?>"><?= $city->name ?></option>
+                            <?php endforeach ?>
+                            </select>
+                            <div>
+
+                            </div>
+                            <!-- row -->
+
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="halemet_img">
+                                <img class="main-page-image" id="imgForClients" src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="textJustify">Over time, even the most sophisticated, memory packed computer can begin to run slow if we don’t do something to prevent it. The reason why has less to do with how computers are made and how they age and more to do with the way we use them. You see, all of the daily tasks that we do on our PC from running programs to downloading and deleting software can make our computer sluggish. To keep this from happening, you need to understand the reasons why your PC is getting slower and do something to keep your PC running at its best. You can do this through regular maintenance and PC performance optimization programs</p>
-                <p class="textJustify">Before we discuss all of the things that could be affecting your PC’s performance, let’s talk a little about what symptoms</p>
-
+                <!-- container -->
             </div>
-            <div class="col-md-3">
-                <img src="/img/elements/d.jpg" alt="" class="img-fluid">
+    </section>
+    <!--================End Feature Product Area =================-->
+
+    <!--================Deal Timer Area =================-->
+
+    <section class="feature_product_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="section-top-border">
+                    <h3 class="mb-30 title_color" id='main-header'>ПАРТНЕРАМ</h3>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img class="" src="img/partnership.jpg" alt="" class="img-fluid" id="imgMobile">
+                        </div>
+"                       <div class="col-md-9 mt-sm-20 left-align-p">
+                            <p class='text_just'>
+                                Мы находим новых клиентов для наших партнеров. Фотографии, видео контент, дизайн, истории и привлечение трафика - это наша работа. Мы упакуем услугу и она станет стильным подарком. Продажи - это то, что мы любим и умеем. Партнерам мы предлагаем новый канал продаж. Например у вас сейчас есть картинг клуб в котором можно покататься на классных картах. Мы знаем как продать вас людям которые никогда не думали о картингах, но им нужен необычный подарок. На день рождения, на день нефтяника или как награду для лучшего отдела в организации. Вас смогут подарить - это совершенно новые для вас клиенты. Их не было у вас раньше. Они о вас не думали. Если вы при этом сумеете им понравиться - они к вам вернуться много раз и приведут своих друзей. Через нас или напрямую к вам. Хотите попробовать? Оставьте свой контакт и сообщите удобное для вас время - мы свяжемся с вами.
+                            </p>
+                            <a class="white_bg_btn add_to_btn" id='main-header' href="<?= Url::toRoute(['/site/call']) ?>">Заказать звонок</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!--================End Deal Timer Area =================-->
 
-    <div class="section-top-border">
-        <div class="banner_content text-center">
-            <h2 class="h2Black">Для предпинимателей</h2>
-        </div>
-        <!--<h3 class="mb-30 title_color" id="textJustify">Для предпринимателей</h3>-->
-        <div class="row">
-            <div class="col-md-3">
-                <img src="/img/elements/d.jpg" alt="" class="img-fluid">
-            </div>
-
-
-            <div class="col-md-9 mt-sm-20 left-align-p">
-                <p class="textJustify">Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks such as Party Gaming and PlayTech left the United States. Overnight, online casino players found themselves being chased by the Federal government. But, after a fortnight, the online casino industry came up with a solution and new online casinos started taking root. These began to operate under a different business umbrella, and by doing that, rendered the transfer of money to and from them legal. A major part of this was enlisting electronic banking systems that would accept this new clarification and start doing business with me. Listed in this article are the electronic banking systems that accept players from the United States that wish to play in online casinos.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-top-border text-right">
-        <div class="banner_content text-center">
-            <h2 class="h2Black">Для партнеров</h2>
-        </div>
-        <!--<h3 class="mb-30 title_color">Для партнеров</h3>-->
-        <div class="row">
-            <div class="col-md-9">
-                <p class="textJustify">Over time, even the most sophisticated, memory packed computer can begin to run slow if we don’t do something to prevent it. The reason why has less to do with how computers are made and how they age and more to do with the way we use them. You see, all of the daily tasks that we do on our PC from running programs to downloading and deleting software can make our computer sluggish. To keep this from happening, you need to understand the reasons why your PC is getting slower and do something to keep your PC running at its best. You can do this through regular maintenance and PC performance optimization programs</p>
-                <p class="textJustify">Before we discuss all of the things that could be affecting your PC’s performance, let’s talk a little about what symptoms</p>
-            </div>
-            <div class="col-md-3">
-                <img src="/img/elements/d.jpg" alt="" class="img-fluid">
+    <!--================Latest Product Area =================-->
+    <section class="feature_product_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="section-top-border">
+                    <h3 class="mb-30 title_color" id='main-header1'>ПРЕДПРИНИМАТЕЛЯМ</h3>
+                    <div class="row">
+                        <div class="col-md-9 mt-sm-20 left-align-p">
+                            <p class="text_just">
+                                Как запустить такой сервис в вашем городе?
+                            </p>
+                            <p class="text_just">
+                                Есть два варианта. Подождать. Мы планируем прийти во все крупные города. Своими силами или через наших партнеров. Если вы предприниматель, любите работать, вам нравится наша идея и вы хотите развивать её в вашем городе - дайте нам знать. Мы свяжемся с вами и обсудим возможные варианты. Оставьте нам ваш номер телефона. Мы позвоним. Нам нужны единомышленники.
+                            </p>
+                            <a class="white_bg_btn add_to_btn" id='main-header' href="<?= Url::toRoute(['/site/call']) ?>">Заказать звонок</a>
+                        </div>
+                        <div class="col-md-3">
+                            <img class="imgMobile" src="img/thoughtfully.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+

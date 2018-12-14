@@ -28,8 +28,6 @@ $this->registerJsFile('/js/main.js');
 
         }
 
-
-
         #main-header {
             margin-top: 70px;
         }
@@ -90,7 +88,7 @@ $this->registerJsFile('/js/main.js');
         /* } */
 
         .add_to_btn {
-            padding-top: 10px;
+!important           padding-top: 10px;
             padding-bottom: 10px;
             border-radius: 5px;
         }
@@ -125,7 +123,10 @@ $this->registerJsFile('/js/main.js');
 
         .main-page-image {
             width: 100%;
-            margin-top: 120px;
+            margin-top: 120px;   
+            border-radius:15px!important;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
         }
 
         .clearfix:after {
@@ -294,6 +295,7 @@ $this->registerJsFile('/js/main.js');
                 }
 
             }
+
             #main-header {
                 text-align: center;
             }
@@ -322,7 +324,6 @@ $this->registerJsFile('/js/main.js');
 
     <script>
         var globalPage = 'main';
-
     </script>
 
     <section class="home_banner_area">
@@ -357,7 +358,7 @@ $this->registerJsFile('/js/main.js');
                     </div>
                     <div class="col-lg-7">
                         <div class="halemet_img">
-                            <img class='main-page-image' src="/img/vaucher-exp.png" alt="">
+                            <img class="main-page-image" src="/img/vaucher-exp.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -396,8 +397,8 @@ $this->registerJsFile('/js/main.js');
 
                         </div>
                         <div class="col-lg-7">
-                            <div class="halemet_img">
-                                <img class='main-page-image' id="imgMobile" src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
+                            <div class="">
+                                <img class="main-page-image" id="clientImage" src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
                             </div>
                         </div>
                     </div>

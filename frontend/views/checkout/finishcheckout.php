@@ -5,8 +5,8 @@
             <div class="banner_content text-center">
                 <h2>ПОДТВЕРЖДЕНИЕ И ОПЛАТА</h2>
                 <div class="page_link">
-                    <a href="index.html">Home</a>
-                    <a href="confirmation.html">Confirmation</a>
+                    <a href="<?= url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="confirmation.html">ПОДТВЕРЖДЕНИЕ</a>
                 </div>
             </div>
         </div>

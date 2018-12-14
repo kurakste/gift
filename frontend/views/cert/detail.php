@@ -13,11 +13,11 @@ use yii\helpers\Html;
             <div class="banner_inner d-flex align-items-center">
 				<div class="container">
 					<div class="banner_content text-center">
-						<h2>Описание продукта</h2>
+						<h2>ОПИСАНИЕ ПРОДУКТА</h2>
 						<div class="page_link">
-                        <a href="<?= url::toRoute(['site/index']) ?>">Главная</a>
-							<a href="<?= url::toRoute(['site/category']) ?>">Категории</a>
-							<a href="#">Описание продукта</a>
+                        <a href="<?= url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+							<a href="<?= url::toRoute(['site/category']) ?>">КАТЕГОРИИ</a>
+							<a href="#">ОПИСАНИЕ ПРОДУКТА</a>
 						</div>
 					</div>
 				</div>

@@ -212,6 +212,7 @@ class SiteController extends Controller
     {
         
         \Yii::$app->view->params['page'] = 'about';
+
         $this->view->title = "Подарки | о нас";
         return $this->render('about');
     }

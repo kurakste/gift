@@ -14,10 +14,10 @@
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Оформление подарка</h2>
+                <h2>ОФОРМЛЕНИЕ ПОДАРКА</h2>
                 <div class="page_link">
-                    <a href="<?= Url::toRoute(['site/index']) ?>index.html">Главная</a>
-                    <a href="#">Оформление подарка</a>
+                    <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="#">ОФОРМЛЕНИЕ ПОДАРКА</a>
                 </div>
             </div>
         </div>

@@ -26,8 +26,8 @@ use yii\helpers\Html;
             <div class="banner_content text-center">
                 <h2>Как это работает</h2>
                 <div class="page_link">
-                    <a href="<?= Url::toRoute(['site/index']) ?>">Главная</a>
-                    <a href="#">Активировать</a>
+                    <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="#">АКТИВИРОВАТЬ</a>
                 </div>
             </div>
         </div>
