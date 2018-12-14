@@ -195,7 +195,7 @@ $curentcity = $this->params['city'];
                                 <li class="nav-item id=" home-link-2 " <?php if ($this->params['page']==='main') echo "active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/index-city', 'city'=>$citycpu]) ?>">ГЛАВНАЯ</a></li>
                                 <li class="nav-item <?php if ($this->params['page']==='cat') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Подарки</a></li>
                                 <li class="nav-item <?php if ($this->params['page']==='how') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-does-it-work']) ?>">Как это работает</a></li>
-                                <li class="nav-item <?php if ($this->params['page']==='act') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/activate']) ?>">Сертификат</a></li>
+                                <li class="nav-item <?php if ($this->params['page']==='cert') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/certificate']) ?>">Сертификат</a></li>
                                 <li class="nav-item <?php if ($this->params['page']==='about') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
                                 <li class="nav-item <?= Url::toRoute(['site/favorite']) ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">&#9825;</a></li><br>
                             </ul>

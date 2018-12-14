@@ -66,11 +66,11 @@ $this->registerJsFile('/js/main.js');
             margin-bottom: 10px;
         }
 
-        #firstBtn {
-            margin-left: 15px;
-            width: 165px;
-            height: 52px;
-        }
+        /* #firstBtn { */
+        /*     margin-left: 15px; */
+        /*     width: 165px; */
+        /*     height: 52px; */
+        /* } */
 
         .text-body {
             text-align: justify;
@@ -80,14 +80,14 @@ $this->registerJsFile('/js/main.js');
             text-align: justify;
         }
 
-        .phone-field {
-            width: 200px;
-            margin: 0px;
-        }
+        /* .phone-field { */
+        /*     width: 200px; */
+        /*     margin: 0px; */
+        /* } */
 
-        .feedback-form {
-            width: 400px;
-        }
+        /* .feedback-form { */
+        /*     width: 400px; */
+        /* } */
 
         .add_to_btn {
             padding-top: 10px;
