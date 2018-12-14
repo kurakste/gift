@@ -67,8 +67,19 @@ class CheckoutController extends Controller
             throw new \yii\web\NotFoundHttpException("Product not found");
         }
         $this->view->title = "Подарок | оформление | " .$product->name ;
-        $certid = 'TEST-CRTF';
 
+
+        $cert = new Certificates;
+
+        $cert->iid = $product->id;
+        $cert->certid = Certificates::getNewCertID();
+        $cert->purchase_price = $product->getActualPurchasePrice();
+        $cert->sale_price = $product->getActualPrice();
+        $cert->status = Certificates::NEWITEM;
+        $cert->created_at = date('Y-m-d H:i:s');
+        $cert->save();
+
+        $certid = $cert->certid;
 
         
         $pparam = $this->getPaymetParameters(50, 'Оплата подарочного сертификата №'.$certid, $certid) ;

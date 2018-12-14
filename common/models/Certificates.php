@@ -45,7 +45,7 @@ class Certificates extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['purchase_price', 'sale_price', 'certid', 'donor_name', 'donor_phone', 'donor_email', 'recipient_name', 'recipient_phone', 'status'], 'required'],
+            [['purchase_price', 'sale_price', 'certid', 'status'], 'required'],
             [['purchase_price', 'sale_price'], 'number'],
             [['iid', 'status'], 'integer'],
             [['created_at', 'activated_at', 'closed_at'], 'safe'],
