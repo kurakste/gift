@@ -82,7 +82,7 @@ class CheckoutController extends Controller
         $certid = $cert->certid;
 
         
-        $pparam = $this->getPaymetParameters(50, 'Оплата подарочного сертификата №'.$certid, $certid) ;
+        $pparam = $this->getPaymetParameters($product->getActualPrice(), 'Оплата подарочного сертификата №'.$certid, $certid) ;
         $pparam['product'] = $product;
 
 //        vd($pparam);
