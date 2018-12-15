@@ -197,7 +197,7 @@ $curentcity = $this->params['city'];
                                 <li class="nav-item <?php if ($this->params['page']==='how') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/how-does-it-work']) ?>">Как это работает</a></li>
                                 <li class="nav-item <?php if ($this->params['page']==='cert') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/certificate']) ?>">Сертификат</a></li>
                                 <li class="nav-item <?php if ($this->params['page']==='about') echo " active " ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">Контакты</a></li>
-                                <li class="nav-item <?= Url::toRoute(['site/favorite']) ?>"><a class="nav-link" href="<?= Url::toRoute(['site/about']) ?>">&#9825;</a></li><br>
+                                <li class="nav-item "><a class="nav-link" href="<?= Url::toRoute(['site/favorite']) ?>">&#9825;</a></li><br>
                             </ul>
 
                         </div>

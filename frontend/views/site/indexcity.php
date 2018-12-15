@@ -70,17 +70,13 @@ $this->registerJsFile('/js/maincity.js');
         <div class="container">
             <div class="banner_content row">
                 <div class="col-lg-5">
-                    <!--  сюда писать описание услуги и краткий комент как работает по кнопке переход на видео презу -->
                     <h4 class="mb-30 title_color" id = 'main-header'>Подарки в г. <?= $curentcity->name ?> для тех, кто вам дорог.</h4>
                     <p>Мы поможем поздравить дорогих вам людей. Теплые эмоции и необычные подарки. Мы работаем что бы помочь Вам быть ближе.</p>
-                    <!--<a class="white_bg_btn" href="#">Выбрать подарок</a>-->
                     <a class="white_bg_btn" href="<?= Url::toRoute(['/site/category', 'city'=>$citycpu, 'fcats' => '_']) ?>">Выбрать подарок</a>
 
                 </div>
                 <div class="col-lg-7">
                     <div class="halemet_img">
-                        <!--шлем заменить на рисунок образ подарка 
-                        <img src="img/banner/helmat.png" alt=""> -->
                         <img class='main-page-image' src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
                     </div>
                 </div>

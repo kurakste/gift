@@ -2,6 +2,8 @@
     use yii\helpers\Url;
     use yii\helpers\Html;
 
+$curentcity = $this->params['city'];
+
 ?> 
 
 <script>
@@ -12,10 +14,10 @@
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Отложенные</h2>
+                <h2>ОТЛОЖЕННЫЕ</h2>
                 <div class="page_link">
-                    <a href="/">Главная</a>
-                    <a href="#">Отложенные</a>
+                    <a href="<?= Url::toRoute(['site/index-city', 'city' => $curentcity->cpu]) ?>">ГЛАВНАЯ</a>
+                    <a href="#">ОТЛОЖЕННЫЕ</a>
                 </div>
             </div>
         </div>

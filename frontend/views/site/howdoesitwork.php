@@ -3,6 +3,8 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 // $this->registerJsFile('/js/category.js');
 
+$curentcity = $this->params['city'];
+
 ?> 
 
 
@@ -24,10 +26,10 @@ use yii\helpers\Html;
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Как это работает</h2>
+                <h2>КАК ЭТО РАБОТАЕТ?</h2>
                 <div class="page_link">
-                    <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
-                    <a href="#">АКТИВИРОВАТЬ</a>
+                    <a href="<?= Url::toRoute(['site/index-city', 'city' => $curentcity->cpu]) ?>">ГЛАВНАЯ</a>
+                    <a href="#">КАК ЭТО РАБОТАЕТ</a>
                 </div>
             </div>
         </div>

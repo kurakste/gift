@@ -7,6 +7,7 @@ $this->registerJsFile('/js/class/layoutclass.js');
 $this->registerJsFile('/js/class/mainpageclass.js');
 $this->registerJsFile('/js/main.js');
 
+$curentcity = $this->params['city'];
 ?>
 
 <script>
@@ -83,7 +84,7 @@ $this->registerJsFile('/js/main.js');
             <div class="banner_content text-center">
                 <h2>СЕРТИФИКАТ</h2>
                 <div class="page_link">
-                    <a href="/">ГЛАВНАЯ</a>
+                    <a href="<?= Url::toRoute(['site/index-city', 'city' => $curentcity->cpu]) ?>">ГЛАВНАЯ</a>
                     <a href="#">СЕРТИФИКАТ</a>
                 </div>
             </div>
