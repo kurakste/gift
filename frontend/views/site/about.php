@@ -36,6 +36,12 @@ $curentcity = $this->params['city'];
         margin-top:70px;
         padding-bottom: 60px;
     }
+
+    .text_just {
+        width: 95%;
+        text-align: justify;
+    }
+    
 </style>
 <script>
     var globalPage = 'about';
