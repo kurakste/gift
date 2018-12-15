@@ -57,11 +57,11 @@ use yii\helpers\Html;
         				<div class="s_product_text">
                         <h3><?= $product->name ?></h3>
                         <p><?= $product->short_description ?></p>
-        					<div class="card_area
-                                <form action="/site/checkout" method="get">
+        					<div class="card_area">
+                                <form action="/checkout" method="get">
                                 <?php //echo Html :: hiddenInput(\Yii :: $->getRequest()->csrfParam, \Yii :: $app->getRequest()->getCsrfToken(), []); ?>
                                     <input type="hidden" name="product" id="" value="<?= $product->cpu ?>" />
-                                    <input class="main_btn" type="submit" name" id="" value="Активировать" />
+                                    <input class="main_btn" type="submit" name="" id="" value="Активировать" />
                                 </form>
         					</div>
         				</div>

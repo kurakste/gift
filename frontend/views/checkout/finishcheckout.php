@@ -1,3 +1,9 @@
+<?php 
+    use yii\helpers\Url;
+    use yii\helpers\Html;
+
+?>
+
 <!--================Home Banner Area =================-->
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -5,7 +11,7 @@
             <div class="banner_content text-center">
                 <h2>ПОДТВЕРЖДЕНИЕ И ОПЛАТА</h2>
                 <div class="page_link">
-                    <a href="<?= url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
                     <a href="confirmation.html">ПОДТВЕРЖДЕНИЕ</a>
                 </div>
             </div>

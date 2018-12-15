@@ -64,6 +64,7 @@ class MainPageClass extends LayoutClass {
   }
   
   btnActivateOnClickHandler() {
+    console.log('Hi from activate!');
     const certidel = document.getElementById('cert_input');   
     const errormsg = document.getElementById('cert_error');   
     const workrmsg = document.getElementById('cert_work');   
@@ -109,6 +110,7 @@ class MainPageClass extends LayoutClass {
       .catch((e)=> {
           err('layoutclass.js','btnActivateOnClick', e.message);
       });
+      return false;
   }
   
 

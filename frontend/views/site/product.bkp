@@ -62,7 +62,7 @@ use yii\helpers\Html;
                                 <form action="/checkout" method="get">
                                 <?php //echo Html :: hiddenInput(\Yii :: $->getRequest()->csrfParam, \Yii :: $app->getRequest()->getCsrfToken(), []); ?>
                                     <input type="hidden" name="product" id="" value="<?= $product->cpu ?>" />
-                                    <input class="main_btn" type="submit" name" id="" value="Завернуть" />
+                                    <input class="main_btn" type="submit"  id="" value="Завернуть" />
                                 <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
                                 </form>
         					</div>

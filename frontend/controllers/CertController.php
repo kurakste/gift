@@ -146,19 +146,31 @@ class CertController extends Controller
         if ($cert) {
             if ($cert->status === \common\models\Certificates::ACTIVETED) {
                 //Crtificate alredy cativated. We need just fier event. That is it.
-                $cert->onActivate();
+                $this->onActivate($cert);
+
                 return true;
             }
             $cert->status = \common\models\Certificates::ACTIVETED;
             $cert->activated_at = date('Y-m-d');
             if ($cert->save()) {
-                $cert->onActivate();
+                $this->onActivate($cert);
                 return true;
             } else {
                 return false;
             }
         }
     return false;    
+    }
+
+    private function onActivate(Certificates $cert) {
+
+
+        \Yii::$app->mailer->compose()
+            ->setFrom(['yoursiteaudit@yandex.ru' => 'py-pozdravim.ru'])
+            ->setTo(['kurakste@gmail.com'=>'admin'])
+            ->setSubject('Активирован сертификат:'.$cert->certid)
+            ->setTextBody('Аскитвирован сертификат:'.$cert->certid)
+            ->send();
     }
 
     
