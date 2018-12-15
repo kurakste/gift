@@ -45,7 +45,7 @@ use yii\helpers\Html;
 </section>
 <div class="container">
 
-    <div class="section-top-border text-right">
+    <!--<div class="section-top-border text-right">
         <h3 class="mb-30 title_color">Оставьте ваш отзыв</h3>
         <div class="row">
             <div class="col-md-9">
@@ -66,7 +66,7 @@ use yii\helpers\Html;
         <div class="banner_content text-center">
             <h2 class="h2Black">Для предпинимателей</h2>
         </div>
-        <!--<h3 class="mb-30 title_color" id="textJustify">Для предпринимателей</h3>-->
+        
         <div class="row">
             <div class="col-md-3">
                 <img src="/img/elements/d.jpg" alt="" class="img-fluid">
@@ -83,7 +83,7 @@ use yii\helpers\Html;
         <div class="banner_content text-center">
             <h2 class="h2Black">Для партнеров</h2>
         </div>
-        <!--<h3 class="mb-30 title_color">Для партнеров</h3>-->
+        
         <div class="row">
             <div class="col-md-9">
                 <p class="textJustify">Over time, even the most sophisticated, memory packed computer can begin to run slow if we don’t do something to prevent it. The reason why has less to do with how computers are made and how they age and more to do with the way we use them. You see, all of the daily tasks that we do on our PC from running programs to downloading and deleting software can make our computer sluggish. To keep this from happening, you need to understand the reasons why your PC is getting slower and do something to keep your PC running at its best. You can do this through regular maintenance and PC performance optimization programs</p>
@@ -93,5 +93,61 @@ use yii\helpers\Html;
                 <img src="/img/elements/d.jpg" alt="" class="img-fluid">
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <section class="contact_area p_120">
+        <div class="container">
+            <!--            <div id="mapBox" class="mapBox" data-lat="40.701083" data-lon="-74.1522848" data-zoom="13" data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia." data-mlat="40.701083" data-mlon="-74.1522848">
+            </div> -->
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="contact_info">
+
+                        <div class="info_item">
+                            <h6>Для связи с нами:</h6><br>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-home"></i>
+                            <h6>Россия</h6>
+                            <p>Татарстан</p>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-phone-handset"></i>
+                            <h6><a href="#">0000000000</a></h6>
+                            <p>ПН-ПТ с 9 до 18 по Мск</p>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-envelope"></i>
+                            <h6><a href="#">support@my-pozdravim.com</a></h6>
+                            <p>Писать можно в любое время!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Как к Вам можно обращаться">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Введите email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Введите тему сообщения">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" id="message" rows="1" placeholder="Введите ваше сообщение"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-right">
+                            <button type="submit" value="submit" class="btn submit_btn">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Contact Area =================-->
 </div>
