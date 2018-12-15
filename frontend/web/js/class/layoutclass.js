@@ -34,12 +34,12 @@ class LayoutClass {
 
         const ev = new CustomEvent ('onRefreshDependData');
         window.dispatchEvent(ev);
-        
         if (LayoutClass.currentPage === 'main' || LayoutClass.currentPage === 'mainCity') {
           console.log('Redirect to:', '/main/' + LayoutClass.getCityCpuById(cid))
           window.location.href = "/main/" + LayoutClass.getCityCpuById(cid);
-        } else if ( LayoutClass.pageName == 'category') {
-          window.location.href = "/gifts/" + LayoutClass.getCityCpuById(this.value) +'/_';
+        } else if ( LayoutClass.currentPage == 'category') {
+          console.log('CurentPage name:', LayoutClass.currentPage); 
+          window.location.href = "/gifts/" + LayoutClass.getCityCpuById(cid) +'/_';
         }
       });
 
