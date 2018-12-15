@@ -24,18 +24,19 @@
     .f_p_img img {
         border-radius:15px;
     }
+    .banner_content {
+        padding-top: 140px;
+        }
 </style>
 <script>
-    /* var initialFcidFromBackend =  <?= $fcid ?>; */ 
-    /* var initialCityFromBackend = <?= $city->id?>; */
-    /* var globalPage = 'category'; */
 </script>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>ОРИГИНАЛЬНЫЕ ПОДАРКИ В г. <?= $city->name ?></h2>
+                <h3>МАГАЗИН ОРИГИНАЛЬНЫХ ПОДАРКОВ</h3>
+                <h3>г. <?= $city->name ?></h3>
                 <div class="page_link">
                     <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
                     <a href="#">КАТЕГОРИИ</a>
