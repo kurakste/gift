@@ -194,11 +194,44 @@ $this->registerJsFile('/js/main.js');
                 margin-top: 0px;
             }
 
+            #mainBtn {
+                margin-top: 10px;
+                margin-bottom: 30px;
+                font-size: 8px;
+
+            }
+
             #imageSmall {
                 background-image: url("/img/vaucher-exp-small.png");
                 width: 82%;
                 height: 20%;
+                margin-left: 20px;
 
+            }
+
+            #cert_input {
+                margin-left: 15px;
+            }
+
+            #certActivateBtn {
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+
+            #main-header {
+                margin-top: -40px;
+            }
+
+            #clientImage {
+                margin-top: 20px;
+            }
+
+            .section-top-border {
+                padding: 0;
+            }
+
+            #certDetailBtn {
+                margin-top: 5px;
             }
 
             .smallcertificateformobileversion {
@@ -227,8 +260,13 @@ $this->registerJsFile('/js/main.js');
                 font-size: 16px;
             }
 
+            #main-header1 {
+                margin-top: 0;
+            }
+
+
             .text_just {
-                width: 95%;
+                width: 100%;
             }
             #main-header {
                 text-align: center;
@@ -440,7 +478,7 @@ $this->registerJsFile('/js/main.js');
                             <p class='text_just'>
                                 Мы находим новых клиентов для наших партнеров. Фотографии, видео контент, дизайн, истории и привлечение трафика - это наша работа. Мы упакуем услугу и она станет стильным подарком. Продажи - это то, что мы любим и умеем. Партнерам мы предлагаем новый канал продаж. Например у вас сейчас есть картинг клуб в котором можно покататься на классных картах. Мы знаем как продать вас людям которые никогда не думали о картингах, но им нужен необычный подарок. На день рождения, на день нефтяника или как награду для лучшего отдела в организации. Вас смогут подарить - это совершенно новые для вас клиенты. Их не было у вас раньше. Они о вас не думали. Если вы при этом сумеете им понравиться - они к вам вернуться много раз и приведут своих друзей. Через нас или напрямую к вам. Хотите попробовать? Оставьте свой контакт и сообщите удобное для вас время - мы свяжемся с вами.
                             </p>
-                            <a class="white_bg_btn add_to_btn" id='main-header' href="#inputphonefield">Заказать звонок</a>
+                            <a class="white_bg_btn add_to_btn" id='mainBtn' href="#inputphonefield">Заказать звонок</a>
                         </div>
                     </div>
                 </div>
@@ -463,7 +501,7 @@ $this->registerJsFile('/js/main.js');
                             <p class="text_just">
                                 Есть два варианта. Подождать. Мы планируем прийти во все крупные города. Своими силами или через наших партнеров. Если вы предприниматель, любите работать, вам нравится наша идея и вы хотите развивать её в вашем городе - дайте нам знать. Мы свяжемся с вами и обсудим возможные варианты. Оставьте нам ваш номер телефона. Мы позвоним. Нам нужны единомышленники.
                             </p>
-                            <a class="white_bg_btn add_to_btn" id='main-header' href="#inputphonefield">Заказать звонок</a>
+                            <a class="white_bg_btn add_to_btn" id='mainBtn' href="#inputphonefield">Заказать звонок</a>
                         </div>
                         <div class="col-md-3">
                             <img class="imgMobile" src="img/thoughtfully.jpg" alt="" class="img-fluid">
