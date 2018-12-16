@@ -65,9 +65,13 @@ $this->registerJsFile('/js/main.js');
         }
 
         /* #firstBtn { */
+
         /*     margin-left: 15px; */
+
         /*     width: 165px; */
+
         /*     height: 52px; */
+
         /* } */
 
         .text-body {
@@ -79,16 +83,21 @@ $this->registerJsFile('/js/main.js');
         }
 
         /* .phone-field { */
+
         /*     width: 200px; */
+
         /*     margin: 0px; */
+
         /* } */
 
         /* .feedback-form { */
+
         /*     width: 400px; */
+
         /* } */
 
         .add_to_btn {
-!important           padding-top: 10px;
+             !important padding-top: 10px;
             padding-bottom: 10px;
             border-radius: 5px;
         }
@@ -123,9 +132,9 @@ $this->registerJsFile('/js/main.js');
 
         .main-page-image {
             width: 100%;
-            margin-top: 120px;   
-            border-radius:15px!important;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            margin-top: 120px;
+            border-radius: 15px !important;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
         }
 
@@ -180,8 +189,15 @@ $this->registerJsFile('/js/main.js');
             .body {
                 width: 95%;
             }
+
+            #main-header {
+                margin-top: 0px;
+            }
+
             #imageSmall {
                 background-image: url("/img/vaucher-exp-small.png");
+                width: 82%;
+                height: 20%;
 
             }
 
@@ -285,7 +301,8 @@ $this->registerJsFile('/js/main.js');
             .li {
                 margin-left: 25px;
             }
-            */ @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+
+            @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
                 #main-header {
                     margin-top: 2500px;
                 }
@@ -324,6 +341,7 @@ $this->registerJsFile('/js/main.js');
 
     <script>
         var globalPage = 'main';
+
     </script>
 
     <section class="home_banner_area">
@@ -332,8 +350,8 @@ $this->registerJsFile('/js/main.js');
                 <div class="banner_content row">
                     <div class="col-lg-5"><br><br>
                         <h3 class="mb-30 title_color" id='main-header'>СЕРТИФИКАТ</h3>
-                        <p class='text_just'>Вам подарили похожий сертификат?</p>
-                        <div id="imageSmall"></div>
+                        <p class='text_just'>Вам подарили похожий сертификат?</p><br>
+                        <div id="imageSmall"></div><br>
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
                         </p><br>
                         <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
