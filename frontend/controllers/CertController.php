@@ -116,6 +116,7 @@ class CertController extends Controller
         $get = $request->get();
         $certid = $get['certid'] ?? null; 
         
+        \Yii::$app->view->params['certid'] = $certid;
         $cert = \common\models\Certificates::find()
             ->where(['certid' => $certid])
             ->one();
@@ -127,7 +128,7 @@ class CertController extends Controller
         $product = $cert->item;
 
 
-        return $this->render('detail', ['product' => $product]);
+        return $this->render('description', ['product' => $product]);
     }
 
     public function actionAjaxActivate()

@@ -95,35 +95,6 @@
                             Часть наших услуг зависит от погоды. И мы будем вынуждены подстраиваться под обстоятельства.
                         </p>
 
-                        <!--<div class="single-element-widget">
-                            <div class="switch-wrap d-flex justify-content-between">
-                                <p>С условиями сертификата согласен:</p>
-                                <div class="primary-switch">
-                                    <input type="checkbox" id="default-switch">
-                                    <label for="default-switch"></label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="single-element-widget">
-                            <div class="switch-wrap d-flex justify-content-between">
-                                <p>С политикой по использованию персональных данных согласен:</p>
-                                <div class="primary-switch">
-                                    <input type="checkbox" id="default-switch1">
-                                    <label for="default-switch"></label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="single-element-widget">
-                            <div class="switch-wrap d-flex justify-content-between">
-                                <p>Подарить инкогнито:</p>
-                                <div class="primary-switch1">
-                                    <input form='getPaymentPageForm' type="checkbox" id="default-switch2">
-                                    <label for="default-switch"></label>
-                                </div>
-                            </div>
-                        </div> -->
 
                         <div class="single-element-widget">
 
