@@ -190,6 +190,21 @@ $this->registerJsFile('/js/main.js');
                 width: 95%;
             }
 
+            .footer_title {
+                text-align: center;
+            }
+
+            .text-body {
+                margin-right: 0px;
+                width: 100%;
+            }
+
+            #about-block,
+            .text-body {
+                margin-right: 0px;
+                width: 100%;
+            }
+
             #main-header {
                 margin-top: 0px;
             }
