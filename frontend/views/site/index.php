@@ -184,6 +184,47 @@ $this->registerJsFile('/js/main.js');
         }
 
 
+
+        @media only screen and (min-device-width: 320px) and (max-device-width: 375px) {
+            #imageSmall {
+                background-image: url("/img/vaucher-exp-small.png");
+                width: 82%;
+                height: 20%;
+                margin-left: 20px;
+
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+            #imageSmall {
+                background-image: url("/img/vaucher-exp-small.png");
+                width: 69%;
+                height: 17%;
+                margin-left: 17px;
+
+            }
+        }
+
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+            #imageSmall {
+                background-image: url("/img/vaucher-exp-small.png");
+                width: 62%;
+                height: 15%;
+                margin-left: 53px;
+
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-width: 414px) {
+            #imageSmall {
+                background-image: url("/img/vaucher-exp-small.png")no-repeat;
+                width: 70%;
+                height: 14%;
+                margin-left: 38px;
+
+            }
+        }
+
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
             .body {
@@ -216,13 +257,6 @@ $this->registerJsFile('/js/main.js');
 
             }
 
-            #imageSmall {
-                background-image: url("/img/vaucher-exp-small.png");
-                width: 82%;
-                height: 20%;
-                margin-left: 20px;
-
-            }
 
             #cert_input {
                 margin-left: 15px;
@@ -330,65 +364,87 @@ $this->registerJsFile('/js/main.js');
             }
         }
 
-        @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
-            #main-header {
-                margin-top: 2500px;
-            }
-            .nav-item {
-                margin-left: 25px;
-                margin-right: 50px;
-            }
-
-            .home_banner_area .banner_inner .banner_content h3 {
-                margin-bottom: -14px;
-                font-size: 38px;
-            }
-
-            .navbar {
-                width: 90%;
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+            #imageSmall {
+                background-image: url("/img/vaucher-exp-small.png");
+                width: 69%;
+                height: 11%;
+                margin-left: 53px;
             }
 
             #main-header {
+                margin-top: 20px;
                 text-align: center;
             }
-            .li {
-                margin-left: 25px;
+
+            #cert_input {
+                margin-left: 53px;
             }
+
+            #certDetailBtn {
+                margin-left: 53px;
+            }
+
 
             @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
                 #main-header {
                     margin-top: 2500px;
                 }
-
-                .centeredText {
-                    margin-left: 120px;
+                .nav-item {
+                    margin-left: 25px;
+                    margin-right: 50px;
                 }
 
-            }
+                .home_banner_area .banner_inner .banner_content h3 {
+                    margin-bottom: -14px;
+                    font-size: 38px;
+                }
 
-            #main-header {
-                text-align: center;
-            }
+                .navbar {
+                    width: 90%;
+                }
 
-            #cert_error {
-                display: none;
-                color: red;
-            }
+                #main-header {
+                    text-align: center;
+                }
+                .li {
+                    margin-left: 25px;
+                }
 
-            #cert_act_error {
-                display: none;
-                color: red;
-            }
+                @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+                    #main-header {
+                        margin-top: 2500px;
+                    }
 
-            #cert_work {
-                display: none;
-                color: green;
-            }
+                    .centeredText {
+                        margin-left: 120px;
+                    }
 
-            #cert_done {
-                display: none;
-                color: green;
-            }
+                }
+
+                #main-header {
+                    text-align: center;
+                }
+
+                #cert_error {
+                    display: none;
+                    color: red;
+                }
+
+                #cert_act_error {
+                    display: none;
+                    color: red;
+                }
+
+                #cert_work {
+                    display: none;
+                    color: green;
+                }
+
+                #cert_done {
+                    display: none;
+                    color: green;
+                }
 
     </style>
 
