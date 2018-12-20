@@ -164,7 +164,7 @@ $curentcity = $this->params['city'];
                         <ul class="header_social">
                             <!--сделать страничку в фейсбуке
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
-                            <li><a href="https://www.instagram.com/gift_sertificate/?r=nametag" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+                            <li><a href="https://www.instagram.com/mypozdravim" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
                             <li><a href="https://vk.com/public174714338" target="_blank"><i class="fa fa-vk fa-2x"></i></a></li>
                         </ul>
                     </div>
