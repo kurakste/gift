@@ -81,6 +81,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         \Yii::$app->view->params['page'] = 'main';
+        $this->view->title = "Магазин подарков.";
         return $this->render('index', 
             [
             ]
@@ -233,6 +234,32 @@ class SiteController extends Controller
         return $this->render('certificate');
     }
 
+
+    public function actionFeedback() 
+    {
+        $this->view->title = "Подарки | обратная связь";
+        \Yii::$app->view->params['page'] = 'feedback';
+
+
+        $request = Yii::$app->request;
+        if (Yii::$app->request->post()) {
+            $data = Yii::$app->request->post();
+            \Yii::$app->mailer->compose()
+                ->setFrom(['yoursiteaudit@yandex.ru' => 'py-pozdravim.ru'])
+                ->setTo(['kurakste@gmail.com'=>'admin'])
+                ->setSubject('Обратная связь.')
+                ->setTextBody('Имя: '
+                    .$data['first_name']
+                    .'<br>Телефон: '
+                    .$data['phone']
+                    .'<br>Сообщение: '
+                    .$data['message']
+                )
+                ->send();
+        return $this->render('feedbackthanks');
+        }
+        return $this->render('feedback');
+    }
 
     public function actionAjaxGetProducts() 
     {

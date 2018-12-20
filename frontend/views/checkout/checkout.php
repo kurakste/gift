@@ -2,6 +2,7 @@
     use yii\helpers\Url;
     use yii\helpers\Html;
 
+    $curentcity = $this->params['city'];
 ?>
 
 <script>
@@ -16,7 +17,7 @@
             <div class="banner_content text-center">
                 <h2>ОФОРМЛЕНИЕ ПОДАРКА</h2>
                 <div class="page_link">
-                    <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="<?= Url::toRoute(['site/index-city', 'city' => $curentcity->cpu]) ?> ?>">ГЛАВНАЯ</a>
                     <a href="#">ОФОРМЛЕНИЕ ПОДАРКА</a>
                 </div>
             </div>

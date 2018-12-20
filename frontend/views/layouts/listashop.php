@@ -227,7 +227,7 @@ $curentcity = $this->params['city'];
                                     Цель этого проекта - стать лучшим ресурсом в RUнете для покупки подарков. Если у вас есть предложения как нам стать лучше - пишите, нам нужна обратная связь:
                                 </p>
                                 <br>
-                                <div class="btnCentered"><a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/mail']) ?>">НАПИСАТЬ</a></div>
+                                <div class="btnCentered"><a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/feedback']) ?>">НАПИСАТЬ</a></div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
