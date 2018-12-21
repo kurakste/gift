@@ -3,6 +3,7 @@ class CategoryPageClass extends LayoutClass {
   
   constructor() {
     super();
+    LayoutClass.currentPage = 'category';    
   }
 
   init() {

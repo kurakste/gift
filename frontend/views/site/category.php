@@ -7,6 +7,8 @@
     $scid = -99;
 
 
+    $curentcity = $this->params['city'];
+
     $this->registerJsFile('/js/helper.js');
     $this->registerJsFile('/js/class/layoutclass.js');
     $this->registerJsFile('/js/class/categorypageclass.js');
@@ -38,7 +40,7 @@
                 <h3>МАГАЗИН ОРИГИНАЛЬНЫХ ПОДАРКОВ</h3>
                 <h3>г. <?= $city->name ?></h3>
                 <div class="page_link">
-                    <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="<?= Url::toRoute(['site/index-city', 'city' => $curentcity->cpu]) ?> ?>">ГЛАВНАЯ</a>
                     <a href="#">КАТЕГОРИИ</a>
                 </div>
             </div>
@@ -81,15 +83,6 @@
                     </div>
                     <div class="right_page ml-auto">
                         <nav class="cat_page" aria-label="Page navigation example">
-                            <ul class="pagination" id='paginator'>
-<!--                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item blank"><a class="page-link" href="#">...</a></li>
-                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
--->                            </ul>
                         </nav>
                     </div>
                     </div>

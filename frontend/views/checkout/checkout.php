@@ -2,6 +2,7 @@
     use yii\helpers\Url;
     use yii\helpers\Html;
 
+    $curentcity = $this->params['city'];
 ?>
 
 <script>
@@ -16,7 +17,7 @@
             <div class="banner_content text-center">
                 <h2>ОФОРМЛЕНИЕ ПОДАРКА</h2>
                 <div class="page_link">
-                    <a href="<?= Url::toRoute(['site/index']) ?>">ГЛАВНАЯ</a>
+                    <a href="<?= Url::toRoute(['site/index-city', 'city' => $curentcity->cpu]) ?> ?>">ГЛАВНАЯ</a>
                     <a href="#">ОФОРМЛЕНИЕ ПОДАРКА</a>
                 </div>
             </div>
@@ -95,35 +96,6 @@
                             Часть наших услуг зависит от погоды. И мы будем вынуждены подстраиваться под обстоятельства.
                         </p>
 
-                        <!--<div class="single-element-widget">
-                            <div class="switch-wrap d-flex justify-content-between">
-                                <p>С условиями сертификата согласен:</p>
-                                <div class="primary-switch">
-                                    <input type="checkbox" id="default-switch">
-                                    <label for="default-switch"></label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="single-element-widget">
-                            <div class="switch-wrap d-flex justify-content-between">
-                                <p>С политикой по использованию персональных данных согласен:</p>
-                                <div class="primary-switch">
-                                    <input type="checkbox" id="default-switch1">
-                                    <label for="default-switch"></label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="single-element-widget">
-                            <div class="switch-wrap d-flex justify-content-between">
-                                <p>Подарить инкогнито:</p>
-                                <div class="primary-switch1">
-                                    <input form='getPaymentPageForm' type="checkbox" id="default-switch2">
-                                    <label for="default-switch"></label>
-                                </div>
-                            </div>
-                        </div> -->
 
                         <div class="single-element-widget">
 

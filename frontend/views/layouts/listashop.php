@@ -164,7 +164,7 @@ $curentcity = $this->params['city'];
                         <ul class="header_social">
                             <!--сделать страничку в фейсбуке
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
-                            <li><a href="https://www.instagram.com/gift_sertificate/?r=nametag" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+                            <li><a href="https://www.instagram.com/mypozdravim" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
                             <li><a href="https://vk.com/public174714338" target="_blank"><i class="fa fa-vk fa-2x"></i></a></li>
                         </ul>
                     </div>
@@ -227,7 +227,7 @@ $curentcity = $this->params['city'];
                                     Цель этого проекта - стать лучшим ресурсом в RUнете для покупки подарков. Если у вас есть предложения как нам стать лучше - пишите, нам нужна обратная связь:
                                 </p>
                                 <br>
-                                <div class="btnCentered"><a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/mail']) ?>">НАПИСАТЬ</a></div>
+                                <div class="btnCentered"><a class="white_bg_btn add_to_btn" href="<?= Url::toRoute(['/site/feedback']) ?>">НАПИСАТЬ</a></div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
