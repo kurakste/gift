@@ -16,6 +16,12 @@ $this->registerJsFile('/js/main.js');
 ?>
 
     <style>
+        img#imageSmall {
+            display: block !important;
+            width: 80%;
+            margin: 0 auto;
+        }
+
         #SelectCityDiv {
             margin-top: 80px;
             margin-bottom: 80px;
@@ -184,47 +190,6 @@ $this->registerJsFile('/js/main.js');
         }
 
 
-
-        @media only screen and (min-device-width: 320px) and (max-device-width: 375px) {
-            #imageSmall {
-                background-image: url("/img/vaucher-exp-small.png");
-                width: 82%;
-                height: 20%;
-                margin-left: 20px;
-
-            }
-        }
-
-        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-            #imageSmall {
-                background-image: url("/img/vaucher-exp-small.png");
-                width: 69%;
-                height: 17%;
-                margin-left: 17px;
-
-            }
-        }
-
-        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
-            #imageSmall {
-                background-image: url("/img/vaucher-exp-small.png");
-                width: 62%;
-                height: 15%;
-                margin-left: 53px;
-
-            }
-        }
-
-        @media only screen and (min-device-width: 375px) and (max-device-width: 414px) {
-            #imageSmall {
-                background-image: url("/img/vaucher-exp-small.png")no-repeat;
-                width: 70%;
-                height: 14%;
-                margin-left: 38px;
-
-            }
-        }
-
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
             .body {
@@ -365,12 +330,6 @@ $this->registerJsFile('/js/main.js');
         }
 
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-            #imageSmall {
-                background-image: url("/img/vaucher-exp-small.png");
-                width: 69%;
-                height: 11%;
-                margin-left: 53px;
-            }
 
             #main-header {
                 margin-top: 20px;
@@ -453,14 +412,60 @@ $this->registerJsFile('/js/main.js');
 
     </script>
 
+    <!--================Home Banner Area =================-->
     <section class="home_banner_area">
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="banner_content row">
-                    <div class="col-lg-5"><br><br>
+                    <div class="col-lg-5">
+                        <h3>СЕРТИФИКАТ</h3>
+                        <p class='text_just'>Вам подарили похожий сертификат?</p><br>
+                        <img id="imageSmall" src="/img/vaucher-exp-small.png" alt="">
+                        <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
+                        </p><br>
+                        <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
+                        <p id='cert_error'>
+                            Сертификат не найден в базе. Проверте пожалуйста код.
+                        </p>
+                        <p id='cert_act_error'>
+                            Не удалось активировать ваш сертификат. Отправьте пожалуйста ваше имя и номер телефона через данную форму. Мы вам перезвоним и решим возникшую проблему.
+                        </p>
+                        <p id='cert_work'>
+                            Подождите минуту. Работаю.
+                        </p>
+                        <p id='cert_done'>
+                            Ваш сертификат успешно активирован. Мы позвоним вам в течении 3х рабочих часов.
+                        </p>
+                        <br>
+                        <p class='text_just'>
+                            Кнопка "Уточнить" переведет вас на страницу с подробным описанием товара. Кнопка "активировать" - активация подарка. Нажмите ее и мы свяжимся для уточнения деталей организации вашего мероприятия.
+                        </p>
+                        <a class="white_bg_btn" id="certDetailBtn" href="">Уточнить</a>
+                        <a class="white_bg_btn" id="certActivateBtn" href="">Активировать</a>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="halemet_img">
+                            <img src="/img/vaucher-exp.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+
+    <!--
+    <section class="home_banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content row">
+                    <div class="col-lg-5">
                         <h3 class="mb-30 title_color" id='main-header'>СЕРТИФИКАТ</h3>
                         <p class='text_just'>Вам подарили похожий сертификат?</p><br>
-                        <div id="imageSmall"></div><br>
+
+                        <div>
+                            <img id="imageSmall" src="/img/vaucher-exp-small.png" alt="">
+                        </div><br>
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
                         </p><br>
                         <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
@@ -491,11 +496,11 @@ $this->registerJsFile('/js/main.js');
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!--================Feature Product Area =================-->
     <!-- <section class="home_banner_area"> -->
-    <section class="feature_product_area">
+    <!-- <section class="feature_product_area">
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="raw">
@@ -521,7 +526,7 @@ $this->registerJsFile('/js/main.js');
                             </div>
                             <!-- row -->
 
-                        </div>
+    <!--                 </div>
                         <div class="col-lg-7">
                             <div class="">
                                 <img class="main-page-image" id="clientImage" src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
@@ -530,13 +535,13 @@ $this->registerJsFile('/js/main.js');
                     </div>
                 </div>
                 <!-- container -->
-            </div>
+    <!-- </div>
     </section>
     <!--================End Feature Product Area =================-->
 
     <!--================Deal Timer Area =================-->
 
-    <section class="feature_product_area">
+    <!-- <section class="feature_product_area">
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="section-top-border">
@@ -559,7 +564,7 @@ $this->registerJsFile('/js/main.js');
     <!--================End Deal Timer Area =================-->
 
     <!--================Latest Product Area =================-->
-    <section class="feature_product_area">
+    <!-- <section class="feature_product_area">
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="section-top-border">
@@ -584,5 +589,5 @@ $this->registerJsFile('/js/main.js');
 
 
 
-    </section>
+    </section> -->
     <!--================End Latest Product Area =================-->
