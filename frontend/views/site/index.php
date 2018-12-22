@@ -28,10 +28,6 @@ $this->registerJsFile('/js/main.js');
 
         }
 
-        #main-header {
-            margin-top: 70px;
-        }
-
         #cert_error {
             display: none;
             color: red;
@@ -65,9 +61,13 @@ $this->registerJsFile('/js/main.js');
         }
 
         /* #firstBtn { */
+
         /*     margin-left: 15px; */
+
         /*     width: 165px; */
+
         /*     height: 52px; */
+
         /* } */
 
         .text-body {
@@ -78,17 +78,24 @@ $this->registerJsFile('/js/main.js');
             text-align: justify;
         }
 
+
+
         /* .phone-field { */
+
         /*     width: 200px; */
+
         /*     margin: 0px; */
+
         /* } */
 
         /* .feedback-form { */
+
         /*     width: 400px; */
+
         /* } */
 
         .add_to_btn {
-!important           padding-top: 10px;
+             !important padding-top: 10px;
             padding-bottom: 10px;
             border-radius: 5px;
         }
@@ -123,9 +130,9 @@ $this->registerJsFile('/js/main.js');
 
         .main-page-image {
             width: 100%;
-            margin-top: 120px;   
-            border-radius:15px!important;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            margin-top: 120px;
+            border-radius: 15px !important;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
         }
 
@@ -178,21 +185,17 @@ $this->registerJsFile('/js/main.js');
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
             .body {
-                width: 95%;
-            }
-            #imageSmall {
-                background-image: url("/img/vaucher-exp-small.png");
-
+                width: 100%;
             }
 
-            .smallcertificateformobileversion {
-                display: inline;
-                width: 40%;
-                height: 40%;
+            #cert-input {}
+
+            .section-top-border {
+                border-top: 1px dotted white;
+                margin-top: -50px;
             }
 
             .text-body {
-                width: 95%;
                 margin-right: 10px;
             }
 
@@ -203,19 +206,42 @@ $this->registerJsFile('/js/main.js');
             .navbar-toggler {
                 margin-right: 10px;
             }
-            .single-input {
-                width: 85%;
+
+            #main-header1 {
+                font-size: 24px;
+                text-align: center;
+                margin-bottom: -0px;
+
             }
 
-            .main-header1 {
-                font-size: 16px;
+            #certDetailBtn,
+                {
+                margin-top: 10px;
+                margin-bottom: 10px;
             }
 
-            .text_just {
-                width: 95%;
+            #clientImage {
+                margin-top: 15px;
             }
+            #certActivateBtn {
+                margin-top: 10px;
+            }
+
+            #imgMobile,
+            #imgBusinesPartner {
+                width: 50vw;
+                margin-left: 62px;
+            }
+
+            .footer_title {
+                text-align: center;
+                margin-top: 0px;
+                margin-bottom: 10px;
+            }
+
             #main-header {
                 text-align: center;
+                margin-top: -30px;
             }
             .white_bg_btn {
                 margin-left: 25%;
@@ -324,6 +350,7 @@ $this->registerJsFile('/js/main.js');
 
     <script>
         var globalPage = 'main';
+
     </script>
 
     <section class="home_banner_area">
@@ -396,8 +423,8 @@ $this->registerJsFile('/js/main.js');
 
                         </div>
                         <div class="col-lg-7">
-                            <div class="">
-                                <img class="main-page-image" id="clientImage" src="/img/cover/main_cover_1200.jpeg" alt="" width="100%">
+                            <div class="clientImage">
+                                <img class="main-page-image" id="clientImage" src="/img/cover/main_cover_1200.jpeg" alt="">
                             </div>
                         </div>
                     </div>
@@ -422,7 +449,7 @@ $this->registerJsFile('/js/main.js');
                             <p class='text_just'>
                                 Мы находим новых клиентов для наших партнеров. Фотографии, видео контент, дизайн, истории и привлечение трафика - это наша работа. Мы упакуем услугу и она станет стильным подарком. Продажи - это то, что мы любим и умеем. Партнерам мы предлагаем новый канал продаж. Например у вас сейчас есть картинг клуб в котором можно покататься на классных картах. Мы знаем как продать вас людям которые никогда не думали о картингах, но им нужен необычный подарок. На день рождения, на день нефтяника или как награду для лучшего отдела в организации. Вас смогут подарить - это совершенно новые для вас клиенты. Их не было у вас раньше. Они о вас не думали. Если вы при этом сумеете им понравиться - они к вам вернуться много раз и приведут своих друзей. Через нас или напрямую к вам. Хотите попробовать? Оставьте свой контакт и сообщите удобное для вас время - мы свяжемся с вами.
                             </p>
-                            <a class="white_bg_btn add_to_btn" id='main-header' href="#inputphonefield">Заказать звонок</a>
+                            <a class="white_bg_btn add_to_btn" id='mainBtn' href="#inputphonefield">Заказать звонок</a>
                         </div>
                     </div>
                 </div>
@@ -445,10 +472,10 @@ $this->registerJsFile('/js/main.js');
                             <p class="text_just">
                                 Есть два варианта. Подождать. Мы планируем прийти во все крупные города. Своими силами или через наших партнеров. Если вы предприниматель, любите работать, вам нравится наша идея и вы хотите развивать её в вашем городе - дайте нам знать. Мы свяжемся с вами и обсудим возможные варианты. Оставьте нам ваш номер телефона. Мы позвоним. Нам нужны единомышленники.
                             </p>
-                            <a class="white_bg_btn add_to_btn" id='main-header' href="#inputphonefield">Заказать звонок</a>
+                            <a class="white_bg_btn add_to_btn" id='mainBtn' href="#inputphonefield">Заказать звонок</a>
                         </div>
                         <div class="col-md-3">
-                            <img class="imgMobile" src="img/thoughtfully.jpg" alt="" class="img-fluid">
+                            <img class="imgMobile" id="imgBusinesPartner" src="img/thoughtfully.jpg" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
