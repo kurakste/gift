@@ -83,6 +83,8 @@
                     </div>
                     <div class="right_page ml-auto">
                         <nav class="cat_page" aria-label="Page navigation example">
+                            <ul class="pagination" id='paginator'>
+                            </ul>
                         </nav>
                     </div>
                     </div>
