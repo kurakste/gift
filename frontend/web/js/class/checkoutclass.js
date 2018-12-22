@@ -30,19 +30,18 @@ class CheckoutPageClass extends LayoutClass {
     }
   
     onSbmtClick() {
+      CheckoutPageClass.errTermsMsg.style.display = 'none';
+      CheckoutPageClass.errPolicyMsg.style.display = 'none';
+
       if(!CheckoutPageClass.termsChecked) {
         CheckoutPageClass.errTermsMsg.style.display = 'block';
         console.log('Submit was pressed, terms false');
         return false;
-      } else {
-        CheckoutPageClass.errTermsMsg.style.display = 'none';
       }
       if(!CheckoutPageClass.policyChecked) {
         CheckoutPageClass.errPolicyMsg.style.display = 'block';
         console.log('Submit was pressed, policy false', this);
         return false;
-      } else {
-        CheckoutPageClass.errPolicyMsg.style.display = 'none';
       }
 
       return true;
