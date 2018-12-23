@@ -152,6 +152,16 @@ $this->registerJsFile('/js/main.js');
         }
 
 
+        @media only screen and (min-device-width: 667px) and (max-device-width: 1024px) {
+            #smallCert {
+                display: inline;
+                width: 50vw;
+                margin-left: 20%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
             .body {
@@ -162,6 +172,8 @@ $this->registerJsFile('/js/main.js');
                 display: inline;
                 width: 50vw;
                 margin-left: 20%;
+                margin-top: 5px;
+                margin-bottom: 5px;
             }
 
             .section-top-border {
@@ -260,23 +272,23 @@ $this->registerJsFile('/js/main.js');
             }
         }
 
-        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-            #citieslist2 {
-
-                margin-left: 62px;
+        @media only screen and (min-device-width: 800px) and (max-device-width: 1366px) {
+            #main-header {
+                margin-top: 10%;
+            }
+            h3 {
+                margin-top: 7%;
             }
         }
-
 
         @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
             #main-header {
                 margin-top: 2500px;
             }
-            .nav-item {
+            /*.nav-item {
                 margin-left: 25px;
                 margin-right: 50px;
-            }
-
+            }*/
             .home_banner_area .banner_inner .banner_content h3 {
                 margin-bottom: -14px;
                 font-size: 38px;
