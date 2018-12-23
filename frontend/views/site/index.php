@@ -152,13 +152,78 @@ $this->registerJsFile('/js/main.js');
         }
 
 
+        @media only screen and (min-device-width: 667px) and (max-device-width: 1024px) {
+            #smallCert {
+                display: inline;
+                width: 50vw;
+                margin-left: 20%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            #cert_input {
+                margin-left: 20% !important;
+                width: 65%;
+            }
+
+            #certDetailBtn {
+                margin-left: 20% !important;
+            }
+
+            #main-header {
+                margin-top: -10px;
+                text-align: center;
+            }
+
+            .cityListIndex {
+                margin-left: 30% !important;
+            }
+
+            .main-page-image {
+                margin-top: 7%;
+            }
+
+            #main-header2,
+            #main-header1 {
+                margin-top: -7%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            #imgMobile,
+            #imgBusinesPartner {
+                width: 30vw;
+                margin-left: 25%;
+            }
+
+            #mainBtn {
+                margin-left: 30%;
+            }
+
+        }
+
+
+
+
+
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
             .body {
-                width: 100%;
+                width: 97%;
             }
 
-            #cert-input {}
+            .cityListIndex {
+                margin-left: 25% !important;
+            }
+
+
+            #smallCert {
+                display: inline;
+                width: 50vw;
+                margin-left: 20%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
 
             .section-top-border {
                 border-top: 1px dotted white;
@@ -222,7 +287,7 @@ $this->registerJsFile('/js/main.js');
                 margin-top: 10px;
             }
 
-            .mainBtn {
+            #mainBtn {
                 font-size: 10px;
                 font-size: 50%;
             }
@@ -256,23 +321,23 @@ $this->registerJsFile('/js/main.js');
             }
         }
 
-        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-            #citieslist2 {
-
-                margin-left: 62px;
+        @media only screen and (min-device-width: 800px) and (max-device-width: 1366px) {
+            #main-header {
+                margin-top: 10%;
+            }
+            h3 {
+                margin-top: 7%;
             }
         }
-
 
         @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
             #main-header {
                 margin-top: 2500px;
             }
-            .nav-item {
+            /*.nav-item {
                 margin-left: 25px;
                 margin-right: 50px;
-            }
-
+            }*/
             .home_banner_area .banner_inner .banner_content h3 {
                 margin-bottom: -14px;
                 font-size: 38px;
@@ -338,7 +403,9 @@ $this->registerJsFile('/js/main.js');
                     <div class="col-lg-5"><br><br>
                         <h3 class="mb-30 title_color" id='main-header'>СЕРТИФИКАТ</h3>
                         <p class='text_just'>Вам подарили похожий сертификат?</p>
-                        <div id="imageSmall"></div>
+                        <div id="imageSmall">
+                            <img id="smallCert" src="/img/vaucher-exp.png" alt="">
+                        </div>
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
                         </p><br>
                         <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
@@ -420,7 +487,7 @@ $this->registerJsFile('/js/main.js');
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="section-top-border">
-                    <h3 class="mb-30 title_color" id='main-header'>ПАРТНЕРАМ</h3>
+                    <h3 class="mb-30 title_color" id='main-header2'>ПАРТНЕРАМ</h3>
                     <div class="row">
                         <div class="col-md-3">
                             <img src="img/partnership.jpg" alt="" class="img-fluid" id="imgMobile">
