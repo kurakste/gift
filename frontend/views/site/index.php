@@ -221,6 +221,11 @@ $this->registerJsFile('/js/main.js');
                 font-size: 70%;
                 margin-top: 10px;
             }
+
+            .mainBtn {
+                font-size: 10px;
+                font-size: 50%;
+            }
             .BtnSpecify {
                 margin-left: 25%;
                 text-align: center;
