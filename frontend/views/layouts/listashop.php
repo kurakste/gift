@@ -197,15 +197,6 @@ $curentcity = $this->params['city'];
                         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                             <ul class="nav navbar-nav menu_nav ml-auto">
                                 <li class="nav-item" style="margin-top:18px;">
-                                    <div class="selectCityIndex">
-                                        <select id='citieslist' name='city'>
-                                    <?php foreach ($cities as $city): ?>
-                                        <option 
-                                            <?php if ($curentcity->id == $city->id) echo "selected"; ?>
-                                        value ="<?= $city->id ?>"><?= $city->name ?></option>
-                                    <?php endforeach ?>
-                                </select>
-                                    </div>
                                     <select id='citieslist' name='city'>
                                     <?php foreach ($cities as $city): ?>
                                         <option 
