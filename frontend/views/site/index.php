@@ -60,15 +60,6 @@ $this->registerJsFile('/js/main.js');
             margin-bottom: 10px;
         }
 
-        /* #firstBtn { */
-
-        /*     margin-left: 15px; */
-
-        /*     width: 165px; */
-
-        /*     height: 52px; */
-
-        /* } */
 
         .text-body {
             text-align: justify;
@@ -77,22 +68,6 @@ $this->registerJsFile('/js/main.js');
         .text_just {
             text-align: justify;
         }
-
-
-
-        /* .phone-field { */
-
-        /*     width: 200px; */
-
-        /*     margin: 0px; */
-
-        /* } */
-
-        /* .feedback-form { */
-
-        /*     width: 400px; */
-
-        /* } */
 
         .add_to_btn {
              !important padding-top: 10px;
@@ -105,11 +80,6 @@ $this->registerJsFile('/js/main.js');
             margin-bottom: 10px;
         }
 
-        /* .send-phone-button{ */
-
-        /*     background-color: #C33332 */
-
-        /* } */
 
         .input_phone {
             color: rgb(153, 153, 153);
@@ -263,8 +233,6 @@ $this->registerJsFile('/js/main.js');
 
             .white_bg_btn {
                 float: left;
-                /*margin: 0 10px 15px 0;*/
-                /*margin-bottom: 15px;*/
                 width: 150px;
                 height: 50px;
             }
@@ -277,15 +245,19 @@ $this->registerJsFile('/js/main.js');
                 float: left;
                 margin: 0 0 5 50px;
             }
-
-            /*.header_area .navbar .nav .nav-item .nav-link {
-                line-height: 25px;
-            }*/
             .nav-link {
                 margin-left: 25px;
                 margin-right: 50px;
             }
         }
+
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+            #citieslist2 {
+
+                margin-left: 62px;
+            }
+        }
+
 
         @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
             #main-header {
@@ -311,7 +283,8 @@ $this->registerJsFile('/js/main.js');
             .li {
                 margin-left: 25px;
             }
-            */ @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+
+            @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
                 #main-header {
                     margin-top: 2500px;
                 }
@@ -416,6 +389,8 @@ $this->registerJsFile('/js/main.js');
                                 value ="<?= $city->id ?>"><?= $city->name ?></option>
                             <?php endforeach ?>
                             </select>
+
+
                             <div>
 
                             </div>

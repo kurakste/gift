@@ -77,63 +77,76 @@ $curentcity = $this->params['city'];
                 text-decoration: underline !important;
             }
 
-            @media only screen and (max-width: 800px) {
-                #logo-img {
-                    width: 70px;
-                }
+            .cityListIndex {
+                margin-left: 75px;
             }
 
-            @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
-                .nav navbar-nav menu_nav ml-auto {
-                    margin-bottom: 10%;
-                }
-
-                .single-footer-widget {
-                    text-align: justify;
-                }
-
-                .centeredHeart {
-                    margin-left: 35%;
-                }
-
-                .nav-link {
-                    margin-left: 20px;
-                    margin-right: 20px;
-                }
-
-                .nav-item {
-                    margin-left: 20px;
-                    margin-right: 20px;
-                }
-                /*.single-footer-widget {
-                width: 85%;
-            }*/
-                .footer_title {
-                    text-align: center;
-                }
-
-                .text-body .footerText {
-                    text-align: justify;
-                }
-
-                .text-body {
-                    width: 95%;
-                    margin-right: 10px;
-                }
-
-                .btnCentered {
-                    text-align: center;
-                }
-                .footerText {
-                    text-align: justify;
-                }
-
-                @media only screen and (min-device-width: 768px) and (max-device-width: 714px) {
-                    .white_bg_btn {
-                        margin-bottom: 30px;
-                    }
-                }
+            .citieslist {
+                margin-left: 75px;
             }
+
+        }
+
+        @media only screen and (max-width: 800px) {
+            #logo-img {
+                width: 70px;
+            }
+
+        }
+
+        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
+            .nav navbar-nav menu_nav ml-auto {
+                margin-bottom: 10%;
+            }
+
+            .single-footer-widget {
+                text-align: justify;
+            }
+
+            .centeredHeart {
+                margin-left: 35%;
+            }
+
+            .nav-link {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .nav-item {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .footer_title {
+                text-align: center;
+            }
+
+            .text-body .footerText {
+                text-align: justify;
+            }
+
+            .text-body {
+                margin-right: 10px;
+            }
+
+            .btnCentered {
+                text-align: center;
+            }
+            .footerText {
+                text-align: justify;
+            }
+            #mainBtn {
+                padding-top: 5px;
+            }
+        }
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 714px) {
+            .white_bg_btn {
+                margin-bottom: 30px;
+            }
+        }
+
+        }
 
     </style>
 
@@ -184,6 +197,15 @@ $curentcity = $this->params['city'];
                         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                             <ul class="nav navbar-nav menu_nav ml-auto">
                                 <li class="nav-item" style="margin-top:18px;">
+                                    <div class="selectCityIndex">
+                                        <select id='citieslist' name='city'>
+                                    <?php foreach ($cities as $city): ?>
+                                        <option 
+                                            <?php if ($curentcity->id == $city->id) echo "selected"; ?>
+                                        value ="<?= $city->id ?>"><?= $city->name ?></option>
+                                    <?php endforeach ?>
+                                </select>
+                                    </div>
                                     <select id='citieslist' name='city'>
                                     <?php foreach ($cities as $city): ?>
                                         <option 
@@ -270,22 +292,28 @@ $curentcity = $this->params['city'];
 
 
             <?php $this->endBody() ?>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+            <!-- Yandex.Metrika counter -->
+            <script type="text/javascript">
+                (function(m, e, t, r, i, k, a) {
+                    m[i] = m[i] || function() {
+                        (m[i].a = m[i].a || []).push(arguments)
+                    };
+                    m[i].l = 1 * new Date();
+                    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+                })
+                (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-       ym(51564428, "init", {
-            id:51564428,
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-       });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/51564428" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+                ym(51564428, "init", {
+                    id: 51564428,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true
+                });
+
+            </script>
+            <noscript><div><img src="https://mc.yandex.ru/watch/51564428" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+            <!-- /Yandex.Metrika counter -->
     </body>
 
     </html>
