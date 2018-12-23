@@ -142,7 +142,7 @@ $this->registerJsFile('/js/main.js');
         }
 
 
-        @media only screen and (min-device-width: 768px) and (max-device-width: 714px) {
+        @media only screen and (min-width: 768px) and (max-width: 714px) {
             .white_bg_btn {
                 margin-bottom: 30px;
             }
@@ -152,7 +152,7 @@ $this->registerJsFile('/js/main.js');
         }
 
 
-        @media only screen and (min-device-width: 667px) and (max-device-width: 1024px) {
+        @media only screen and (min-width: 667px) and (max-width: 1024px) {
             #smallCert {
                 display: inline;
                 width: 50vw;
@@ -206,7 +206,7 @@ $this->registerJsFile('/js/main.js');
 
 
 
-        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
+        @media only screen and (min-width: 320px) and (max-width: 667px) {
 
             .body {
                 width: 97%;
@@ -321,7 +321,7 @@ $this->registerJsFile('/js/main.js');
             }
         }
 
-        @media only screen and (min-device-width: 800px) and (max-device-width: 1366px) {
+        @media only screen and (min-width: 800px) and (max-width: 1366px) {
             #main-header {
                 margin-top: 10%;
             }
@@ -330,13 +330,13 @@ $this->registerJsFile('/js/main.js');
             }
         }
 
-        @media only screen and (min-device-width: 1024px) and (max-device-width: 2000px) {
+        @media only screen and (min-width: 1024px) and (max-width: 2000px) {
             #smallCert {
                 display: none;
             }
         }
 
-        @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+        @media only screen and (min-width: 1024px) and (max-width: 1366px) {
             #main-header {
                 margin-top: 2500px;
             }
@@ -360,7 +360,7 @@ $this->registerJsFile('/js/main.js');
                 margin-left: 25px;
             }
 
-            @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+            @media only screen and (min-width: 1024px) and (max-width: 1366px) {
                 #main-header {
                     margin-top: 2500px;
                 }
