@@ -168,6 +168,10 @@ $this->registerJsFile('/js/main.js');
                 width: 97%;
             }
 
+            .cityListIndex {
+                margin-left: 25% !important;
+            }
+
             #smallCert {
                 display: inline;
                 width: 50vw;
