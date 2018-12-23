@@ -330,6 +330,12 @@ $this->registerJsFile('/js/main.js');
             }
         }
 
+        @media only screen and (min-device-width: 1024px) and (max-device-width: 2000px) {
+            #smallCert {
+                display: none;
+            }
+        }
+
         @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
             #main-header {
                 margin-top: 2500px;
