@@ -54,6 +54,14 @@ class CategoryPageClass extends LayoutClass {
       CategoryPageClass.refreshItems()
       CategoryPageClass.generatePaginator()
 
+      const linksFav = document.getElementsByClassName('fproduct-item');
+      console.log('favs:', linksFav);
+      if (linksFav!=null) {
+        for (var i = 0; i < linksFav.length; i++) {
+           linksFav[i].onclick = this.onFavClick;
+        }
+      }
+
     });
   }
 
@@ -69,6 +77,12 @@ class CategoryPageClass extends LayoutClass {
     
     return true;
     
+  }
+
+  onFavClick() {
+    CategoryPageClass.addItemToFav(this.dataset.iid)
+    console.log(this.dataset.iid);
+    return false;
   }
 
   static generatePaginator() {
@@ -273,23 +287,53 @@ class CategoryPageClass extends LayoutClass {
    //Generate item that need to be added in product conteiner.
    static generateItem(name, price, image, cpu, id) {
       var tmpl =`
-   <div class="f_p_item">
-       <div class="f_p_img">
-           <img class="img-fluid" src="${image}" alt="">
-           <div class="p_icon">
-               <a class="fproduct-item icon-link" href="#"><i class="lnr lnr-heart" data-cityid="${id}"></i></a>
-               <a class="aproduct-item icon-link" href="/checkout?product=${cpu}"><i class="lnr lnr-cart" data-cityid="${id}"></i></a>
-           </div>
-       </div>
-       <a href="/site/get-product?product=${cpu}">
+     <div class="f_p_item">
+         <div class="f_p_img">
+             <img class="img-fluid" src="${image}" alt="">
+             <div class="p_icon">
+                 <a class="fproduct-item icon-link" href="#" data-iid="${id}"><i class="lnr lnr-heart" ></i></a>
+                 <a class="aproduct-item icon-link" href="/checkout?product=${cpu}"><i class="lnr lnr-cart" data-cityid="${id}"></i></a>
+             </div>
+         </div>
+         <a href="/site/get-product?product=${cpu}">
 
-           <h4>${name}</h4>
-       </a>
-       <h5>&#8381; ${price} </h5>
-   </div>`;
+             <h4>${name}</h4>
+         </a>
+         <h5>&#8381; ${price} </h5>
+     </div>`;
    
    return tmpl;
    }
+
+  static addItemToFav(iid) {
+    console.log('I start adding item to favorite.');
+    var url = '/site/ajax-add-item-to-fav';
+
+    const data = new FormData();
+    data.append('iid', iid);
+
+    const myHeader = new Headers();
+    myHeader.append('X-CSRF-Token', LayoutClass.csrf)
+
+    fetch(url,{
+      method: 'POST',
+      headers: myHeader,
+      body: data
+    })
+      .then ((resp) => {
+        if (resp.status !== 200) {
+          err('categorypageclass.js','storeFav/fetch', resp.status);
+          return;
+        }
+        resp.json().then((data) => {
+          console.log('we get response, data:', data);
+        });
+      })
+      .catch((e)=> {
+          err('categorypageclass.js','storeCityWhenChanged', e.message);
+      });
+  }
+   
 }
 CategoryPageClass.items =[];
 CategoryPageClass.lprice = 0;

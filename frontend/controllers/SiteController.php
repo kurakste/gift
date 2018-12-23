@@ -329,11 +329,10 @@ class SiteController extends Controller
 
     public function actionAjaxAddItemToFav()
     {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        
         $request = Yii::$app->request;
-        $iid = $request->get('iid'); 
-
-
-        $fcid = $request->get('fcid');
+        $iid = $request->post('iid'); 
 
         $cookies = Yii::$app->request->cookies;
         $favid = $cookies->getValue('favid');
@@ -347,8 +346,11 @@ class SiteController extends Controller
             $fav->favid = $favid;
             $fav->iid = $iid;
             $fav->save();
-    //        vd($fav);
+            return true;
+
         }
+
+        return true;
     }
 
 
