@@ -171,7 +171,7 @@ $this->registerJsFile('/js/main.js');
             }
 
             #main-header {
-                margin-top: -40px;
+                margin-top: -10px;
                 text-align: center;
             }
 
