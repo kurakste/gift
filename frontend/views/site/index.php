@@ -160,7 +160,51 @@ $this->registerJsFile('/js/main.js');
                 margin-top: 5px;
                 margin-bottom: 5px;
             }
+
+            #cert_input {
+                margin-left: 20% !important;
+                width: 65%;
+            }
+
+            #certDetailBtn {
+                margin-left: 20% !important;
+            }
+
+            #main-header {
+                margin-top: -40px;
+                text-align: center;
+            }
+
+            .cityListIndex {
+                margin-left: 30% !important;
+            }
+
+            .main-page-image {
+                margin-top: 7%;
+            }
+
+            #main-header2,
+            #main-header1 {
+                margin-top: -7%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            #imgMobile,
+            #imgBusinesPartner {
+                width: 30vw;
+                margin-left: 25%;
+            }
+
+            #mainBtn {
+                margin-left: 30%;
+            }
+
         }
+
+
+
+
 
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
@@ -171,6 +215,7 @@ $this->registerJsFile('/js/main.js');
             .cityListIndex {
                 margin-left: 25% !important;
             }
+
 
             #smallCert {
                 display: inline;
@@ -442,7 +487,7 @@ $this->registerJsFile('/js/main.js');
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="section-top-border">
-                    <h3 class="mb-30 title_color" id='main-header'>ПАРТНЕРАМ</h3>
+                    <h3 class="mb-30 title_color" id='main-header2'>ПАРТНЕРАМ</h3>
                     <div class="row">
                         <div class="col-md-3">
                             <img src="img/partnership.jpg" alt="" class="img-fluid" id="imgMobile">
