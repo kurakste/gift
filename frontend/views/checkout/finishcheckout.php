@@ -4,6 +4,65 @@
 
 ?>
 
+<style> 
+        .checkout_area {
+            padding-top: 50px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        img {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        .main_btn {
+            width: 50%;
+            margin-left: 25%;
+        }
+        .sample-text-area {
+            padding: 0px;
+            margin-bottom: 10px !important;
+        }
+        .text-heading {
+            margin-bottom: 15px ! important;
+        }
+
+        .main_btn { 
+            margin-bottom: 10px;
+        }
+
+        .title_confirmation {
+            margin-bottom:20px !important;
+        }
+
+        @media only screen and (min-width: 320px) and (max-width: 769px) {
+            .order_details {
+                padding-top: 40px !important;
+            }
+            
+            h2 {
+                font-size: 14pt !important;
+            }
+            
+            .banner_inner {
+                min-height: 200px !important;
+            }
+            
+            .banner_area {
+                min-height: 0px !important;
+            }
+            
+            .page_link a{
+                /* font-size: 8pt !important; */
+            }
+            .sample-text-area {
+                padding: 0px;
+            }
+        }
+</style>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -24,7 +83,7 @@
 <section class="order_details p_120">
     <div class="container">
         <h3 class="title_confirmation">Для вас подготовлен сертификат №<?= $cert->certid ?> </h3>
-        <h3 class="title_confirmation">Название:<?= $cert->item->name ?> </h3>
+        <h3 class="title_confirmation">"<?= $cert->item->name ?>"</h3>
         <div class="row order_d_inner">
             <div class="col-lg-4">
                 <div class="details_item">
@@ -47,7 +106,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="details_item">
-                    <h4>Shipping Address</h4>
+                    <h4>Данные сертификата</h4>
                     <ul class="list">
                     <li><a href="#"><span>Номер</span> : <?= $cert->certid ?></a></li>
                         <li><a href="#"><span>Город</span> : <?= $cert->item->venders->city->name ?></a></li>
