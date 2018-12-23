@@ -155,10 +155,14 @@ $this->registerJsFile('/js/main.js');
         @media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
 
             .body {
-                width: 100%;
+                width: 97%;
             }
 
-            #cert-input {}
+            #smallCert {
+                display: inline;
+                width: 50vw;
+                margin-left: 20%;
+            }
 
             .section-top-border {
                 border-top: 1px dotted white;
@@ -222,7 +226,7 @@ $this->registerJsFile('/js/main.js');
                 margin-top: 10px;
             }
 
-            .mainBtn {
+            #mainBtn {
                 font-size: 10px;
                 font-size: 50%;
             }
@@ -338,7 +342,9 @@ $this->registerJsFile('/js/main.js');
                     <div class="col-lg-5"><br><br>
                         <h3 class="mb-30 title_color" id='main-header'>СЕРТИФИКАТ</h3>
                         <p class='text_just'>Вам подарили похожий сертификат?</p>
-                        <div id="imageSmall"></div>
+                        <div id="imageSmall">
+                            <img id="smallCert" src="/img/vaucher-exp.png" alt="">
+                        </div>
                         <p class='text_just'> Мы рады что нам доверили Вас поздравить. Сделаем все что бы вы получили удовольствие от вашего подарка. Введите пожалуйста код сертификата.
                         </p><br>
                         <input id="cert_input" type="text" name="certificate" placeholder="Введите код сертификата" onfocus="this.placeholder = 'XХXX-XXXXXX'" onblur="this.placeholder = 'Введите код сертификата'" required class="single-input">
